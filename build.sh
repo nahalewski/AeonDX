@@ -161,6 +161,7 @@ sed -i "s/abiFilters 'armeabi-v7a', 'arm64-v8a'/abiFilters 'arm64-v8a'/" "$LOVE_
 say "emucore: melonDS $MELONDS_COMMIT, SkyEmu $SKYEMU_COMMIT"
 checkout "$MELONDS_REPO" "$MELONDS_COMMIT" "$B/melonds"
 checkout "$SKYEMU_REPO" "$SKYEMU_COMMIT" "$B/skyemu"
+git -C "$B/skyemu" apply "$HERE/emu/patches/skyemu-gba-sio-endpoint.patch"
 EMU="$A/src/android/emucore"
 rm -rf "$EMU"
 mkdir -p "$EMU/src/main"

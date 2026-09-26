@@ -49,6 +49,10 @@ return function(spec)
   p.closePage = Core.closePage
   p.setSetting = Core.setSetting
   p.act = Core.act
+  p.gbaSioEnable = Core.gbaSioEnable
+  p.gbaSioRead = Core.gbaSioRead
+  p.gbaSioWrite = Core.gbaSioWrite
+  p.gbaSioDropped = Core.gbaSioDropped
   p.message = function() local m = Core.message; Core.message = nil; return m end
   return p
 end

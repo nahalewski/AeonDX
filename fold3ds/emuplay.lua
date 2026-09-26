@@ -24,9 +24,10 @@ local lg = love.graphics
 local Emus = require("fold3ds.emus")
 local Sfx = require("fold3ds.sfx")
 local GameLink = require("fold3ds.gamelink")
+local NintendoLink = require("fold3ds.nintendolink")
 
 local ctx
-local st = { hits = {}, touches = {}, screenRect = nil }
+local st = { hits = {}, touches = {}, screenRect = nil, menuExtra = 0 }
 
 -- a system's native size and its border: frame colour, the lettering below
 -- the screen, and the lettering's colour
@@ -140,11 +141,16 @@ end
 -- the pause menu's rows, with Game Link after Resume when the game links
 local function menuRows(p, t, m)
   local rows = m.rows or {}
-  if not GameLink.linkable(p, t) then return rows end
+  local extras = {}
+  if GameLink.linkable(p, t) then extras[#extras + 1] = { label = "Game Link", id = "gamelink" } end
+  if NintendoLink.supported(p, t) then extras[#extras + 1] = { label = "Nintendo Link", id = "nintendolink" } end
+  if #extras == 0 then return rows end
   local out = {}
   for i, row in ipairs(rows) do
     out[#out + 1] = row
-    if i == 1 then out[#out + 1] = { label = "Game Link", id = "gamelink" } end
+    if i == 1 then
+      for _, extra in ipairs(extras) do out[#out + 1] = extra end
+    end
   end
   return out
 end
@@ -153,10 +159,10 @@ local function drawMenu(r, m, p, t)
   lg.setColor(0, 0, 0, 0.55)
   lg.rectangle("fill", r.x, r.y, r.w, r.h)
   local rows = menuRows(p, t, m)
-  -- the provider's pick, shifted past the Game Link row
   local sel = m.sel
-  if #rows > #(m.rows or {}) then
-    sel = st.onLink and 2 or ((m.sel or 1) > 1 and m.sel + 1 or m.sel)
+  local extraCount = #rows - #(m.rows or {})
+  if extraCount > 0 then
+    sel = st.menuExtra > 0 and (1 + st.menuExtra) or ((m.sel or 1) > 1 and m.sel + extraCount or m.sel)
   end
   local rh = math.min(r.h * 0.13, (r.h * 0.8) / math.max(1, #rows))
   local w = r.w * 0.6
@@ -488,6 +494,11 @@ function EP.drawSwitchFullScreen(W, H)
     local h = w * 0.75
     GameLink.draw({ x = (W - w) / 2, y = (H - h) / 2, w = w, h = h })
   end
+  if NintendoLink.isOpen() then
+    local w = math.min(W * 0.9, H * 1.35)
+    local h = w * 0.75
+    NintendoLink.draw({ x = (W - w) / 2, y = (H - h) / 2, w = w, h = h })
+  end
 end
 
 ---------------------------------------------------------------- input
@@ -503,27 +514,52 @@ function EP.press(btn)
   local p = EP.active()
   if not p then return false end
   if GameLink.isOpen() then GameLink.button(btn) return true end
+  if NintendoLink.isOpen() then NintendoLink.button(btn) return true end
   -- the pause menu with a Game Link row the provider doesn't know about:
   -- it sits under the first row
   local t = select(2, EP.active())
   local m = p.menu and select(2, pcall(p.menu))
-  if type(m) == "table" and m.open and GameLink.linkable(p, t) then
-    if st.onLink then
+  if type(m) == "table" and m.open then
+    local rows = menuRows(p, t, m)
+    local extraCount = #rows - #(m.rows or {})
+    if st.menuExtra > 0 and extraCount > 0 then
       if btn == "a" then
-        st.onLink = false
+        local row = rows[1 + st.menuExtra]
+        st.menuExtra = 0
         if p.menuDo then pcall(p.menuDo, "resume") end
-        GameLink.open(p, t)
+        if row and row.id == "gamelink" then GameLink.open(p, t)
+        elseif row and row.id == "nintendolink" then NintendoLink.open(t) end
         Sfx.play("open")
         return true
-      elseif btn == "up" then st.onLink = false; Sfx.play("over") return true
-      elseif btn == "down" then st.onLink = false end
-    elseif btn == "down" and (m.sel or 1) == 1 then
-      st.onLink = true
+      elseif btn == "up" then
+        st.menuExtra = st.menuExtra - 1
+        Sfx.play("over")
+        return true
+      elseif btn == "down" then
+        if st.menuExtra < extraCount then
+          st.menuExtra = st.menuExtra + 1
+        else
+          st.menuExtra = 0
+          if p.press then pcall(p.press, "down") end
+        end
+        Sfx.play("over")
+        return true
+      elseif btn == "b" or btn == "home" then
+        st.menuExtra = 0
+        if p.press then pcall(p.press, btn) end
+        return true
+      else
+        return true
+      end
+    elseif btn == "down" and (m.sel or 1) == 1 and extraCount > 0 then
+      st.menuExtra = 1
       Sfx.play("over")
       return true
+    else
+      st.menuExtra = 0
     end
   else
-    st.onLink = false
+    st.menuExtra = 0
   end
   if p.press then pcall(p.press, btn) end
   return true
@@ -532,7 +568,7 @@ end
 function EP.release(btn)
   local p = EP.active()
   if not p then return false end
-  if GameLink.isOpen() then return true end
+  if GameLink.isOpen() or NintendoLink.isOpen() then return true end
   if p.release then pcall(p.release, btn) end
   return true
 end
@@ -550,6 +586,10 @@ local function activate(p, id)
     -- close the pause menu, open the panel
     if p.menuDo then pcall(p.menuDo, "resume") end
     GameLink.open(p, select(2, EP.active()))
+    Sfx.play("open")
+  elseif id == "menu:nintendolink" then
+    if p.menuDo then pcall(p.menuDo, "resume") end
+    NintendoLink.open(select(2, EP.active()))
     Sfx.play("open")
   elseif id:match("^menu:") then
     if p.menuDo then pcall(p.menuDo, id:sub(6)) end
@@ -571,6 +611,7 @@ function EP.touch(phase, id, x, y)
   local p = EP.active()
   if not p then return false end
   if GameLink.isOpen() then GameLink.touch(phase, id, x, y) return true end
+  if NintendoLink.isOpen() then NintendoLink.touch(phase, id, x, y) return true end
   local m = p.menu and select(2, pcall(p.menu))
   local menuOpen = type(m) == "table" and m.open
   if phase == "pressed" then
@@ -634,6 +675,7 @@ end
 function EP.init(context)
   ctx = context
   GameLink.init({ font = context.font, sfx = function(n) Sfx.play(n) end })
+  NintendoLink.init({ font = context.font, sfx = function(n) Sfx.play(n) end })
 end
 
 return EP

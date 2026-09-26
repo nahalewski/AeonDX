@@ -3,3 +3,10 @@ build/
 /fold3ds/emudb/nx.tsv
 __pycache__/
 *.pyc
+*.ko
+eim_config.toml
+tools/nintendo_link/nintendo_link_helper
+tools/nintendo_link/wonder_setup
+tools/nintendo_link/wonder.ko
+tools/nintendo_link/esp32_s3_sniffer/sdkconfig
+tools/nintendo_link/esp32_s3_sniffer/build/

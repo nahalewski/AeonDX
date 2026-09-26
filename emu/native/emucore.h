@@ -77,6 +77,14 @@ int ec_save_state(const char* path);
 int ec_load_state(const char* path);
 void ec_reset(void);
 
+/* Optional GBA normal-8-bit SIO endpoint. TX events are 5-byte records:
+ * transmitted byte, SIOCNT LE16, and RCNT LE16. RX bytes are consumed by
+ * the next completed transfer. */
+void ec_gba_sio_set_enabled(int enabled);
+int ec_gba_sio_read_tx(uint8_t* out, int capacity);
+int ec_gba_sio_write_rx(const uint8_t* data, int length);
+uint32_t ec_gba_sio_dropped(void);
+
 /* a ROM's header without running it: system (EC_SYS_*, 0 unknown), title,
  * game code / serial, CRC32 of the whole file, and for a DS game its
  * 32 x 32 banner icon (RGBA8, 4096 bytes) when icon_rgba is given. */

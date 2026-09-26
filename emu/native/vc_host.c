@@ -13,6 +13,16 @@
 #include "libretro.h"
 #include "emucore_internal.h"
 
+#define SIO_QUEUE_CAPACITY 2048
+#define SIO_EVENT_SIZE 5
+
+typedef struct {
+  uint8_t bytes[SIO_QUEUE_CAPACITY];
+  unsigned read_at;
+  unsigned write_at;
+  unsigned count;
+} sio_queue_t;
+
 static struct {
   int open;
   int sys;
@@ -27,9 +37,92 @@ static struct {
   int rate;
   int16_t ring[65536];      /* stereo frames, interleaved */
   uint32_t rd, wr;          /* in samples, wrapping */
+  sio_queue_t sio_tx;
+  sio_queue_t sio_rx;
+  uint32_t sio_dropped;
+  int sio_enabled;
 } vc;
 
 #define RING_LEN (sizeof vc.ring / sizeof vc.ring[0])
+
+static void sio_queue_clear(sio_queue_t* queue)
+{
+  queue->read_at = 0;
+  queue->write_at = 0;
+  queue->count = 0;
+}
+
+static int sio_queue_write(sio_queue_t* queue, const uint8_t* data, unsigned length)
+{
+  if (length > SIO_QUEUE_CAPACITY - queue->count) return 0;
+  for (unsigned i = 0; i < length; i++) {
+    queue->bytes[queue->write_at] = data[i];
+    queue->write_at = (queue->write_at + 1) % SIO_QUEUE_CAPACITY;
+  }
+  queue->count += length;
+  return 1;
+}
+
+static int sio_queue_read(sio_queue_t* queue, uint8_t* data, unsigned capacity)
+{
+  unsigned length = queue->count < capacity ? queue->count : capacity;
+  for (unsigned i = 0; i < length; i++) {
+    data[i] = queue->bytes[queue->read_at];
+    queue->read_at = (queue->read_at + 1) % SIO_QUEUE_CAPACITY;
+  }
+  queue->count -= length;
+  return (int)length;
+}
+
+static void sio_reset(void)
+{
+  sio_queue_clear(&vc.sio_tx);
+  sio_queue_clear(&vc.sio_rx);
+  vc.sio_dropped = 0;
+}
+
+void ec_gba_sio_set_enabled(int enabled)
+{
+  vc.sio_enabled = enabled != 0;
+  sio_reset();
+}
+
+int ec_gba_sio_read_tx(uint8_t* out, int capacity)
+{
+  if (!out || capacity <= 0) return 0;
+  return sio_queue_read(&vc.sio_tx, out, (unsigned)capacity);
+}
+
+int ec_gba_sio_write_rx(const uint8_t* data, int length)
+{
+  if (!data || length <= 0) return 0;
+  if (!sio_queue_write(&vc.sio_rx, data, (unsigned)length)) {
+    ++vc.sio_dropped;
+    return 0;
+  }
+  return length;
+}
+
+uint32_t ec_gba_sio_dropped(void)
+{
+  return vc.sio_dropped;
+}
+
+uint8_t ec_gba_sio_transfer(uint8_t tx, uint16_t siocnt, uint16_t rcnt)
+{
+  if (!vc.open || vc.sys != EC_SYS_GBA || !vc.sio_enabled) return 0xff;
+
+  const uint8_t event[SIO_EVENT_SIZE] = {
+    tx,
+    (uint8_t)(siocnt & 0xff), (uint8_t)(siocnt >> 8),
+    (uint8_t)(rcnt & 0xff), (uint8_t)(rcnt >> 8),
+  };
+  if (!sio_queue_write(&vc.sio_tx, event, sizeof(event))) ++vc.sio_dropped;
+
+  uint8_t rx = 0xff;
+  (void)sio_queue_read(&vc.sio_rx, &rx, 1);
+  return rx;
+}
 
 static void RETRO_CALLCONV log_cb(enum retro_log_level level, const char* fmt, ...)
 {
@@ -169,6 +262,8 @@ static int registered;
 int vc_open(int sys, const char* rom, const char* save, const char* sysdir)
 {
   vc_close();
+  sio_reset();
+  vc.sio_enabled = 0;
   if (!registered) {
     retro_set_environment(environment);
     retro_set_video_refresh(video_cb);
@@ -217,6 +312,8 @@ int vc_open(int sys, const char* rom, const char* save, const char* sysdir)
 
 void vc_close(void)
 {
+  vc.sio_enabled = 0;
+  sio_reset();
   if (!vc.open) return;
   vc_flush();
   retro_unload_game();
@@ -287,4 +384,5 @@ int vc_load_state(const char* path)
 void vc_reset(void)
 {
   if (vc.open) retro_reset();
+  sio_reset();
 }

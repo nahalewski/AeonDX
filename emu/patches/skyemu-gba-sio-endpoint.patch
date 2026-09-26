@@ -1,0 +1,26 @@
+diff --git a/src/gba.h b/src/gba.h
+index 8eab694d..040b533f 100644
+--- a/src/gba.h
++++ b/src/gba.h
+@@ -2654,6 +2654,7 @@ static FORCE_INLINE int gba_tick_dma(gba_t*gba, int last_tick){
+ 
+   return ticks; 
+ }                                              
++extern uint8_t ec_gba_sio_transfer(uint8_t tx, uint16_t siocnt, uint16_t rcnt);
+ static FORCE_INLINE void gba_tick_sio(gba_t* gba){
+   //Just a stub for now;
+   uint16_t siocnt = gba_io_read16(gba,GBA_SIOCNT);
+@@ -2674,7 +2674,12 @@ static FORCE_INLINE void gba_tick_sio(gba_t* gba){
+       siocnt&= ~(1<<7);
+       gba_io_store16(gba,GBA_SIOCNT,siocnt);
+       gba->sio.last_active=false;
+-      gba_io_store8(gba,GBA_SIODATA8,0);
++      uint8_t rx = 0;
++      if (((siocnt >> 12) & 0x3) == 0) {
++        uint8_t tx = (uint8_t)gba_io_read16(gba,GBA_SIODATA8);
++        rx = ec_gba_sio_transfer(tx,siocnt,gba_io_read16(gba,GBA_RCNT));
++      }
++      gba_io_store8(gba,GBA_SIODATA8,rx);
+       gba_io_store32(gba,GBA_SIODATA32,0);
+     }
+    

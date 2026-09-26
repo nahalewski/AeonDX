@@ -84,6 +84,10 @@ void ec_flush(void);
 int ec_save_state(const char* path);
 int ec_load_state(const char* path);
 void ec_reset(void);
+void ec_gba_sio_set_enabled(int enabled);
+int ec_gba_sio_read_tx(uint8_t* out, int capacity);
+int ec_gba_sio_write_rx(const uint8_t* data, int length);
+uint32_t ec_gba_sio_dropped(void);
 int ec_rom_info(const char* path, char* title, int title_len, char* code, int code_len, uint32_t* crc, uint8_t* icon_rgba);
 int ec_mkdirs(const char* path);
 int ec_list(const char* dir, char* out, int out_len);
@@ -705,6 +709,38 @@ function E.reset()
   if FAKE then toast("Reset") return end
   local lib = core()
   if run.t and lib then lib.ec_reset(); toast("Reset") end
+end
+
+function E.gbaSioEnable(enabled)
+  if FAKE then return false end
+  local lib = core()
+  if not lib then return false end
+  lib.ec_gba_sio_set_enabled(enabled and 1 or 0)
+  return true
+end
+
+function E.gbaSioRead(capacity)
+  if FAKE then return "" end
+  local lib = core()
+  if not lib then return "" end
+  capacity = math.max(1, math.min(4096, math.floor(capacity or 1024)))
+  local out = ffi.new("uint8_t[?]", capacity)
+  local length = lib.ec_gba_sio_read_tx(out, capacity)
+  return length > 0 and ffi.string(out, length) or ""
+end
+
+function E.gbaSioWrite(data)
+  if FAKE or type(data) ~= "string" or #data == 0 then return 0 end
+  local lib = core()
+  if not lib then return 0 end
+  local input = ffi.new("uint8_t[?]", #data)
+  ffi.copy(input, data, #data)
+  return lib.ec_gba_sio_write_rx(input, #data)
+end
+
+function E.gbaSioDropped()
+  local lib = core()
+  return lib and tonumber(lib.ec_gba_sio_dropped()) or 0
 end
 
 local function pushAudio(lib)
