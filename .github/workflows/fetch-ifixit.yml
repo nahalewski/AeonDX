@@ -1,0 +1,125 @@
+name: Fetch iFixit 3DS images
+
+# Downloads every iFixit guide for the Nintendo 3DS family (teardowns and
+# repairs: 3DS, 3DS XL, 2DS, New 3DS, New 3DS XL, New 2DS XL) with every
+# step's photos, and commits them to the ifixit-3ds branch (never main)
+# with INDEX.tsv: guide, step, the photo's source URL, author and licence.
+# Teardown guides keep the photos' full size (for cutting parts); the rest
+# the "large" size.  iFixit's guides are CC BY-NC-SA 3.0: credit iFixit and
+# the guide's author wherever one is used.
+on:
+  push:
+    branches: [fetch-ifixit]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Download
+        run: |
+          mkdir -p out
+          python3 - <<'PY'
+          import json, os, re, time, urllib.parse, urllib.request
+          UA = {"User-Agent": "AeonDX-fetch/1.0 (github.com/nahalewski/AeonDX)"}
+          API = "https://www.ifixit.com/api/2.0"
+          def get(url, t=120):
+              err = None
+              for a in range(4):
+                  try:
+                      return urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=t).read()
+                  except Exception as e:
+                      err = e
+                      time.sleep(3 * (a + 1))
+              raise err
+          def js(url): return json.loads(get(url).decode("utf-8"))
+          def safe(s): return re.sub(r"[^A-Za-z0-9._-]+", "_", s).strip("_")[:80]
+
+          # every guide on the 3DS family's device pages, and a search to be sure
+          ids, log = {}, []
+          cats = ["Nintendo 3DS", "Nintendo 3DS XL", "Nintendo 2DS", "New Nintendo 3DS",
+                  "New Nintendo 3DS XL", "New Nintendo 2DS XL", "Nintendo 3DS LL"]
+          for c in cats:
+              try:
+                  w = js(API + "/wikis/CATEGORY/" + urllib.parse.quote(c))
+                  for g in w.get("guides", []) or []:
+                      ids[g["guideid"]] = g.get("title", "")
+                  log.append("CATEGORY\t%s\t%d guides" % (c, len(w.get("guides", []) or [])))
+              except Exception as e:
+                  log.append("CATEGORY\t%s\tERR %s" % (c, e))
+          for q in ["3DS teardown", "3DS", "2DS", "New 3DS", "3DS XL"]:
+              off = 0
+              while off < 400:
+                  try:
+                      r = js(API + "/search/" + urllib.parse.quote(q) + "?filter=guide&limit=50&offset=%d" % off)
+                  except Exception as e:
+                      log.append("SEARCH\t%s\tERR %s" % (q, e)); break
+                  res = r.get("results", [])
+                  for g in res:
+                      t = g.get("title", "") + " " + (g.get("category") or "")
+                      if re.search(r"\b[23]DS\b", t, re.I):
+                          ids[g["guideid"]] = g.get("title", "")
+                  if len(res) < 50: break
+                  off += 50
+          log.append("GUIDES\t%d" % len(ids))
+
+          rows = ["guide\tguide_title\tcategory\tstep\timage\tfile\tsource\tauthor\tguide_url"]
+          total = 0
+          for gid in sorted(ids):
+              try:
+                  g = js(API + "/guides/%d" % gid)
+              except Exception as e:
+                  log.append("GUIDE\t%d\tERR %s" % (gid, e)); continue
+              cat = g.get("category") or ""
+              title = g.get("title") or ""
+              if not re.search(r"\b[23]DS\b", cat + " " + title, re.I): continue
+              tear = (g.get("type") == "teardown") or "teardown" in title.lower()
+              size = "original" if tear else "large"
+              d = os.path.join("out", safe(cat), "%d_%s" % (gid, safe(title)))
+              os.makedirs(d, exist_ok=True)
+              author = ((g.get("author") or {}).get("username")) or ""
+              url = g.get("url") or ("https://www.ifixit.com/Guide/_/%d" % gid)
+              meta = {"guideid": gid, "title": title, "category": cat, "type": g.get("type"),
+                      "author": author, "url": url, "license": "CC BY-NC-SA 3.0", "steps": []}
+              for si, stp in enumerate(g.get("steps") or [], 1):
+                  lines = [" ".join(re.sub("<[^>]+>", "", l.get("text_raw") or l.get("text_rendered") or "").split())
+                           for l in stp.get("lines") or []]
+                  sm = {"step": si, "title": stp.get("title") or "", "lines": lines, "images": []}
+                  media = stp.get("media") or {}
+                  if media.get("type") == "image":
+                      for k, im in enumerate(media.get("data") or [], 1):
+                          src = im.get(size) or im.get("original") or im.get("large")
+                          if not src: continue
+                          fn = "step%02d_%d.jpg" % (si, k)
+                          try:
+                              open(os.path.join(d, fn), "wb").write(get(src, 180))
+                              total += 1
+                              sm["images"].append(fn)
+                              rows.append("\t".join(map(str, [gid, title, cat, si, k, os.path.join(d, fn)[4:], src, author, url])))
+                          except Exception as e:
+                              log.append("IMG\t%s\tERR %s" % (src, e))
+                  meta["steps"].append(sm)
+              json.dump(meta, open(os.path.join(d, "guide.json"), "w"), indent=1)
+          log.append("IMAGES\t%d" % total)
+          open("out/INDEX.tsv", "w").write("\n".join(rows) + "\n")
+          open("out/LOG.tsv", "w").write("\n".join(log) + "\n")
+          open("out/LICENSE.txt", "w").write(
+              "Photos and text: iFixit (https://www.ifixit.com), CC BY-NC-SA 3.0\n"
+              "(https://creativecommons.org/licenses/by-nc-sa/3.0/).  Credit iFixit and each\n"
+              "guide's author (INDEX.tsv) wherever a photo is used.\n")
+          print("\n".join(log))
+          PY
+          du -sh out
+      - name: Commit to ifixit-3ds
+        run: |
+          cd out
+          git init -q -b ifixit-3ds
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "iFixit: the Nintendo 3DS family's guides and photos (CC BY-NC-SA 3.0)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ifixit-3ds
