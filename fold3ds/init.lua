@@ -471,6 +471,19 @@ local function shoulderRect(L, sb)
   return { x = x, y = y, w = w, h = h }
 end
 
+-- sockets that sit elsewhere on a bottom shell's art (its BOTTOM_SHELLS key)
+local SHELL_SOCKETS = {
+  clean = { start = { 413.3, 189.5 }, select = { 413.3, 220.3 } },
+}
+-- a button's centre on the chosen bottom shell, in pixels
+local function socketAt(L, b)
+  local o = SHELL_SOCKETS[state.bottomShell or "default"]
+  o = o and o[b.name]
+  local x, y = b.x, b.y
+  if o then x, y = o[1], o[2] end
+  return L.bottom.x + x * L.s2, L.bottom.y + y * L.s2
+end
+
 -- the edge strips that wake the shoulder buttons
 local function shoulderZone(L, x, y)
   local margin = math.max(L.bottom.x, L.top.x, L.W * 0.06)
@@ -496,7 +509,8 @@ local function buttonAt(x, y)
   if not L or y < L.topH then return nil end
   for _, b in ipairs(BUTTONS) do
     if M.debug then print("fold3ds  check " .. b.name) end
-    local cx, cy, r = L.bottom.x + b.x * L.s2, L.bottom.y + b.y * L.s2, b.r * L.s2
+    local cx, cy = socketAt(L, b)
+    local r = b.r * L.s2
     local dx, dy = x - cx, y - cy
     if b.kind == "dpad" then
       if math.abs(dx) <= r * 1.3 and math.abs(dy) <= r * 1.3 then return b end
@@ -512,7 +526,8 @@ end
 -- directions a d-pad / stick touch holds
 local function dirsAt(b, x, y)
   local L = state.L
-  local cx, cy, r = L.bottom.x + b.x * L.s2, L.bottom.y + b.y * L.s2, b.r * L.s2
+  local cx, cy = socketAt(L, b)
+  local r = b.r * L.s2
   local dx, dy = x - cx, y - cy
   local ax, ay = math.abs(dx), math.abs(dy)
   local d = {}
@@ -1906,7 +1921,7 @@ local function drawButtons(L)
     local target = b.r * 2 * L.s2               -- socket width in pixels
     local qw, qh = b.sprite[3] * 2, b.sprite[4] * 2
     local scale = (b.wide and (target * 2 / qw)) or (target / math.max(qw, qh))
-    local cx, cy = L.bottom.x + b.x * L.s2, L.bottom.y + b.y * L.s2
+    local cx, cy = socketAt(L, b)
     local dx, dy = 0, 0
     if b.kind == "dpad" and lit and dirs then
       local lean = b.r * L.s2 * 0.12
