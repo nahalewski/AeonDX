@@ -1,0 +1,66 @@
+name: Fetch Pixel bcmdhd4390 source
+
+# The Pixel 9 series' Broadcom Wi-Fi driver (bcmdhd4390, GPL-2.0) from
+# android.googlesource.com, snapshotted to the bcmdhd4390-src branch (never
+# main) for the Nintendo Link Bridge research (docs/NINTENDO_LINK_ANDROID_PORT.md):
+# which nl80211 operations, vendor commands and "wondertap" monitor support
+# it has.  REPORT.txt lists the refs taken and a first grep of the interfaces.
+on:
+  push:
+    branches: [fetch-bcmdhd]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Clone
+        run: |
+          set -x
+          mkdir -p out
+          for repo in bcm4390 bcm4398 bcm4389; do
+            url=https://android.googlesource.com/kernel/google-modules/wlan/bcmdhd/$repo
+            git ls-remote "$url" > out/refs_$repo.txt || continue
+            # the newest Android branch (android-gs-*), else HEAD
+            ref=$(grep -o 'refs/heads/android-gs-[^ ]*' out/refs_$repo.txt | sed 's|refs/heads/||' | sort -V | tail -1)
+            [ -n "$ref" ] || ref=$(grep -o 'refs/heads/[^ ]*' out/refs_$repo.txt | sed 's|refs/heads/||' | sort -V | tail -1)
+            echo "$repo $ref" >> out/TAKEN.txt
+            git clone -q --depth 1 --branch "$ref" "$url" "out/$repo" || git clone -q --depth 1 "$url" "out/$repo" || true
+            rm -rf "out/$repo/.git"
+          done
+          du -sh out/* || true
+      - name: Report
+        run: |
+          cd out
+          {
+            echo "== taken"; cat TAKEN.txt
+            for d in bcm4390 bcm4398 bcm4389; do
+              [ -d "$d" ] || continue
+              echo; echo "######## $d"
+              echo "== cfg80211_ops (which callbacks exist)"
+              grep -rhoE '\.(mgmt_tx|remain_on_channel|cancel_remain_on_channel|add_key|set_default_key|connect|auth|assoc|change_station|set_monitor_channel|add_virtual_intf|update_mgmt_frame_registrations|mgmt_frame_register|set_channel|start_ap)\s*=\s*[a-z0-9_]+' "$d" | sort -u
+              echo "== monitor / wondertap"
+              grep -rnE -i 'wondertap|NL80211_IFTYPE_MONITOR|WL_MONITOR|monitor_if|radiotap' "$d" --include=*.c --include=*.h | head -80
+              echo "== vendor OUIs / subcmds"
+              grep -rnE 'OUI_(GOOGLE|BRCM)|0x001[aA]11|0x00101[89]|GOOGLE_OUI|BRCM_OUI' "$d" --include=*.h | head -40
+              grep -rnE 'WONDER|wonder_' "$d" --include=*.h | head -60
+              echo "== action frame handling"
+              grep -rnE 'IEEE80211_STYPE_ACTION|wl_cfg80211_mgmt_tx|WL_PUB_AF|af_params' "$d" --include=*.c | head -40
+              echo "== key install"
+              grep -rnE 'wl_cfg80211_add_key|WSEC_ALGO|wsec_key|pmk|sup_wpa|4way|fbt|WLC_SET_KEY' "$d" --include=*.c | head -40
+            done
+          } > REPORT.txt 2>&1
+          wc -l REPORT.txt
+      - name: Commit to bcmdhd4390-src
+        run: |
+          cd out
+          git init -q -b bcmdhd4390-src
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Pixel bcmdhd sources (GPL-2.0, android.googlesource.com) for the Nintendo Link Bridge research"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" bcmdhd4390-src
