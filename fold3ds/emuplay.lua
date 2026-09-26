@@ -25,6 +25,7 @@ local Emus = require("fold3ds.emus")
 local Sfx = require("fold3ds.sfx")
 local GameLink = require("fold3ds.gamelink")
 local NintendoLink = require("fold3ds.nintendolink")
+local Mirror = require("fold3ds.mirror")
 
 local ctx
 local st = { hits = {}, touches = {}, screenRect = nil, menuExtra = 0 }
@@ -67,6 +68,7 @@ EP.system = system
 
 function EP.update(dt)
   local p, t = EP.active()
+  Mirror.update(t)
   if not p then return nil end
   if p.update then pcall(p.update, dt) end
   return p, t
@@ -116,8 +118,10 @@ function EP.drawTop(r, fullScreen)
   if not p then return end
   lg.push("all")
   lg.setScissor(r.x, r.y, r.w, r.h)
-  drawScreen(screenImage(p, 0), r, fullScreen)
+  local img = screenImage(p, 0)
+  drawScreen(img, r, fullScreen)
   lg.pop()
+  Mirror.frame(select(2, EP.active()), img)
 end
 
 ---------------------------------------------------------------- the bottom screen
@@ -144,6 +148,7 @@ local function menuRows(p, t, m)
   local extras = {}
   if GameLink.linkable(p, t) then extras[#extras + 1] = { label = "Game Link", id = "gamelink" } end
   if NintendoLink.supported(p, t) then extras[#extras + 1] = { label = "Nintendo Link", id = "nintendolink" } end
+  if t then extras[#extras + 1] = { label = Mirror.label(t), id = "mirror" } end
   if #extras == 0 then return rows end
   local out = {}
   for i, row in ipairs(rows) do
@@ -390,6 +395,7 @@ function EP.drawSwitchFullScreen(W, H)
   lg.rectangle("fill", 0, 0, W, H)
 
   local img = screenImage(p, 0)
+  Mirror.frame(select(2, EP.active()), img)
   local border = getSwitchBorder()
 
   if border then
@@ -525,6 +531,12 @@ function EP.press(btn)
     if st.menuExtra > 0 and extraCount > 0 then
       if btn == "a" then
         local row = rows[1 + st.menuExtra]
+        if row and row.id == "mirror" then
+          -- a setting, not a panel: the menu stays open
+          Mirror.toggle(t)
+          Sfx.play("select")
+          return true
+        end
         st.menuExtra = 0
         if p.menuDo then pcall(p.menuDo, "resume") end
         if row and row.id == "gamelink" then GameLink.open(p, t)
@@ -587,6 +599,9 @@ local function activate(p, id)
     if p.menuDo then pcall(p.menuDo, "resume") end
     GameLink.open(p, select(2, EP.active()))
     Sfx.play("open")
+  elseif id == "menu:mirror" then
+    Mirror.toggle(select(2, EP.active()))
+    Sfx.play("select")
   elseif id == "menu:nintendolink" then
     if p.menuDo then pcall(p.menuDo, "resume") end
     NintendoLink.open(select(2, EP.active()))

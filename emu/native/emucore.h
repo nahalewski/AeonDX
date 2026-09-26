@@ -98,6 +98,10 @@ uint32_t ec_gba_sio_dropped(void);
 int ec_rom_info(const char* path, char* title, int title_len, char* code, int code_len,
                 uint32_t* crc, uint8_t* icon_rgba);
 
+/* mirroring (FoldMirror.java): the top screen's picture, RGBA8, w * h * 4
+ * bytes, for the TV; copied, so the caller's buffer can change after */
+void ec_mirror_push(const uint8_t* rgba, int w, int h);
+
 /* the user folder: make a path (and its parents), list a folder
  * ("name\n" per entry, folders end in '/'); bytes written, -1 no folder */
 int ec_mkdirs(const char* path);

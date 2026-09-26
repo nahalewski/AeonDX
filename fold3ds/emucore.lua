@@ -106,6 +106,7 @@ int ec_mkdirs(const char* path);
 int ec_list(const char* dir, char* out, int out_len);
 int ec_copy(const char* from, const char* to);
 int ec_remove(const char* path);
+void ec_mirror_push(const uint8_t* rgba, int w, int h);
 ]]
 
 local function core()
@@ -137,6 +138,12 @@ local function core()
 end
 
 function E.available() return FAKE or core() ~= nil end
+
+-- the TV's picture (fold3ds/mirror.lua): RGBA8 pixels, copied
+function E.mirrorPush(ptr, w, h)
+  local lib = core()
+  if lib then pcall(function() lib.ec_mirror_push(ptr, w, h) end) end
+end
 function E.fake() return FAKE end
 
 ---------------------------------------------------------------- the bridge (Java)
