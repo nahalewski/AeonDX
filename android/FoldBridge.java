@@ -111,6 +111,7 @@ public final class FoldBridge {
             if (cmd.equals("unzip")) return unzip(arg);
             if (cmd.startsWith("dp.")) return FoldPlay.call(cmd.substring(3), arg);
             if (cmd.startsWith("mirror.")) return FoldMirror.call(cmd.substring(7), arg);
+            if (cmd.startsWith("link.")) return FoldLink.call(cmd.substring(5), arg);
             if (cmd.equals("fetch") || cmd.startsWith("files.") || cmd.equals("external")) return FoldFetch.call(cmd, arg);
         } catch (Throwable e) {
             Log.d(TAG, cmd + ": " + e);
