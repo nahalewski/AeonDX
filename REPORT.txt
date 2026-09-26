@@ -1,0 +1,571 @@
+== taken
+bcm4390 android-gs-tegu-6.1-android16-beta
+bcm4398 android-gs-tegu-6.1-android16-beta
+bcm4389 android-gs-tegu-6.1-android16-beta
+
+######## bcm4390
+== cfg80211_ops (which callbacks exist)
+.add_key = wl_cfg80211_add_key
+.add_virtual_intf = wl_cfg80211_add_virtual_iface
+.auth = htod32
+.cancel_remain_on_channel = wl_cfgscan_cancel_remain_on_channel
+.change_station = wl_cfg80211_change_station
+.connect = wl_cfg80211_connect
+.mgmt_frame_register = wl_cfg80211_mgmt_frame_register
+.mgmt_tx = wl_cfg80211_mgmt_tx
+.remain_on_channel = wl_cfgscan_remain_on_channel
+.set_channel = wl_cfg80211_set_channel
+.set_default_key = wl_cfg80211_config_default_key
+.set_monitor_channel = wl_cfg80211_set_monitor_channel
+.start_ap = wl_cfg80211_start_ap
+== monitor / wondertap
+bcm4390/dhd_msgbuf.c:1128:#if defined(WL_MONITOR)
+bcm4390/dhd_msgbuf.c:1131:#endif /* WL_MONITOR */
+bcm4390/dhd_msgbuf.c:6875:#if defined(WL_MONITOR)
+bcm4390/dhd_msgbuf.c:6879:#endif /* WL_MONITOR */
+bcm4390/dhd_msgbuf.c:8416:#if defined(WL_MONITOR)
+bcm4390/dhd_msgbuf.c:8440:#endif /* WL_MONITOR */
+bcm4390/dhd_msgbuf.c:8546:#ifdef WL_MONITOR
+bcm4390/dhd_msgbuf.c:8548:#endif /* WL_MONITOR */
+bcm4390/wl_cfgvif.c:1461:	case NL80211_IFTYPE_MONITOR:
+bcm4390/dhd_linux.h:60:#ifdef WL_MONITOR
+bcm4390/dhd_linux.h:61:#ifdef HOST_RADIOTAP_CONV
+bcm4390/dhd_linux.h:64:#define MAX_RADIOTAP_SIZE      256 /* Maximum size to hold HE Radiotap header format */
+bcm4390/dhd_linux.h:66:#define MAX_MON_PKT_SIZE       ((12 * 1024u) + MAX_RADIOTAP_SIZE)
+bcm4390/dhd_linux.h:67:#endif /* HOST_RADIOTAP_CONV */
+bcm4390/dhd_linux.h:68:#endif /* WL_MONITOR */
+bcm4390/dhd_linux.c:5417:#ifdef WL_MONITOR
+bcm4390/dhd_linux.c:5769:dhd_add_monitor_if(dhd_info_t *dhd)
+bcm4390/dhd_linux.c:5773:#ifdef HOST_RADIOTAP_CONV
+bcm4390/dhd_linux.c:5775:#endif /* HOST_RADIOTAP_CONV */
+bcm4390/dhd_linux.c:5797:	devname = "radiotap";
+bcm4390/dhd_linux.c:5805:#ifndef ARPHRD_IEEE80211_RADIOTAP
+bcm4390/dhd_linux.c:5806:#define ARPHRD_IEEE80211_RADIOTAP	803 /* IEEE 802.11 + radiotap header */
+bcm4390/dhd_linux.c:5807:#endif /* ARPHRD_IEEE80211_RADIOTAP */
+bcm4390/dhd_linux.c:5809:	dev->type = ARPHRD_IEEE80211_RADIOTAP;
+bcm4390/dhd_linux.c:5852:#ifdef HOST_RADIOTAP_CONV
+bcm4390/dhd_linux.c:5856:#endif /* HOST_RADIOTAP_CONV */
+bcm4390/dhd_linux.c:5866:dhd_del_monitor_if(dhd_info_t *dhd)
+bcm4390/dhd_linux.c:5921:#ifdef HOST_RADIOTAP_CONV
+bcm4390/dhd_linux.c:5926:#endif /* HOST_RADIOTAP_CONV */
+bcm4390/dhd_linux.c:5939:		dhd_del_monitor_if(dhd);
+bcm4390/dhd_linux.c:5942:		dhd_add_monitor_if(dhd);
+bcm4390/dhd_linux.c:5947:#endif /* WL_MONITOR */
+bcm4390/dhd_linux.c:6177:#ifdef WL_MONITOR
+bcm4390/dhd_linux.c:6192:#ifdef HOST_RADIOTAP_CONV
+bcm4390/dhd_linux.c:6194:	 * which is used to indicate radiotap conversion support
+bcm4390/dhd_linux.c:6197:		*(int32*)data_buf &= ~(HOST_RADIOTAP_CONV_BIT);
+bcm4390/dhd_linux.c:6199:#endif /* HOST_RADIOTAP_CONV */
+bcm4390/dhd_linux.c:6200:#endif /* WL_MONITOR */
+bcm4390/dhd_linux.c:6911:#ifdef WL_MONITOR
+bcm4390/dhd_linux.c:6929:#endif /* WL_MONITOR */
+bcm4390/dhd_linux.c:7451:	dhd_add_monitor_if(dhd);
+bcm4390/dhd_linux.c:7479:	dhd_del_monitor_if(dhd);
+bcm4390/dhd_linux.c:9339:#if defined(WL_MONITOR) && defined(HOST_RADIOTAP_CONV)
+bcm4390/dhd_linux.c:9340:	dhd->host_radiotap_conv = FALSE;
+bcm4390/dhd_linux.c:9341:#endif /* WL_MONITOR */
+bcm4390/dhd_linux.c:11666:#if defined(WL_MONITOR) && defined(HOST_RADIOTAP_CONV)
+bcm4390/dhd_linux.c:11669:#endif /* WL_MONITOR */
+bcm4390/dhd_linux.c:12427:#ifdef WL_MONITOR
+bcm4390/dhd_linux.c:12428:#ifdef HOST_RADIOTAP_CONV
+bcm4390/dhd_linux.c:12429:	/* 'Wl monitor' IOVAR is fired to check whether the FW supports radiotap conversion or not.
+bcm4390/dhd_linux.c:12430:	 * This is indicated through MSB(1<<31) bit, based on which host radiotap conversion
+bcm4390/dhd_linux.c:12432:	 * 0 - Host supports Radiotap conversion.
+bcm4390/dhd_linux.c:12433:	 * 1 - FW supports Radiotap conversion.
+bcm4390/dhd_linux.c:12439:		dhdinfo->host_radiotap_conv = (monitor & HOST_RADIOTAP_CONV_BIT) ? TRUE : FALSE;
+bcm4390/dhd_linux.c:12444:#endif /* HOST_RADIOTAP_CONV */
+bcm4390/dhd_linux.c:12452:#endif /* WL_MONITOR */
+bcm4390/dhd_linux.c:12593:#if defined(WL_MONITOR) && defined(HOST_RADIOTAP_CONV)
+bcm4390/dhd_linux.c:12596:#endif /* WL_MONITOR */
+bcm4390/dhd_linux.c:14222:#ifdef WL_MONITOR
+bcm4390/dhd_linux.c:14223:#ifdef HOST_RADIOTAP_CONV
+bcm4390/dhd_linux.c:14224:	/* 'Wl monitor' IOVAR is fired to check whether the FW supports radiotap conversion or not.
+bcm4390/dhd_linux.c:14225:	 * This is indicated through MSB(1<<31) bit, based on which host radiotap conversion
+bcm4390/dhd_linux.c:14227:	 * 0 - Host supports Radiotap conversion.
+bcm4390/dhd_linux.c:14228:	 * 1 - FW supports Radiotap conversion.
+bcm4390/dhd_linux.c:14234:		dhdinfo->host_radiotap_conv = (monitor & HOST_RADIOTAP_CONV_BIT) ? TRUE : FALSE;
+bcm4390/dhd_linux.c:14239:#endif /* HOST_RADIOTAP_CONV */
+bcm4390/dhd_linux.c:14247:#endif /* WL_MONITOR */
+bcm4390/dhd_linux.c:15476:#ifdef WL_MONITOR
+bcm4390/dhd_linux.c:15477:	dhd_del_monitor_if(dhd);
+bcm4390/dhd_linux.c:15478:#endif /* WL_MONITOR */
+bcm4390/wl_linux_mon.c:32:#include <net/ieee80211_radiotap.h>
+bcm4390/wl_linux_mon.c:71:	int radiotap_enabled;
+bcm4390/wl_linux_mon.c:192:	struct ieee80211_radiotap_header *rtap_hdr;
+bcm4390/wl_linux_mon.c:203:	if (unlikely(skb->len < sizeof(struct ieee80211_radiotap_header)))
+bcm4390/wl_linux_mon.c:206:	rtap_hdr = (struct ieee80211_radiotap_header *)skb->data;
+bcm4390/wl_linux_mon.c:210:	rtap_len = ieee80211_get_radiotap_len(skb->data);
+bcm4390/wl_linux_mon.c:214:	MON_PRINT("radiotap len (should be 14): %d\n", rtap_len);
+bcm4390/wl_linux_mon.c:328:	ndev->type = ARPHRD_IEEE80211_RADIOTAP;
+bcm4390/wl_linux_mon.c:339:	g_monitor.mon_if[idx].radiotap_enabled = TRUE;
+bcm4390/dhd_linux_rx.c:1264:#ifdef WL_MONITOR
+== vendor OUIs / subcmds
+bcm4390/include/802.11brcm.h:150:#define BRCM_OUI		"\x00\x10\x18"	/* Broadcom OUI */
+bcm4390/include/802.11brcm.h:156:	uint8	oui[3];		/* Proprietary OUI, BRCM_OUI */
+bcm4390/include/brcm_nl80211.h:29:#define OUI_BRCM  0x001018
+bcm4390/include/brcm_nl80211.h:30:#define OUI_GOOGLE  0x001A11
+bcm4390/include/wlioctl_defs.h:2352:#define IHV_OID_BCM 0x00181000	/* based on BRCM_OUI value */
+bcm4390/wl_cfgvendor.h:31:#define OUI_BRCM 0x001018
+bcm4390/wl_cfgvendor.h:32:#define OUI_GOOGLE 0x001A11
+== action frame handling
+bcm4390/dhd_cfg_dscp_policy.c:889:	wl_af_params_v1_t *af_params = NULL;
+bcm4390/dhd_cfg_dscp_policy.c:896:	wl_af_params_v2_t *af_params_v2_p = NULL;
+bcm4390/dhd_cfg_dscp_policy.c:897:	u8 *af_params_iov_p = NULL;
+bcm4390/dhd_cfg_dscp_policy.c:898:	s32 af_params_iov_len = 0;
+bcm4390/dhd_cfg_dscp_policy.c:899:	uint16 wl_af_params_size = 0;
+bcm4390/dhd_cfg_dscp_policy.c:901:	/* fill up af_params */
+bcm4390/dhd_cfg_dscp_policy.c:902:	af_params = (wl_af_params_v1_t *)MALLOCZ(cfg->osh, WL_WIFI_AF_PARAMS_SIZE_V1);
+bcm4390/dhd_cfg_dscp_policy.c:903:	if (af_params == NULL) {
+bcm4390/dhd_cfg_dscp_policy.c:927:	af_params->channel = tmp_channel;
+bcm4390/dhd_cfg_dscp_policy.c:928:	af_params->dwell_time = DSCP_AF_DEFAULT_DWELL_TIME;
+bcm4390/dhd_cfg_dscp_policy.c:929:	eacopy(tmp_bssid.octet, af_params->BSSID.octet);
+bcm4390/dhd_cfg_dscp_policy.c:930:	action_frame = &af_params->action_frame;
+bcm4390/dhd_cfg_dscp_policy.c:950:		wl_af_params_size = OFFSETOF(wl_af_params_v2_t, action_frame) +
+bcm4390/dhd_cfg_dscp_policy.c:952:			af_params->action_frame.len;
+bcm4390/dhd_cfg_dscp_policy.c:953:		af_params_v2_p = MALLOCZ(cfg->osh, wl_af_params_size);
+bcm4390/dhd_cfg_dscp_policy.c:954:		if (af_params_v2_p == NULL) {
+bcm4390/dhd_cfg_dscp_policy.c:960:			af_params_v2_p, af_params, ndev->dev_addr, wl_af_params_size);
+bcm4390/dhd_cfg_dscp_policy.c:965:		af_params_iov_p = (u8 *)af_params_v2_p;
+bcm4390/dhd_cfg_dscp_policy.c:966:		af_params_iov_len = wl_af_params_size;
+bcm4390/dhd_cfg_dscp_policy.c:968:		af_params_iov_p = (u8 *)af_params;
+bcm4390/dhd_cfg_dscp_policy.c:969:		af_params_iov_len = sizeof(*af_params);
+bcm4390/dhd_cfg_dscp_policy.c:973:	ret_val = wldev_iovar_setbuf(ndev, "actframe", af_params_iov_p,
+bcm4390/dhd_cfg_dscp_policy.c:974:	                             af_params_iov_len, smbuf, WLC_IOCTL_MAXLEN, NULL);
+bcm4390/dhd_cfg_dscp_policy.c:983:	if (af_params_v2_p) {
+bcm4390/dhd_cfg_dscp_policy.c:984:		MFREE(cfg->osh, af_params_v2_p, wl_af_params_size);
+bcm4390/dhd_cfg_dscp_policy.c:991:	if (af_params) {
+bcm4390/dhd_cfg_dscp_policy.c:992:		MFREE(cfg->osh, af_params, WL_WIFI_AF_PARAMS_SIZE_V1);
+bcm4390/wl_cfgp2p.c:182:	u8 gas_frame_type = WL_PUB_AF_STYPE_INVALID;
+bcm4390/wl_cfgp2p.c:1853:	struct net_device *dev, wl_af_params_v1_t *af_params, s32 bssidx, const u8 *sa)
+bcm4390/wl_cfgp2p.c:1859:	wl_af_params_v2_t *af_params_v2_p = NULL;
+bcm4390/wl_cfgp2p.c:1860:	u8 *af_params_iov_p = NULL;
+bcm4390/wl_cfgp2p.c:1861:	s32 af_params_iov_len = 0;
+bcm4390/wl_cfgp2p.c:1862:	uint16 wl_af_params_size = 0;
+bcm4390/wl_cfgp2p.c:1866:		wf_chspec_center_channel(af_params->channel), af_params->channel,
+bcm4390/wl_cfgp2p.c:1867:		af_params->dwell_time, cfg->need_wait_afrx));
+bcm4390/wl_cfgp2p.c:1878:	cfg->af_sent_channel  = af_params->channel;
+bcm4390/wl_cfgp2p.c:1881:		af_params->channel = wf_chspec_center_channel(af_params->channel);
+bcm4390/wl_cfgp2p.c:1888:			wl_af_params_size = OFFSETOF(wl_af_params_v2_t, action_frame) +
+bcm4390/wl_cfgp2p.c:1890:				af_params->action_frame.len;
+bcm4390/wl_cfgp2p.c:1891:			af_params_v2_p = MALLOCZ(cfg->osh, wl_af_params_size);
+grep: write error: Broken pipe
+== key install
+bcm4390/dhd_common.c:1671:	{WLC_SET_KEY, "SET_KEY"},
+bcm4390/dhd_common.c:5179:			sup_wpa_timing_prop_ie_t *psk_sup_data =
+bcm4390/dhd_common.c:5180:				(sup_wpa_timing_prop_ie_t *)bcm_find_vendor_ie(event_data,
+bcm4390/dhd_common.c:5194:							"total_4way_hs %u",
+bcm4390/dhd_common.c:5199:							psk_sup_data->data.total_4way_hs_dur));
+bcm4390/wl_cfgvif.c:2628:	const wpa_pmkid_list_t *pmkid;
+bcm4390/wl_cfgvif.c:2665:			algos |= KEY_ALGO_MASK(wl_rsn_cipher_wsec_key_algo_lookup(cipher));
+bcm4390/wl_cfgvif.c:2701:				algos |= KEY_ALGO_MASK(wl_rsn_cipher_wsec_key_algo_lookup(cipher));
+bcm4390/wl_cfgvif.c:2828:		pmkid = (const wpa_pmkid_list_t *)
+bcm4390/wl_cfgvif.c:2830:		cnt = ltoh16_ua(&pmkid->count);
+bcm4390/wl_cfgvif.c:2848:		 * in the RSN IEs. Do nothing for external 4way HS. However, for idauth,
+bcm4390/wl_cfgvif.c:2859:			/* Host based 4way HS with default BIP. No config required. */
+bcm4390/wl_cfgvif.c:3470:		/* Plumb PMK for P2P GO case, needed for trigger of 4way HS in FW */
+bcm4390/wl_cfgvif.c:3474:			wsec_pmk_t pmk = {0};
+bcm4390/wl_cfgvif.c:3476:			pmk.key_len = WL_SUPP_PMK_LEN;
+bcm4390/wl_cfgvif.c:3477:			if (pmk.key_len > sizeof(pmk.key)) {
+bcm4390/wl_cfgvif.c:3481:			pmk.flags = 0;
+bcm4390/wl_cfgvif.c:3482:			err = memcpy_s(&pmk.key, sizeof(pmk.key), crypto->psk, pmk.key_len);
+bcm4390/wl_cfgvif.c:3487:			err = wldev_ioctl_set(dev, WLC_SET_WSEC_PMK, &pmk, sizeof(pmk));
+bcm4390/wl_cfgvif.c:3489:				WL_ERR(("pmk set with WLC_SET_WSEC_PMK failed, error:%d\n", err));
+bcm4390/wl_cfgvif.c:3492:				WL_INFORM_MEM(("pmk added succesfully\n"));
+bcm4390/wl_cfgvif.c:3522:				wsec_pmk_t pmk = {0};
+bcm4390/wl_cfgvif.c:3536:					pmk.key_len = WL_SUPP_PMK_LEN;
+bcm4390/wl_cfgvif.c:3537:					if (pmk.key_len > sizeof(pmk.key)) {
+bcm4390/wl_cfgvif.c:3541:					pmk.flags = 0;
+bcm4390/wl_cfgvif.c:3542:					err = memcpy_s(&pmk.key,
+bcm4390/wl_cfgvif.c:3543:						sizeof(pmk.key), crypto->psk, pmk.key_len);
+bcm4390/wl_cfgvif.c:3549:						WLC_SET_WSEC_PMK, &pmk, sizeof(pmk));
+bcm4390/wl_cfgvif.c:3554:						WL_INFORM(("pmk added succesfully\n"));
+bcm4390/wl_cfgvif.c:4151:			err = wldev_iovar_setbuf_bsscfg(dev, "wsec_key", &cfg->wep_key,
+bcm4390/wl_cfgvif.c:4152:				sizeof(struct wl_wsec_key), buf, WLC_IOCTL_SMLEN, bssidx, NULL);
+bcm4390/wl_cfgvif.c:4154:			bzero(&cfg->wep_key, sizeof(struct wl_wsec_key));
+bcm4390/wl_cfgvif.c:4157:				WL_ERR(("WLC_SET_KEY error (%d)\n", err));
+bcm4390/wl_cfgvif.c:4248:		bzero(&cfg->wep_key, sizeof(struct wl_wsec_key));
+bcm4390/wl_cfgvif.c:4980:	if (wl_cfg80211_flush_pmksa(bcmcfg_to_wiphy(cfg), dev)) {
+bcm4390/wl_cfgvif.c:4981:		WL_ERR(("flush pmksa failed\n"));
+bcm4390/dhd_linux_tx.c:1325:		if (dhd_is_4way_msg((uint8 *)eh) == EAPOL_4WAY_M4) {
+bcm4390/wl_cfgvendor.c:3804:	uint8 arr[sizeof(wsec_pmk_t) + sizeof(uint8)] = {0};
+bcm4390/wl_cfgvendor.c:3805:	wsec_pmk_t *pmk = (wsec_pmk_t *)arr;
+bcm4390/wl_cfgvendor.c:3807:	BCM_REFERENCE(pmk);
+grep: write error: Broken pipe
+
+######## bcm4398
+== cfg80211_ops (which callbacks exist)
+.add_key = wl_cfg80211_add_key
+.add_virtual_intf = wl_cfg80211_add_virtual_iface
+.auth = htod32
+.cancel_remain_on_channel = wl_cfgscan_cancel_remain_on_channel
+.change_station = wl_cfg80211_change_station
+.connect = wl_cfg80211_connect
+.mgmt_frame_register = wl_cfg80211_mgmt_frame_register
+.mgmt_tx = wl_cfg80211_mgmt_tx
+.remain_on_channel = wl_cfgscan_remain_on_channel
+.set_channel = wl_cfg80211_set_channel
+.set_default_key = wl_cfg80211_config_default_key
+.set_monitor_channel = wl_cfg80211_set_monitor_channel
+.start_ap = wl_cfg80211_start_ap
+== monitor / wondertap
+bcm4398/dhd_msgbuf.c:1124:#if defined(WL_MONITOR)
+bcm4398/dhd_msgbuf.c:1127:#endif /* WL_MONITOR */
+bcm4398/dhd_msgbuf.c:6797:#if defined(WL_MONITOR)
+bcm4398/dhd_msgbuf.c:6801:#endif /* WL_MONITOR */
+bcm4398/dhd_msgbuf.c:8328:#if defined(WL_MONITOR)
+bcm4398/dhd_msgbuf.c:8352:#endif /* WL_MONITOR */
+bcm4398/dhd_msgbuf.c:8458:#ifdef WL_MONITOR
+bcm4398/dhd_msgbuf.c:8460:#endif /* WL_MONITOR */
+bcm4398/wl_cfgvif.c:1500:	case NL80211_IFTYPE_MONITOR:
+bcm4398/dhd_linux.h:60:#ifdef WL_MONITOR
+bcm4398/dhd_linux.h:61:#ifdef HOST_RADIOTAP_CONV
+bcm4398/dhd_linux.h:64:#define MAX_RADIOTAP_SIZE      256 /* Maximum size to hold HE Radiotap header format */
+bcm4398/dhd_linux.h:66:#define MAX_MON_PKT_SIZE       ((12 * 1024u) + MAX_RADIOTAP_SIZE)
+bcm4398/dhd_linux.h:67:#endif /* HOST_RADIOTAP_CONV */
+bcm4398/dhd_linux.h:68:#endif /* WL_MONITOR */
+bcm4398/dhd_linux.c:5390:#ifdef WL_MONITOR
+bcm4398/dhd_linux.c:5742:dhd_add_monitor_if(dhd_info_t *dhd)
+bcm4398/dhd_linux.c:5746:#ifdef HOST_RADIOTAP_CONV
+bcm4398/dhd_linux.c:5748:#endif /* HOST_RADIOTAP_CONV */
+bcm4398/dhd_linux.c:5770:	devname = "radiotap";
+bcm4398/dhd_linux.c:5778:#ifndef ARPHRD_IEEE80211_RADIOTAP
+bcm4398/dhd_linux.c:5779:#define ARPHRD_IEEE80211_RADIOTAP	803 /* IEEE 802.11 + radiotap header */
+bcm4398/dhd_linux.c:5780:#endif /* ARPHRD_IEEE80211_RADIOTAP */
+bcm4398/dhd_linux.c:5782:	dev->type = ARPHRD_IEEE80211_RADIOTAP;
+bcm4398/dhd_linux.c:5825:#ifdef HOST_RADIOTAP_CONV
+bcm4398/dhd_linux.c:5829:#endif /* HOST_RADIOTAP_CONV */
+bcm4398/dhd_linux.c:5839:dhd_del_monitor_if(dhd_info_t *dhd)
+bcm4398/dhd_linux.c:5894:#ifdef HOST_RADIOTAP_CONV
+bcm4398/dhd_linux.c:5899:#endif /* HOST_RADIOTAP_CONV */
+bcm4398/dhd_linux.c:5912:		dhd_del_monitor_if(dhd);
+bcm4398/dhd_linux.c:5915:		dhd_add_monitor_if(dhd);
+bcm4398/dhd_linux.c:5920:#endif /* WL_MONITOR */
+bcm4398/dhd_linux.c:6158:#ifdef WL_MONITOR
+bcm4398/dhd_linux.c:6173:#ifdef HOST_RADIOTAP_CONV
+bcm4398/dhd_linux.c:6175:	 * which is used to indicate radiotap conversion support
+bcm4398/dhd_linux.c:6178:		*(int32*)data_buf &= ~(HOST_RADIOTAP_CONV_BIT);
+bcm4398/dhd_linux.c:6180:#endif /* HOST_RADIOTAP_CONV */
+bcm4398/dhd_linux.c:6181:#endif /* WL_MONITOR */
+bcm4398/dhd_linux.c:6888:#ifdef WL_MONITOR
+bcm4398/dhd_linux.c:6902:#endif /* WL_MONITOR */
+bcm4398/dhd_linux.c:7416:	dhd_add_monitor_if(dhd);
+bcm4398/dhd_linux.c:7444:	dhd_del_monitor_if(dhd);
+bcm4398/dhd_linux.c:9300:#if defined(WL_MONITOR) && defined(HOST_RADIOTAP_CONV)
+bcm4398/dhd_linux.c:9301:	dhd->host_radiotap_conv = FALSE;
+bcm4398/dhd_linux.c:9302:#endif /* WL_MONITOR */
+bcm4398/dhd_linux.c:11472:#if defined(WL_MONITOR) && defined(HOST_RADIOTAP_CONV)
+bcm4398/dhd_linux.c:11475:#endif /* WL_MONITOR */
+bcm4398/dhd_linux.c:12240:#ifdef WL_MONITOR
+bcm4398/dhd_linux.c:12241:#ifdef HOST_RADIOTAP_CONV
+bcm4398/dhd_linux.c:12242:	/* 'Wl monitor' IOVAR is fired to check whether the FW supports radiotap conversion or not.
+bcm4398/dhd_linux.c:12243:	 * This is indicated through MSB(1<<31) bit, based on which host radiotap conversion
+bcm4398/dhd_linux.c:12245:	 * 0 - Host supports Radiotap conversion.
+bcm4398/dhd_linux.c:12246:	 * 1 - FW supports Radiotap conversion.
+bcm4398/dhd_linux.c:12252:		dhdinfo->host_radiotap_conv = (monitor & HOST_RADIOTAP_CONV_BIT) ? TRUE : FALSE;
+bcm4398/dhd_linux.c:12257:#endif /* HOST_RADIOTAP_CONV */
+bcm4398/dhd_linux.c:12265:#endif /* WL_MONITOR */
+bcm4398/dhd_linux.c:12363:#if defined(WL_MONITOR) && defined(HOST_RADIOTAP_CONV)
+bcm4398/dhd_linux.c:12366:#endif /* WL_MONITOR */
+bcm4398/dhd_linux.c:13992:#ifdef WL_MONITOR
+bcm4398/dhd_linux.c:13993:#ifdef HOST_RADIOTAP_CONV
+bcm4398/dhd_linux.c:13994:	/* 'Wl monitor' IOVAR is fired to check whether the FW supports radiotap conversion or not.
+bcm4398/dhd_linux.c:13995:	 * This is indicated through MSB(1<<31) bit, based on which host radiotap conversion
+bcm4398/dhd_linux.c:13997:	 * 0 - Host supports Radiotap conversion.
+bcm4398/dhd_linux.c:13998:	 * 1 - FW supports Radiotap conversion.
+bcm4398/dhd_linux.c:14004:		dhdinfo->host_radiotap_conv = (monitor & HOST_RADIOTAP_CONV_BIT) ? TRUE : FALSE;
+bcm4398/dhd_linux.c:14009:#endif /* HOST_RADIOTAP_CONV */
+bcm4398/dhd_linux.c:14017:#endif /* WL_MONITOR */
+bcm4398/dhd_linux.c:15212:#ifdef WL_MONITOR
+bcm4398/dhd_linux.c:15213:	dhd_del_monitor_if(dhd);
+bcm4398/dhd_linux.c:15214:#endif /* WL_MONITOR */
+bcm4398/wl_linux_mon.c:32:#include <net/ieee80211_radiotap.h>
+bcm4398/wl_linux_mon.c:71:	int radiotap_enabled;
+bcm4398/wl_linux_mon.c:192:	struct ieee80211_radiotap_header *rtap_hdr;
+bcm4398/wl_linux_mon.c:203:	if (unlikely(skb->len < sizeof(struct ieee80211_radiotap_header)))
+bcm4398/wl_linux_mon.c:206:	rtap_hdr = (struct ieee80211_radiotap_header *)skb->data;
+bcm4398/wl_linux_mon.c:210:	rtap_len = ieee80211_get_radiotap_len(skb->data);
+bcm4398/wl_linux_mon.c:214:	MON_PRINT("radiotap len (should be 14): %d\n", rtap_len);
+bcm4398/wl_linux_mon.c:328:	ndev->type = ARPHRD_IEEE80211_RADIOTAP;
+bcm4398/wl_linux_mon.c:339:	g_monitor.mon_if[idx].radiotap_enabled = TRUE;
+bcm4398/dhd_linux_rx.c:1250:#ifdef WL_MONITOR
+== vendor OUIs / subcmds
+bcm4398/include/802.11brcm.h:150:#define BRCM_OUI		"\x00\x10\x18"	/* Broadcom OUI */
+bcm4398/include/802.11brcm.h:156:	uint8	oui[3];		/* Proprietary OUI, BRCM_OUI */
+bcm4398/include/brcm_nl80211.h:29:#define OUI_BRCM  0x001018
+bcm4398/include/brcm_nl80211.h:30:#define OUI_GOOGLE  0x001A11
+bcm4398/include/wlioctl_defs.h:2335:#define IHV_OID_BCM 0x00181000	/* based on BRCM_OUI value */
+bcm4398/wl_cfgvendor.h:31:#define OUI_BRCM 0x001018
+bcm4398/wl_cfgvendor.h:32:#define OUI_GOOGLE 0x001A11
+== action frame handling
+bcm4398/dhd_cfg_dscp_policy.c:992:	wl_af_params_v1_t *af_params = NULL;
+bcm4398/dhd_cfg_dscp_policy.c:999:	wl_af_params_v2_t *af_params_v2_p = NULL;
+bcm4398/dhd_cfg_dscp_policy.c:1000:	u8 *af_params_iov_p = NULL;
+bcm4398/dhd_cfg_dscp_policy.c:1001:	s32 af_params_iov_len = 0;
+bcm4398/dhd_cfg_dscp_policy.c:1002:	uint16 wl_af_params_size = 0;
+bcm4398/dhd_cfg_dscp_policy.c:1004:	/* fill up af_params */
+bcm4398/dhd_cfg_dscp_policy.c:1005:	af_params = (wl_af_params_v1_t *)MALLOCZ(cfg->osh, WL_WIFI_AF_PARAMS_SIZE_V1);
+bcm4398/dhd_cfg_dscp_policy.c:1006:	if (af_params == NULL) {
+bcm4398/dhd_cfg_dscp_policy.c:1030:	af_params->channel = tmp_channel;
+bcm4398/dhd_cfg_dscp_policy.c:1031:	af_params->dwell_time = DSCP_AF_DEFAULT_DWELL_TIME;
+bcm4398/dhd_cfg_dscp_policy.c:1032:	eacopy(tmp_bssid.octet, af_params->BSSID.octet);
+bcm4398/dhd_cfg_dscp_policy.c:1033:	action_frame = &af_params->action_frame;
+bcm4398/dhd_cfg_dscp_policy.c:1053:		wl_af_params_size = OFFSETOF(wl_af_params_v2_t, action_frame) +
+bcm4398/dhd_cfg_dscp_policy.c:1055:			af_params->action_frame.len;
+bcm4398/dhd_cfg_dscp_policy.c:1056:		af_params_v2_p = MALLOCZ(cfg->osh, wl_af_params_size);
+bcm4398/dhd_cfg_dscp_policy.c:1057:		if (af_params_v2_p == NULL) {
+bcm4398/dhd_cfg_dscp_policy.c:1063:			af_params_v2_p, af_params, ndev->dev_addr, wl_af_params_size);
+bcm4398/dhd_cfg_dscp_policy.c:1068:		af_params_iov_p = (u8 *)af_params_v2_p;
+bcm4398/dhd_cfg_dscp_policy.c:1069:		af_params_iov_len = wl_af_params_size;
+bcm4398/dhd_cfg_dscp_policy.c:1071:		af_params_iov_p = (u8 *)af_params;
+bcm4398/dhd_cfg_dscp_policy.c:1072:		af_params_iov_len = sizeof(*af_params);
+bcm4398/dhd_cfg_dscp_policy.c:1076:	ret_val = wldev_iovar_setbuf(ndev, "actframe", af_params_iov_p,
+bcm4398/dhd_cfg_dscp_policy.c:1077:	                             af_params_iov_len, smbuf, WLC_IOCTL_MAXLEN, NULL);
+bcm4398/dhd_cfg_dscp_policy.c:1086:	if (af_params_v2_p) {
+bcm4398/dhd_cfg_dscp_policy.c:1087:		MFREE(cfg->osh, af_params_v2_p, wl_af_params_size);
+bcm4398/dhd_cfg_dscp_policy.c:1094:	if (af_params) {
+bcm4398/dhd_cfg_dscp_policy.c:1095:		MFREE(cfg->osh, af_params, WL_WIFI_AF_PARAMS_SIZE_V1);
+bcm4398/wl_cfgp2p.c:181:	u8 gas_frame_type = WL_PUB_AF_STYPE_INVALID;
+bcm4398/wl_cfgp2p.c:1852:	struct net_device *dev, wl_af_params_v1_t *af_params, s32 bssidx, const u8 *sa)
+bcm4398/wl_cfgp2p.c:1858:	wl_af_params_v2_t *af_params_v2_p = NULL;
+bcm4398/wl_cfgp2p.c:1859:	u8 *af_params_iov_p = NULL;
+bcm4398/wl_cfgp2p.c:1860:	s32 af_params_iov_len = 0;
+bcm4398/wl_cfgp2p.c:1861:	uint16 wl_af_params_size = 0;
+bcm4398/wl_cfgp2p.c:1865:		wf_chspec_center_channel(af_params->channel), af_params->channel,
+bcm4398/wl_cfgp2p.c:1866:		af_params->dwell_time, cfg->need_wait_afrx));
+bcm4398/wl_cfgp2p.c:1877:	cfg->af_sent_channel  = af_params->channel;
+bcm4398/wl_cfgp2p.c:1880:		af_params->channel = wf_chspec_center_channel(af_params->channel);
+bcm4398/wl_cfgp2p.c:1887:			wl_af_params_size = OFFSETOF(wl_af_params_v2_t, action_frame) +
+bcm4398/wl_cfgp2p.c:1889:				af_params->action_frame.len;
+bcm4398/wl_cfgp2p.c:1890:			af_params_v2_p = MALLOCZ(cfg->osh, wl_af_params_size);
+grep: write error: Broken pipe
+== key install
+bcm4398/dhd_common.c:2563:	{WLC_SET_KEY, "SET_KEY"},
+bcm4398/dhd_common.c:5944:			sup_wpa_timing_prop_ie_t *psk_sup_data =
+bcm4398/dhd_common.c:5945:				(sup_wpa_timing_prop_ie_t *)bcm_find_vendor_ie(event_data,
+bcm4398/dhd_common.c:5959:							"total_4way_hs %u",
+bcm4398/dhd_common.c:5964:							psk_sup_data->data.total_4way_hs_dur));
+bcm4398/wl_cfgvif.c:2612:	const wpa_pmkid_list_t *pmkid;
+bcm4398/wl_cfgvif.c:2785:		pmkid = (const wpa_pmkid_list_t *)
+bcm4398/wl_cfgvif.c:2787:		cnt = ltoh16_ua(&pmkid->count);
+bcm4398/wl_cfgvif.c:3401:			wsec_pmk_t pmk = {0};
+bcm4398/wl_cfgvif.c:3404:			pmk.key_len = WL_SUPP_PMK_LEN;
+bcm4398/wl_cfgvif.c:3405:			if (pmk.key_len > sizeof(pmk.key)) {
+bcm4398/wl_cfgvif.c:3409:			pmk.flags = 0;
+bcm4398/wl_cfgvif.c:3410:			err = memcpy_s(&pmk.key, sizeof(pmk.key), crypto->psk, pmk.key_len);
+bcm4398/wl_cfgvif.c:3415:			err = wldev_ioctl_set(dev, WLC_SET_WSEC_PMK, &pmk, sizeof(pmk));
+bcm4398/wl_cfgvif.c:3417:				WL_ERR(("pmk set with WLC_SET_WSEC_PMK failed, error:%d\n", err));
+bcm4398/wl_cfgvif.c:3420:				WL_INFORM(("pmk added succesfully\n"));
+bcm4398/wl_cfgvif.c:3945:			err = wldev_iovar_setbuf_bsscfg(dev, "wsec_key", &cfg->wep_key,
+bcm4398/wl_cfgvif.c:3946:				sizeof(struct wl_wsec_key), buf, WLC_IOCTL_SMLEN, bssidx, NULL);
+bcm4398/wl_cfgvif.c:3948:			bzero(&cfg->wep_key, sizeof(struct wl_wsec_key));
+bcm4398/wl_cfgvif.c:3951:				WL_ERR(("WLC_SET_KEY error (%d)\n", err));
+bcm4398/wl_cfgvif.c:4035:		bzero(&cfg->wep_key, sizeof(struct wl_wsec_key));
+bcm4398/dhd_linux_tx.c:1309:		if (dhd_is_4way_msg((uint8 *)eh) == EAPOL_4WAY_M4) {
+bcm4398/wl_cfgvendor.c:3594:	uint8 arr[sizeof(wsec_pmk_t) + sizeof(uint8)] = {0};
+bcm4398/wl_cfgvendor.c:3595:	wsec_pmk_t *pmk = (wsec_pmk_t *)arr;
+bcm4398/wl_cfgvendor.c:3597:	BCM_REFERENCE(pmk);
+bcm4398/wl_cfgvendor.c:10666:static int wl_cfgvendor_set_pmk(struct wiphy *wiphy,
+bcm4398/wl_cfgvendor.c:10670:	uint8 arr[sizeof(wsec_pmk_t) + sizeof(uint8)] = {0};
+bcm4398/wl_cfgvendor.c:10671:	wsec_pmk_t *pmk = (wsec_pmk_t *)arr;
+bcm4398/wl_cfgvendor.c:10681:				pmk->flags = 0;
+bcm4398/wl_cfgvendor.c:10682:				pmk->key_len = htod16(nla_len(iter));
+bcm4398/wl_cfgvendor.c:10683:				ret = memcpy_s(pmk->key, sizeof(pmk->key),
+bcm4398/wl_cfgvendor.c:10686:					WL_ERR(("Failed to copy pmk: %d\n", ret));
+bcm4398/wl_cfgvendor.c:10697:	wl_cfg80211_set_okc_pmkinfo(cfg, ndev, pmk, TRUE);
+bcm4398/wl_cfgvendor.c:10699:	ret = wldev_ioctl_set(ndev, WLC_SET_WSEC_PMK, pmk, sizeof(arr));
+bcm4398/wl_cfgvendor.c:10700:	WL_INFORM_MEM(("IOVAR set_pmk ret:%d", ret));
+bcm4398/wl_cfgvendor.c:14826:		.doit = wl_cfgvendor_set_pmk,
+bcm4398/dhd_linux.c:5335:		eapol_type = dhd_is_4way_msg(PKTDATA(dhdp->osh, skb));
+bcm4398/dhd_linux.c:6065:	 * Intercept WLC_SET_KEY IOCTL - serialize M4 send and set key IOCTL to
+bcm4398/dhd_linux.c:6070:	if (ioc->cmd == WLC_SET_KEY ||
+bcm4398/dhd_linux.c:6072:	     strncmp("wsec_key", data_buf, 9) == 0) ||
+grep: write error: Broken pipe
+
+######## bcm4389
+== cfg80211_ops (which callbacks exist)
+.add_key = wl_cfg80211_add_key
+.add_virtual_intf = wl_cfg80211_add_virtual_iface
+.auth = htod32
+.cancel_remain_on_channel = wl_cfgscan_cancel_remain_on_channel
+.change_station = wl_cfg80211_change_station
+.connect = wl_cfg80211_connect
+.mgmt_frame_register = wl_cfg80211_mgmt_frame_register
+.mgmt_tx = wl_cfg80211_mgmt_tx
+.remain_on_channel = wl_cfgscan_remain_on_channel
+.set_channel = wl_cfg80211_set_channel
+.set_default_key = wl_cfg80211_config_default_key
+.set_monitor_channel = wl_cfg80211_set_monitor_channel
+.start_ap = wl_cfg80211_start_ap
+== monitor / wondertap
+bcm4389/dhd_msgbuf.c:929:#if defined(WL_MONITOR)
+bcm4389/dhd_msgbuf.c:935:#endif /* WL_MONITOR */
+bcm4389/dhd_msgbuf.c:5733:#if defined(WL_MONITOR)
+bcm4389/dhd_msgbuf.c:5737:#endif /* WL_MONITOR */
+bcm4389/dhd_msgbuf.c:7131:#if defined(WL_MONITOR)
+bcm4389/dhd_msgbuf.c:7149:#endif /* WL_MONITOR */
+bcm4389/dhd_msgbuf.c:7243:#ifdef WL_MONITOR
+bcm4389/dhd_msgbuf.c:7245:#endif /* WL_MONITOR */
+bcm4389/wl_cfgvif.c:1401:	case NL80211_IFTYPE_MONITOR:
+bcm4389/dhd_linux.h:68:#ifdef WL_MONITOR
+bcm4389/dhd_linux.h:69:#ifdef HOST_RADIOTAP_CONV
+bcm4389/dhd_linux.h:72:#define MAX_RADIOTAP_SIZE      256 /* Maximum size to hold HE Radiotap header format */
+bcm4389/dhd_linux.h:73:#define MAX_MON_PKT_SIZE       (4096 + MAX_RADIOTAP_SIZE)
+bcm4389/dhd_linux.h:74:#endif /* HOST_RADIOTAP_CONV */
+bcm4389/dhd_linux.h:75:#endif /* WL_MONITOR */
+bcm4389/dhd_linux.c:5422:#ifdef WL_MONITOR
+bcm4389/dhd_linux.c:5774:dhd_add_monitor_if(dhd_info_t *dhd)
+bcm4389/dhd_linux.c:5778:#ifdef HOST_RADIOTAP_CONV
+bcm4389/dhd_linux.c:5780:#endif /* HOST_RADIOTAP_CONV */
+bcm4389/dhd_linux.c:5802:	devname = "radiotap";
+bcm4389/dhd_linux.c:5810:#ifndef ARPHRD_IEEE80211_RADIOTAP
+bcm4389/dhd_linux.c:5811:#define ARPHRD_IEEE80211_RADIOTAP	803 /* IEEE 802.11 + radiotap header */
+bcm4389/dhd_linux.c:5812:#endif /* ARPHRD_IEEE80211_RADIOTAP */
+bcm4389/dhd_linux.c:5814:	dev->type = ARPHRD_IEEE80211_RADIOTAP;
+bcm4389/dhd_linux.c:5857:#ifdef HOST_RADIOTAP_CONV
+bcm4389/dhd_linux.c:5861:#endif /* HOST_RADIOTAP_CONV */
+bcm4389/dhd_linux.c:5871:dhd_del_monitor_if(dhd_info_t *dhd)
+bcm4389/dhd_linux.c:5926:#ifdef HOST_RADIOTAP_CONV
+bcm4389/dhd_linux.c:5931:#endif /* HOST_RADIOTAP_CONV */
+bcm4389/dhd_linux.c:5944:		dhd_del_monitor_if(dhd);
+bcm4389/dhd_linux.c:5947:		dhd_add_monitor_if(dhd);
+bcm4389/dhd_linux.c:5952:#endif /* WL_MONITOR */
+bcm4389/dhd_linux.c:6155:#ifdef WL_MONITOR
+bcm4389/dhd_linux.c:6170:#ifdef HOST_RADIOTAP_CONV
+bcm4389/dhd_linux.c:6172:	 * which is used to indicate radiotap conversion support
+bcm4389/dhd_linux.c:6175:		*(int32*)data_buf &= ~(HOST_RADIOTAP_CONV_BIT);
+bcm4389/dhd_linux.c:6177:#endif /* HOST_RADIOTAP_CONV */
+bcm4389/dhd_linux.c:6178:#endif /* WL_MONITOR */
+bcm4389/dhd_linux.c:6849:#ifdef WL_MONITOR
+bcm4389/dhd_linux.c:6863:#endif /* WL_MONITOR */
+bcm4389/dhd_linux.c:7373:	dhd_add_monitor_if(dhd);
+bcm4389/dhd_linux.c:7401:	dhd_del_monitor_if(dhd);
+bcm4389/dhd_linux.c:9135:#if defined(WL_MONITOR) && defined(HOST_RADIOTAP_CONV)
+bcm4389/dhd_linux.c:9136:	dhd->host_radiotap_conv = FALSE;
+bcm4389/dhd_linux.c:9137:#endif /* WL_MONITOR */
+bcm4389/dhd_linux.c:10890:#if defined(WL_MONITOR) && defined(HOST_RADIOTAP_CONV)
+bcm4389/dhd_linux.c:10893:#endif /* WL_MONITOR */
+bcm4389/dhd_linux.c:11621:#ifdef WL_MONITOR
+bcm4389/dhd_linux.c:11622:#ifdef HOST_RADIOTAP_CONV
+bcm4389/dhd_linux.c:11623:	/* 'Wl monitor' IOVAR is fired to check whether the FW supports radiotap conversion or not.
+bcm4389/dhd_linux.c:11624:	 * This is indicated through MSB(1<<31) bit, based on which host radiotap conversion
+bcm4389/dhd_linux.c:11626:	 * 0 - Host supports Radiotap conversion.
+bcm4389/dhd_linux.c:11627:	 * 1 - FW supports Radiotap conversion.
+bcm4389/dhd_linux.c:11633:		dhdinfo->host_radiotap_conv = (monitor & HOST_RADIOTAP_CONV_BIT) ? TRUE : FALSE;
+bcm4389/dhd_linux.c:11638:#endif /* HOST_RADIOTAP_CONV */
+bcm4389/dhd_linux.c:11646:#endif /* WL_MONITOR */
+bcm4389/dhd_linux.c:11731:#if defined(WL_MONITOR) && defined(HOST_RADIOTAP_CONV)
+bcm4389/dhd_linux.c:11734:#endif /* WL_MONITOR */
+bcm4389/dhd_linux.c:13324:#ifdef WL_MONITOR
+bcm4389/dhd_linux.c:13325:#ifdef HOST_RADIOTAP_CONV
+bcm4389/dhd_linux.c:13326:	/* 'Wl monitor' IOVAR is fired to check whether the FW supports radiotap conversion or not.
+bcm4389/dhd_linux.c:13327:	 * This is indicated through MSB(1<<31) bit, based on which host radiotap conversion
+bcm4389/dhd_linux.c:13329:	 * 0 - Host supports Radiotap conversion.
+bcm4389/dhd_linux.c:13330:	 * 1 - FW supports Radiotap conversion.
+bcm4389/dhd_linux.c:13336:		dhdinfo->host_radiotap_conv = (monitor & HOST_RADIOTAP_CONV_BIT) ? TRUE : FALSE;
+bcm4389/dhd_linux.c:13341:#endif /* HOST_RADIOTAP_CONV */
+bcm4389/dhd_linux.c:13349:#endif /* WL_MONITOR */
+bcm4389/dhd_linux.c:14523:#ifdef WL_MONITOR
+bcm4389/dhd_linux.c:14524:	dhd_del_monitor_if(dhd);
+bcm4389/dhd_linux.c:14525:#endif /* WL_MONITOR */
+bcm4389/wl_linux_mon.c:32:#include <net/ieee80211_radiotap.h>
+bcm4389/wl_linux_mon.c:71:	int radiotap_enabled;
+bcm4389/wl_linux_mon.c:192:	struct ieee80211_radiotap_header *rtap_hdr;
+bcm4389/wl_linux_mon.c:203:	if (unlikely(skb->len < sizeof(struct ieee80211_radiotap_header)))
+bcm4389/wl_linux_mon.c:206:	rtap_hdr = (struct ieee80211_radiotap_header *)skb->data;
+bcm4389/wl_linux_mon.c:210:	rtap_len = ieee80211_get_radiotap_len(skb->data);
+bcm4389/wl_linux_mon.c:214:	MON_PRINT("radiotap len (should be 14): %d\n", rtap_len);
+bcm4389/wl_linux_mon.c:328:	ndev->type = ARPHRD_IEEE80211_RADIOTAP;
+bcm4389/wl_linux_mon.c:339:	g_monitor.mon_if[idx].radiotap_enabled = TRUE;
+bcm4389/dhd_linux_rx.c:1202:#ifdef WL_MONITOR
+== vendor OUIs / subcmds
+bcm4389/include/802.11brcm.h:149:#define BRCM_OUI		"\x00\x10\x18"	/* Broadcom OUI */
+bcm4389/include/802.11brcm.h:155:	uint8	oui[3];		/* Proprietary OUI, BRCM_OUI */
+bcm4389/include/brcm_nl80211.h:29:#define OUI_BRCM  0x001018
+bcm4389/include/brcm_nl80211.h:30:#define OUI_GOOGLE  0x001A11
+bcm4389/include/wlioctl_defs.h:2301:#define IHV_OID_BCM 0x00181000	/* based on BRCM_OUI value */
+bcm4389/wl_cfgvendor.h:32:#define OUI_BRCM    0x001018
+bcm4389/wl_cfgvendor.h:33:#define OUI_GOOGLE  0x001A11
+== action frame handling
+bcm4389/wl_cfgp2p.c:1746:	struct net_device *dev, wl_af_params_v2_t *af_params_v2_p,
+bcm4389/wl_cfgp2p.c:1747:	wl_af_params_v1_t *af_params, const u8 *sa, uint16 wl_af_params_size)
+bcm4389/wl_cfgp2p.c:1754:	af_params_v2_p->version = WL_ACTFRAME_VERSION_MAJOR_2;
+bcm4389/wl_cfgp2p.c:1755:	af_params_v2_p->length = wl_af_params_size;
+bcm4389/wl_cfgp2p.c:1756:	af_params_v2_p->channel = af_params->channel;
+bcm4389/wl_cfgp2p.c:1757:	af_params_v2_p->dwell_time = af_params->dwell_time;
+bcm4389/wl_cfgp2p.c:1758:	af_params_v2_p->BSSID = af_params->BSSID;
+bcm4389/wl_cfgp2p.c:1759:	action_frame_v2_p = &af_params_v2_p->action_frame;
+bcm4389/wl_cfgp2p.c:1761:		af_params->action_frame.len;
+bcm4389/wl_cfgp2p.c:1763:	action_frame_v2_p->da = af_params->action_frame.da;
+bcm4389/wl_cfgp2p.c:1764:	action_frame_v2_p->len_data = af_params->action_frame.len;
+bcm4389/wl_cfgp2p.c:1765:	action_frame_v2_p->packetId = af_params->action_frame.packetId;
+bcm4389/wl_cfgp2p.c:1767:			af_params->action_frame.data, af_params->action_frame.len);
+bcm4389/wl_cfgp2p.c:1815:	struct net_device *dev, wl_af_params_v1_t *af_params, s32 bssidx, const u8 *sa)
+bcm4389/wl_cfgp2p.c:1821:	wl_af_params_v2_t *af_params_v2_p = NULL;
+bcm4389/wl_cfgp2p.c:1822:	u8 *af_params_iov_p = NULL;
+bcm4389/wl_cfgp2p.c:1823:	s32 af_params_iov_len = 0;
+bcm4389/wl_cfgp2p.c:1824:	uint16 wl_af_params_size = 0;
+bcm4389/wl_cfgp2p.c:1828:		CHSPEC_CHANNEL(af_params->channel), af_params->channel, af_params->dwell_time,
+bcm4389/wl_cfgp2p.c:1840:	cfg->af_sent_channel  = af_params->channel;
+bcm4389/wl_cfgp2p.c:1843:		af_params->channel = CHSPEC_CHANNEL(af_params->channel);
+bcm4389/wl_cfgp2p.c:1850:			wl_af_params_size = OFFSETOF(wl_af_params_v2_t, action_frame) +
+bcm4389/wl_cfgp2p.c:1852:				af_params->action_frame.len;
+bcm4389/wl_cfgp2p.c:1853:			af_params_v2_p = MALLOCZ(cfg->osh, wl_af_params_size);
+bcm4389/wl_cfgp2p.c:1854:			if (af_params_v2_p == NULL) {
+bcm4389/wl_cfgp2p.c:1859:			ret = wl_actframe_fillup_v2(cfg, cfgdev, dev, af_params_v2_p, af_params, sa,
+bcm4389/wl_cfgp2p.c:1860:					wl_af_params_size);
+bcm4389/wl_cfgp2p.c:1865:			af_params_iov_p = (u8 *)af_params_v2_p;
+bcm4389/wl_cfgp2p.c:1866:			af_params_iov_len = wl_af_params_size;
+bcm4389/wl_cfgp2p.c:1872:		af_params_iov_p = (u8 *)af_params;
+bcm4389/wl_cfgp2p.c:1873:		af_params_iov_len = sizeof(*af_params);
+bcm4389/wl_cfgp2p.c:1876:	ret = wldev_iovar_setbuf_bsscfg(dev, "actframe", af_params_iov_p, af_params_iov_len,
+bcm4389/wl_cfgp2p.c:1885:		msecs_to_jiffies(af_params->dwell_time + WL_AF_TX_EXTRA_TIME_MAX));
+bcm4389/wl_cfgp2p.c:1907:	if (af_params_v2_p) {
+bcm4389/wl_cfgp2p.c:1908:		MFREE(cfg->osh, af_params_v2_p, wl_af_params_size);
+bcm4389/wl_cfg80211.c:558:static s32 wl_cfg80211_mgmt_tx_cancel_wait(struct wiphy *wiphy,
+bcm4389/wl_cfg80211.c:1777:		.rx = BIT(IEEE80211_STYPE_ACTION >> 4)
+bcm4389/wl_cfg80211.c:1781:		.rx = BIT(IEEE80211_STYPE_ACTION >> 4) |
+bcm4389/wl_cfg80211.c:1795:		BIT(IEEE80211_STYPE_ACTION >> 4)
+bcm4389/wl_cfg80211.c:1806:		BIT(IEEE80211_STYPE_ACTION >> 4)
+grep: write error: Broken pipe
+== key install
+bcm4389/dhd_common.c:1821:	{WLC_SET_KEY, "SET_KEY"},
+bcm4389/wl_cfgvif.c:2138:	const wpa_pmkid_list_t *pmkid;
+bcm4389/wl_cfgvif.c:2293:		pmkid = (const wpa_pmkid_list_t *)
+bcm4389/wl_cfgvif.c:2295:		cnt = ltoh16_ua(&pmkid->count);
+bcm4389/wl_cfgvif.c:3370:			err = wldev_iovar_setbuf_bsscfg(dev, "wsec_key", &cfg->wep_key,
+bcm4389/wl_cfgvif.c:3371:				sizeof(struct wl_wsec_key), buf, WLC_IOCTL_SMLEN, bssidx, NULL);
+bcm4389/wl_cfgvif.c:3373:			bzero(&cfg->wep_key, sizeof(struct wl_wsec_key));
+bcm4389/wl_cfgvif.c:3376:				WL_ERR(("WLC_SET_KEY error (%d)\n", err));
+bcm4389/wl_cfgvif.c:3439:		bzero(&cfg->wep_key, sizeof(struct wl_wsec_key));
+bcm4389/dhd_linux_tx.c:1137:		if (dhd_is_4way_msg((uint8 *)eh) == EAPOL_4WAY_M4) {
+bcm4389/wl_cfgvendor.c:3430:	wsec_pmk_t pmk;
+bcm4389/wl_cfgvendor.c:3433:	BCM_REFERENCE(pmk);
+bcm4389/wl_cfgvendor.c:3440:	/* clear the content of pmk structure before usage */
+bcm4389/wl_cfgvendor.c:3441:	(void)memset_s(&pmk, sizeof(wsec_pmk_t), 0x0, sizeof(wsec_pmk_t));
+bcm4389/wl_cfgvendor.c:10078:static int wl_cfgvendor_set_pmk(struct wiphy *wiphy,
+bcm4389/wl_cfgvendor.c:10082:	wsec_pmk_t pmk;
+bcm4389/wl_cfgvendor.c:10088:	bzero(&pmk, sizeof(pmk));
+bcm4389/wl_cfgvendor.c:10093:				pmk.flags = 0;
+bcm4389/wl_cfgvendor.c:10094:				pmk.key_len = htod16(nla_len(iter));
+bcm4389/wl_cfgvendor.c:10095:				ret = memcpy_s(pmk.key, sizeof(pmk.key),
+bcm4389/wl_cfgvendor.c:10098:					WL_ERR(("Failed to copy pmk: %d\n", ret));
+bcm4389/wl_cfgvendor.c:10109:	wl_cfg80211_set_okc_pmkinfo(cfg, ndev, pmk, TRUE);
+bcm4389/wl_cfgvendor.c:10111:	ret = wldev_ioctl_set(ndev, WLC_SET_WSEC_PMK, &pmk, sizeof(pmk));
+bcm4389/wl_cfgvendor.c:10112:	WL_INFORM_MEM(("IOVAR set_pmk ret:%d", ret));
+bcm4389/wl_cfgvendor.c:13391:		.doit = wl_cfgvendor_set_pmk,
+bcm4389/dhd_linux.c:6078:	 * Intercept WLC_SET_KEY IOCTL - serialize M4 send and set key IOCTL to
+bcm4389/dhd_linux.c:6083:	if (ioc->cmd == WLC_SET_KEY ||
+bcm4389/dhd_linux.c:6085:	     strncmp("wsec_key", data_buf, 9) == 0) ||
+bcm4389/dhd_linux.c:6087:	     strncmp("bsscfg:wsec_key", data_buf, 15) == 0) ||
+bcm4389/dhd_linux.c:10895:	uint32 sup_wpa = 1;
+bcm4389/dhd_linux.c:11348:		ret = dhd_iovar(dhd, 0, "sup_wpa", (char *)&sup_wpa, sizeof(sup_wpa),
+bcm4389/dhd_linux.c:11350:		/* sup_wpa iovar returns NOTREADY status on some platforms using modularized
+bcm4389/dhd_linux.c:11354:			dhd->fw_4way_handshake = TRUE;
+bcm4389/dhd_linux.c:11355:		DHD_TRACE(("4-way handshake mode is: %d\n", dhd->fw_4way_handshake));
+bcm4389/dhd_linux.c:11736:	uint32 sup_wpa = 1;
+bcm4389/dhd_linux.c:12619:		ret = dhd_iovar(dhd, 0, "sup_wpa", (char *)&sup_wpa, sizeof(sup_wpa),
+bcm4389/dhd_linux.c:12621:		/* sup_wpa iovar returns NOTREADY status on some platforms using modularized
+bcm4389/dhd_linux.c:12625:			dhd->fw_4way_handshake = TRUE;
+bcm4389/dhd_linux.c:12626:		DHD_TRACE(("4-way handshake mode is: %d\n", dhd->fw_4way_handshake));
+bcm4389/dhd_linux_rx.c:700:			(dhd_is_4way_msg((char *)(skb->data)) == EAPOL_4WAY_M1)) {
+grep: write error: Broken pipe

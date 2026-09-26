@@ -1,0 +1,3 @@
+bcm4390 android-gs-tegu-6.1-android16-beta
+bcm4398 android-gs-tegu-6.1-android16-beta
+bcm4389 android-gs-tegu-6.1-android16-beta
