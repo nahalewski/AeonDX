@@ -3,6 +3,7 @@
  *
  *   DS            the melonDS core (melonDS-android-lib), ds_host.cpp
  *   GB, GBC, GBA  SkyEmu's cores (its libretro build), vc_host.c
+ *   the rest      a downloaded .aeoncore's libretro core, core_host.c
  *
  * One game at a time.  The caller runs a frame, reads the screen(s) as RGBA
  * and pulls the audio; input is a key mask and, for the DS, a touch on the
@@ -28,6 +29,7 @@ extern "C" {
 #define EC_SYS_GBC 2
 #define EC_SYS_GBA 3
 #define EC_SYS_DS  4
+#define EC_SYS_CORE 16  /* a downloaded core (ec_open_core) */
 
 /* key bits (the DS's own order): pressed = 1 */
 #define EC_KEY_A      (1u << 0)
@@ -52,6 +54,11 @@ void ec_set_option(const char* key, const char* value);
 /* start a game: the ROM, its save file (read if there, written as the game
  * saves) and the system folder (BIOS / firmware, optional).  1 = running. */
 int ec_open(int sys, const char* rom, const char* save, const char* sysdir);
+/* start a game on a downloaded core: its libretro .so (an installed
+ * .aeoncore's), then as ec_open.  1 = running. */
+int ec_open_core(const char* core_so, const char* rom, const char* save, const char* sysdir);
+/* a core's name / version and the file extensions it plays ("nes|fds") */
+int ec_core_info(const char* core_so, char* name, int name_len, char* exts, int exts_len);
 void ec_close(void);
 int ec_system(void);                  /* EC_SYS_*, 0 = none */
 const char* ec_error(void);

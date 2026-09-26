@@ -1,0 +1,7 @@
+# The cores the eShop offers (built into .aeoncore by .github/workflows/cores.yml).
+# id	buildbot core	name	systems	extensions	license	source	subtitle
+fceumm	fceumm	FCEUmm	nes	nes|fds|unf|unif	GPL-2.0	https://github.com/libretro/libretro-fceumm	NES and Famicom Disk System games
+snes9x	snes9x	Snes9x	snes	smc|sfc|swc|fig|bs|st	Snes9x (non-commercial)	https://github.com/libretro/snes9x	Super NES games
+beetle_vb	mednafen_vb	Beetle VB	vb	vb|vboy	GPL-2.0	https://github.com/libretro/beetle-vb-libretro	Virtual Boy games
+pokemini	pokemini	PokeMini	pokemini	min	GPL-3.0	https://github.com/libretro/PokeMini	Pokemon mini games
+gw	gw	Game & Watch	gw	mgw	zlib	https://github.com/libretro/gw-libretro	Game & Watch games

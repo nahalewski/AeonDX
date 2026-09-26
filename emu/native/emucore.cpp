@@ -88,9 +88,21 @@ int ec_open(int sys, const char* rom, const char* save, const char* sysdir)
     return ok;
 }
 
+int ec_open_core(const char* core_so, const char* rom, const char* save, const char* sysdir)
+{
+    ec_close();
+    lastError.clear();
+    if (!core_so || !rom) { ec_set_error("no core or no game"); return 0; }
+    if (sysdir) options["sysdir"] = sysdir;
+    int ok = core_open(core_so, rom, save, sysdir);
+    current = ok ? EC_SYS_CORE : 0;
+    return ok;
+}
+
 void ec_close(void)
 {
     if (current == EC_SYS_DS) ds_close();
+    else if (current == EC_SYS_CORE) core_close();
     else if (current) vc_close();
     current = 0;
 }
@@ -100,6 +112,7 @@ int ec_system(void) { return current; }
 void ec_set_keys(uint32_t pressed)
 {
     if (current == EC_SYS_DS) ds_set_keys(pressed);
+    else if (current == EC_SYS_CORE) core_set_keys(pressed);
     else if (current) vc_set_keys(pressed);
 }
 
@@ -111,12 +124,14 @@ void ec_touch(int down, int x, int y)
 void ec_run_frame(void)
 {
     if (current == EC_SYS_DS) ds_run_frame();
+    else if (current == EC_SYS_CORE) core_run_frame();
     else if (current) vc_run_frame();
 }
 
 double ec_fps(void)
 {
     if (current == EC_SYS_DS) return 59.8261;
+    if (current == EC_SYS_CORE) return core_fps();
     if (current) return vc_fps();
     return 60.0;
 }
@@ -126,6 +141,7 @@ int ec_screen_count(void) { return current == EC_SYS_DS ? 2 : current ? 1 : 0; }
 const uint8_t* ec_screen(int idx, int* w, int* h)
 {
     if (current == EC_SYS_DS) return ds_screen(idx, w, h);
+    if (current == EC_SYS_CORE && idx == 0) return core_screen(w, h);
     if (current && idx == 0) return vc_screen(w, h);
     return nullptr;
 }
@@ -133,6 +149,7 @@ const uint8_t* ec_screen(int idx, int* w, int* h)
 int ec_audio_rate(void)
 {
     if (current == EC_SYS_DS) return 48000;
+    if (current == EC_SYS_CORE) return core_audio_rate();
     if (current) return vc_audio_rate();
     return 48000;
 }
@@ -141,6 +158,7 @@ int ec_audio(int16_t* out, int max_frames)
 {
     if (!out || max_frames <= 0) return 0;
     if (current == EC_SYS_DS) return ds_audio(out, max_frames);
+    if (current == EC_SYS_CORE) return core_audio(out, max_frames);
     if (current) return vc_audio(out, max_frames);
     return 0;
 }
@@ -148,6 +166,7 @@ int ec_audio(int16_t* out, int max_frames)
 void ec_flush(void)
 {
     if (current == EC_SYS_DS) ds_flush(true);
+    else if (current == EC_SYS_CORE) core_flush();
     else if (current) vc_flush();
 }
 
@@ -155,6 +174,7 @@ int ec_save_state(const char* path)
 {
     if (!path) return 0;
     if (current == EC_SYS_DS) return ds_save_state(path);
+    if (current == EC_SYS_CORE) return core_save_state(path);
     if (current) return vc_save_state(path);
     return 0;
 }
@@ -163,6 +183,7 @@ int ec_load_state(const char* path)
 {
     if (!path) return 0;
     if (current == EC_SYS_DS) return ds_load_state(path);
+    if (current == EC_SYS_CORE) return core_load_state(path);
     if (current) return vc_load_state(path);
     return 0;
 }
@@ -170,6 +191,7 @@ int ec_load_state(const char* path)
 void ec_reset(void)
 {
     if (current == EC_SYS_DS) ds_reset();
+    else if (current == EC_SYS_CORE) core_reset();
     else if (current) vc_reset();
 }
 

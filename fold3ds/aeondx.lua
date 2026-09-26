@@ -79,9 +79,13 @@ M.EMULATORS = {
     name = "Virtual Console",
     emuId = "vc",
     system = "Virtual Console",
-    consoles = { "gb", "gbc", "gba" },
+    -- gb / gbc / gba built in; the rest on downloaded cores (fold3ds/cores.lua)
+    consoles = { "gb", "gbc", "gba", "nes", "snes", "vb", "pokemini", "gw" },
     dataDirs = { "config", "saves", "states", "bios" },
-    exts = { ["gb"] = "gb", ["gbc"] = "gbc", ["cgb"] = "gbc", ["gba"] = "gba", ["agb"] = "gba" }
+    exts = { ["gb"] = "gb", ["gbc"] = "gbc", ["cgb"] = "gbc", ["gba"] = "gba", ["agb"] = "gba",
+      ["nes"] = "nes", ["fds"] = "nes", ["unf"] = "nes", ["unif"] = "nes",
+      ["sfc"] = "snes", ["smc"] = "snes", ["fig"] = "snes", ["swc"] = "snes", ["bs"] = "snes",
+      ["vb"] = "vb", ["vboy"] = "vb", ["min"] = "pokemini", ["mgw"] = "gw" }
   },
   eden = {
     name = "Eden",
@@ -101,6 +105,11 @@ M.CONSOLE_EMU = {
   ["gb"] = "vc",
   ["gbc"] = "vc",
   ["gba"] = "vc",
+  ["nes"] = "vc",
+  ["snes"] = "vc",
+  ["vb"] = "vc",
+  ["pokemini"] = "vc",
+  ["gw"] = "vc",
   ["switch"] = "eden",
   ["nx"] = "eden"
 }

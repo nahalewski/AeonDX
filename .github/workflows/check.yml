@@ -59,3 +59,6 @@ jobs:
 
       - name: emuPoke Bank save readers
         run: python3 fold3ds/tests/test_pokebank_readers.py
+
+      - name: .aeoncore cores
+        run: python3 fold3ds/tests/test_cores.py

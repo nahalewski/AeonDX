@@ -46,7 +46,7 @@ if (CMAKE_C_COMPILER_ID MATCHES "Clang|GNU")
     target_compile_options(skyemu PRIVATE -O3 -w)
 endif()
 
-add_library(emucore SHARED emucore.cpp ds_host.cpp vc_host.c)
+add_library(emucore SHARED emucore.cpp ds_host.cpp vc_host.c core_host.c)
 target_include_directories(emucore PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}" "${MELONDS_DIR}/src")
 target_link_libraries(emucore PRIVATE core skyemu m ${CMAKE_DL_LIBS})
 # only emucore.h's functions are exported; the cores and the C++ runtime

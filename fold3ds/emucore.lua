@@ -29,6 +29,7 @@ local E = {}
 
 E.NAME = "AeonDX"
 local AeonDX = require("fold3ds.aeondx")
+local Cores = require("fold3ds.cores")
 
 local lg = love.graphics
 local ffi
@@ -42,16 +43,26 @@ local SYS_NAME = { [1] = "gb", [2] = "gbc", [3] = "gba", [4] = "ds" }
 local SYS_LABEL = {
   gb = "Virtual Console  -  Game Boy", gbc = "Virtual Console  -  Game Boy Color",
   gba = "Virtual Console  -  Game Boy Advance", ds = "Nintendo DS",
+  nes = "Virtual Console  -  NES", snes = "Virtual Console  -  Super NES",
+  vb = "Virtual Console  -  Virtual Boy", pokemini = "Virtual Console  -  Pokemon mini",
+  gw = "Virtual Console  -  Game & Watch",
 }
+-- the systems played on a downloaded core (fold3ds/cores.lua): their games are
+-- found by the installed cores' extensions and started with ec_open_core
+local CORE_SYS = { nes = true, snes = true, vb = true, pokemini = true, gw = true }
 local EXT = { nds = "ds", dsi = "ds", gb = "gb", gbc = "gbc", cgb = "gbc", gba = "gba", agb = "gba" }
 -- libretro-thumbnails' folders, and the name index per system
 local THUMBS = {
   gb = "Nintendo_-_Game_Boy", gbc = "Nintendo_-_Game_Boy_Color",
   gba = "Nintendo_-_Game_Boy_Advance", ds = "Nintendo_-_Nintendo_DS",
+  nes = "Nintendo_-_Nintendo_Entertainment_System", snes = "Nintendo_-_Super_Nintendo_Entertainment_System",
+  vb = "Nintendo_-_Virtual_Boy", pokemini = "Nintendo_-_Pokemon_Mini", gw = "Handheld_Electronic_Game",
 }
 local DB = { gb = "gb", gbc = "gbc", gba = "gba", ds = "nds" }
 -- the real shells' colours (a game's own colour is mixed in from its art)
-local SHELL = { gb = { 150, 152, 160 }, gbc = { 60, 60, 66 }, gba = { 110, 90, 200 }, ds = { 70, 72, 78 } }
+local SHELL = { gb = { 150, 152, 160 }, gbc = { 60, 60, 66 }, gba = { 110, 90, 200 }, ds = { 70, 72, 78 },
+  nes = { 180, 180, 176 }, snes = { 160, 160, 170 }, vb = { 150, 30, 30 }, pokemini = { 60, 110, 200 },
+  gw = { 170, 150, 110 } }
 
 local KEY = { a = 1, b = 2, select = 4, start = 8, right = 16, left = 32, up = 64, down = 128,
               r = 256, l = 512, x = 1024, y = 2048 }
@@ -69,6 +80,8 @@ local CDEF = [[
 int ec_version(void);
 void ec_set_option(const char* key, const char* value);
 int ec_open(int sys, const char* rom, const char* save, const char* sysdir);
+int ec_open_core(const char* core_so, const char* rom, const char* save, const char* sysdir);
+int ec_core_info(const char* core_so, char* name, int name_len, char* exts, int exts_len);
 void ec_close(void);
 int ec_system(void);
 const char* ec_error(void);
@@ -348,7 +361,7 @@ local function readHeader(file, ext)
   local crc = ffi.new("uint32_t[1]")
   local icon = ffi.new("uint8_t[4096]")
   local sysn = lib.ec_rom_info(file, title, 256, code, 16, crc, icon)
-  local sys = SYS_NAME[sysn] or EXT[ext]
+  local sys = SYS_NAME[sysn] or EXT[ext] or Cores.extensions()[ext]
   local key = fnv(file)
   local hasIcon = "0"
   if sys == "ds" and sysn == SYS.ds then
@@ -372,13 +385,14 @@ local function scan()
   pickRoot()
   local games, byKey = {}, {}
   local changed = false
+  local coreExt = Cores.extensions()
   local function walk(dir, depth)
     for _, name in ipairs(list(dir)) do
       if name:sub(-1) == "/" then
         if depth < 2 then walk(dir .. "/" .. name:sub(1, -2), depth + 1) end
       else
         local ext = (name:match("%.(%w+)$") or ""):lower()
-        if EXT[ext] then
+        if EXT[ext] or coreExt[ext] then
           local file = dir .. "/" .. name
           local had = cached(file) ~= nil
           local h = readHeader(file, ext)
@@ -649,7 +663,19 @@ function E.play(t)
   pickRoot()
   applyOptions(lib)
   local bDir = biosDir(t)
-  if lib.ec_open(SYS[t.sys], t.file, saveFile(t), bDir) ~= 1 then
+  local opened
+  if CORE_SYS[t.sys] then
+    local m = Cores.forSystem(t.sys)
+    if not m then
+      E.message = "Get the " .. (SYS_LABEL[t.sys] or t.sys):gsub("^Virtual Console  %-  ", "") ..
+        " core in the eShop's Cores section first"
+      return false
+    end
+    opened = lib.ec_open_core(m.path, t.file, saveFile(t), bDir)
+  else
+    opened = lib.ec_open(SYS[t.sys], t.file, saveFile(t), bDir)
+  end
+  if opened ~= 1 then
     E.message = "Could not start " .. (t.name or "the game") .. ": " .. ffi.string(lib.ec_error())
     return false
   end
@@ -909,7 +935,8 @@ function E.screen(i)
 end
 
 -- the systems' screens, in pixels
-local SIZES = { gb = { 160, 144 }, gbc = { 160, 144 }, gba = { 240, 160 }, ds = { 256, 192 } }
+local SIZES = { gb = { 160, 144 }, gbc = { 160, 144 }, gba = { 240, 160 }, ds = { 256, 192 },
+  nes = { 256, 240 }, snes = { 256, 224 }, vb = { 384, 224 }, pokemini = { 96, 64 }, gw = { 256, 256 } }
 function E.screenSize(sys) local s = SIZES[sys or ""] return s and s[1], s and s[2] end
 
 -- the in-game menu (HOME): open, its rows, the selected one

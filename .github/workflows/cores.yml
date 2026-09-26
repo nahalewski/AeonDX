@@ -1,0 +1,75 @@
+# Builds the eShop's cores: every line of tools/cores/cores.tsv, fetched as
+# the libretro buildbot's Android arm64 build, packed as a .aeoncore
+# (tools/cores/make_aeoncore.py) with the core's licence, and published with
+# catalog.txt to this repository's "cores" release (a pre-release, never
+# "latest"), where fold3ds/cores.lua downloads them.
+name: Build cores
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - tools/cores/**
+      - .github/workflows/cores.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cores
+  cancel-in-progress: false
+
+jobs:
+  cores:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch and pack
+        run: |
+          set -euo pipefail
+          mkdir -p dist work
+          version=$(date -u +%Y%m%d)
+          : > dist/catalog.txt
+          echo "# id	file	size	sha256	name	systems	version	subtitle" >> dist/catalog.txt
+          grep -v '^#' tools/cores/cores.tsv | while IFS=$'\t' read -r id bb name systems exts license source sub; do
+            [ -n "$id" ] || continue
+            url="https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/${bb}_libretro_android.so.zip"
+            echo "== $id from $url"
+            if ! curl -fsSL --retry 3 -o "work/$id.zip" "$url"; then
+              echo "::warning::$id: no build at $url, skipped"
+              continue
+            fi
+            rm -rf "work/$id" && mkdir -p "work/$id"
+            unzip -q -o "work/$id.zip" -d "work/$id"
+            so=$(find "work/$id" -name '*.so' | head -1)
+            [ -n "$so" ] || { echo "::warning::$id: no .so in the zip"; continue; }
+            # the core's licence from its source
+            repo=${source#https://github.com/}
+            lic=""
+            for f in COPYING LICENSE LICENSE.txt license.txt docs/LICENSE; do
+              if curl -fsSL -o "work/$id.license" "https://raw.githubusercontent.com/$repo/HEAD/$f"; then lic="work/$id.license"; break; fi
+            done
+            python3 tools/cores/make_aeoncore.py --id "$id" --name "$name" --systems "$systems" \
+              --extensions "$exts" --version "$version" --lib "$so" --license "$lic" \
+              --license-name "$license" --source "$source" --sub "$sub" --out dist >> dist/catalog.txt
+          done
+          cat dist/catalog.txt
+          ls -la dist
+
+      - name: Publish
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: cores
+          name: AeonDX cores
+          body: |
+            The emulator cores the AeonDX eShop's Cores shelf installs (.aeoncore,
+            see tools/cores/README.md).  Built from tools/cores/cores.tsv by the
+            Build cores workflow; each core keeps its own licence (LICENSE inside).
+          prerelease: true
+          make_latest: false
+          files: |
+            dist/catalog.txt
+            dist/*.aeoncore

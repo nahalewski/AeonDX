@@ -45,6 +45,20 @@ int vc_save_state(const char* path);
 int vc_load_state(const char* path);
 void vc_reset(void);
 
+/* a downloaded libretro core (core_host.c) */
+int core_open(const char* so, const char* rom, const char* save, const char* sysdir);
+void core_close(void);
+void core_set_keys(uint32_t pressed);
+void core_run_frame(void);
+const uint8_t* core_screen(int* w, int* h);
+int core_audio(int16_t* out, int max_frames);
+int core_audio_rate(void);
+double core_fps(void);
+void core_flush(void);
+int core_save_state(const char* path);
+int core_load_state(const char* path);
+void core_reset(void);
+
 #ifdef __cplusplus
 }
 #endif

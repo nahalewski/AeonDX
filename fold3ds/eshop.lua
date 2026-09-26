@@ -8,7 +8,7 @@
 -- _beginModInstall), so a mod got here is installed exactly as FIND would.
 --
 -- Bottom screen: the orange eShop bar, the shelves (New, Popular, Updated,
--- Installed) and a page of titles with their Download / Open buttons; a
+-- Installed, Cores -- the emulator cores, fold3ds/cores.lua) and a page of titles with their Download / Open buttons; a
 -- title's page with its big Download button.  Top screen: the shopping bag
 -- turning in 3D over the eShop logo, or the chosen title's art and blurb.
 -- Sounds: connecting on the way in, the wait loop while the catalog loads,
@@ -19,6 +19,7 @@ local E = {}
 local lg = love.graphics
 local Sfx = require("fold3ds.sfx")
 local Apps = require("fold3ds.apps")
+local Cores = require("fold3ds.cores")
 
 local ctx
 local st = {
@@ -37,7 +38,23 @@ local st = {
 local SHELVES = {
   { id = "new", name = "New" }, { id = "popular", name = "Popular" },
   { id = "updated", name = "Updated" }, { id = "installed", name = "Installed" },
+  { id = "cores", name = "Cores" },
 }
+
+-- the Cores shelf: every core in the catalogue, as eShop titles
+local SYS_NAMES = { nes = "NES", snes = "Super NES", vb = "Virtual Boy", pokemini = "Pokemon mini",
+  gw = "Game & Watch", gc = "GameCube", wii = "Wii", wiiu = "Wii U", switch = "Switch", n64 = "Nintendo 64" }
+local function coreRows()
+  local _, order, why = Cores.catalog()
+  local rows = {}
+  for _, c in ipairs(order or {}) do
+    local names = {}
+    for _, sys in ipairs(c.systems) do names[#names + 1] = SYS_NAMES[sys] or sys end
+    rows[#rows + 1] = { id = "core:" .. c.id, core = c.id, title = c.name,
+      author = table.concat(names, ", ") .. "  -  core " .. c.version, blurb = c.sub }
+  end
+  return rows, why
+end
 local PER_PAGE = 4
 
 local function col(c, a) lg.setColor(c[1] / 255, c[2] / 255, c[3] / 255, a or 1) end
@@ -79,6 +96,7 @@ end
 local function day(s) return type(s) == "string" and s:match("^(%d%d%d%d%-%d%d%-%d%d)") or "" end
 
 local function shelfRows(i)
+  if st.shelf == "cores" then return (coreRows()) end
   local all = i and i.findIndex and i.findIndex.mods or {}
   local ModIndex = require("src.mods.ModIndex")
   local cache = st.cache
@@ -121,6 +139,7 @@ local function shelfRows(i)
 end
 
 local function isNew(e)
+  if e.core then return false end
   if e.app then return not Apps.installed(e.app) end
   local ModIndex = require("src.mods.ModIndex")
   local d = ModIndex.releaseDates(e)
@@ -133,6 +152,7 @@ local function isNew(e)
 end
 
 local function thumb(i, e)
+  if e and e.core then return nil end
   if e and e.app then
     local key = "app:" .. e.app
     if st.images[key] == nil then
@@ -150,6 +170,10 @@ end
 
 -- what the title's button says: Download, Update or Open
 local function status(i, e)
+  if e.core then
+    local s = Cores.state(e.core)
+    return s == "installed" and "open" or s == "update" and "update" or s == "downloading" and "busy" or "download"
+  end
   if e.app then return Apps.installed(e.app) and "open" or "download" end
   local installed = installedMap(i)[e.id]
   if not installed then return "download" end
@@ -163,6 +187,13 @@ end
 
 local function download(e)
   local i = imp()
+  if e.core then
+    if Cores.state(e.core) == "downloading" then Sfx.play("noMove") return end
+    Cores.install(e.core)
+    st.job = { entry = e, started = st.t, core = true }
+    Sfx.play("button")
+    return
+  end
   if e.app then
     -- an app: onto the HOME menu (the job's finish plays the gift)
     Apps.install(e.app)
@@ -262,7 +293,9 @@ local function drawShelf(r, y0, pad)
   local rowsH = r.y + r.h - y0 - pad
   local footH = rowsH * 0.17
   local listH = rowsH - footH - pad * 0.5
-  if loading(i) or not (i and i.findIndex) then
+  local coreWhy
+  if st.shelf == "cores" then _, coreWhy = coreRows() end
+  if (st.shelf ~= "cores" and (loading(i) or not (i and i.findIndex))) or coreWhy == "loading" then
     -- connecting: the eShop's own loading wheel, turning
     local wheel = img("wheel")
     if wheel then
@@ -281,7 +314,9 @@ local function drawShelf(r, y0, pad)
     local f = ctx.font(listH * 0.07)
     lg.setFont(f)
     col(INK, 0.7)
-    lg.printf(st.shelf == "installed" and "Nothing installed from the eShop yet." or "The catalog is empty.",
+    lg.printf(st.shelf == "installed" and "Nothing installed from the eShop yet."
+      or st.shelf == "cores" and (coreWhy == "offline" and "The cores can't be reached. Check the connection."
+        or "No cores yet.") or "The catalog is empty.",
       r.x, y0 + listH / 2 - f:getHeight(), r.w, "center")
   end
   local rh = listH / PER_PAGE
@@ -331,7 +366,8 @@ local function drawShelf(r, y0, pad)
     if tag then fit(tag, wx + f2:getWidth("Free") + 8, ry + rh * 0.1 + f:getHeight() + f2:getHeight() * 0.95, rh * 0.9, f2:getHeight() * 1.35) end
     -- the button
     local s = status(i, e)
-    local label = s == "open" and "Open" or s == "update" and "Update" or "Download"
+    local label = s == "open" and (e.core and "Installed" or "Open") or s == "update" and "Update"
+      or s == "busy" and "Getting..." or "Download"
     button("row:" .. idx, r.x + r.w - pad - bw - 6, ry + (rh - rh * 0.42) / 2, bw, rh * 0.42, label,
       s == "open" and "white" or nil)
     hit("sel:" .. idx, r.x + pad, ry, r.w - pad * 2 - bw - 12, rh)
@@ -365,8 +401,9 @@ local function drawTitle(r, y0, pad)
   lg.setFont(f2)
   col({ 120, 122, 128 })
   local ModIndex = require("src.mods.ModIndex")
-  local v = (not e.app and ModIndex.displayVersion and ModIndex.displayVersion(e)) or e.version or ""
-  local stats = not e.app and ModIndex.downloadStats(e) or nil
+  local plain = e.app or e.core
+  local v = (not plain and ModIndex.displayVersion and ModIndex.displayVersion(e)) or e.version or ""
+  local stats = not plain and ModIndex.downloadStats(e) or nil
   local line = (e.author or "") .. (v ~= "" and ("   v" .. tostring(v):gsub("^v", "")) or "")
     .. (stats and stats.total and ("   " .. stats.total .. " downloads") or "")
   lg.printf(line, r.x + pad, y0 + f:getHeight() * 1.1, r.w - pad * 2, "center")
@@ -420,7 +457,7 @@ local function drawTitle(r, y0, pad)
       fit(img("thanks"), r.x + r.w * 0.1, by, r.w * 0.8, h0 * 0.2)
       lg.setFont(f2)
       col(INK, 0.8)
-      lg.printf(e.app and "It's on your HOME Menu now." or "Turn it on in MODS.", r.x, by + h0 * 0.2, r.w, "center")
+      lg.printf(e.core and "Its games play in the Virtual Console folder." or e.app and "It's on your HOME Menu now." or "Turn it on in MODS.", r.x, by + h0 * 0.2, r.w, "center")
     else
       lg.setFont(f2)
       col({ 210, 60, 50 })
@@ -554,6 +591,7 @@ end
 
 local function rowsNow()
   local i = imp()
+  if st.shelf == "cores" then return shelfRows(i) end
   return (i and i.findLoaded) and shelfRows(i) or {}
 end
 
@@ -580,6 +618,7 @@ local function activate(id)
     if not e then return end
     st.sel = tonumber(id:sub(5))
     local s = status(imp(), e)
+    if e.core and (s == "open" or s == "busy") then Sfx.play("noMove") return end
     if s == "open" then
       Sfx.play("open")
       return e.app and ("app:" .. e.app) or "mods"
@@ -589,7 +628,9 @@ local function activate(id)
   elseif id == "get" then
     local e = st.title
     if not e then return end
-    if status(imp(), e) == "open" then Sfx.play("open") return e.app and ("app:" .. e.app) or "mods" end
+    local s = status(imp(), e)
+    if e.core and (s == "open" or s == "busy") then Sfx.play("noMove") return end
+    if s == "open" then Sfx.play("open") return e.app and ("app:" .. e.app) or "mods" end
     download(e)
   elseif id == "prev" or id == "next" then
     local n = math.max(1, math.ceil(#rows / PER_PAGE))
@@ -701,6 +742,22 @@ function E.update(dt)
   st.wasLoading = now
   -- a download finishing
   local job = st.job
+  if job and job.core and not job.done then
+    local s, why = Cores.state(job.entry.core)
+    if s ~= "downloading" then
+      job.done, job.doneAt = true, st.t
+      job.ok = s == "installed"
+      job.text = job.ok and (job.entry.title .. " is installed") or ("Couldn't install " .. job.entry.title ..
+        (why and (": " .. why) or ""))
+      st.cache = nil
+      if job.ok then
+        local okE, Emu = pcall(require, "fold3ds.emucore")
+        if okE and Emu.rescan then Emu.rescan() end
+      end
+      Sfx.play(job.ok and "gift" or "error")
+    end
+    return
+  end
   if job and not job.done and (job.entry.app or (i and not i._modInstall)) and st.t - job.started > 0.3 then
     job.done = true
     local n = i and i.findNotice
