@@ -49,9 +49,10 @@ jobs:
             # the core's licence from its source
             repo=${source#https://github.com/}
             lic=""
-            for f in COPYING LICENSE LICENSE.txt license.txt docs/LICENSE; do
+            for f in COPYING Copying LICENSE LICENSE.txt LICENSE.md license.txt COPYING.txt docs/LICENSE; do
               if curl -fsSL -o "work/$id.license" "https://raw.githubusercontent.com/$repo/HEAD/$f"; then lic="work/$id.license"; break; fi
             done
+            [ -n "$lic" ] || echo "::warning::$id: no licence file found in $source"
             python3 tools/cores/make_aeoncore.py --id "$id" --name "$name" --systems "$systems" \
               --extensions "$exts" --version "$version" --lib "$so" --license "$lic" \
               --license-name "$license" --source "$source" --sub "$sub" --out dist >> dist/catalog.txt
