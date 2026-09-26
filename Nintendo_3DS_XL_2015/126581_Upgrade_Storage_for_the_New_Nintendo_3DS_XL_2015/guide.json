@@ -1,0 +1,100 @@
+{
+ "guideid": 126581,
+ "title": "Upgrade Storage for the New Nintendo 3DS XL 2015",
+ "category": "Nintendo 3DS XL 2015",
+ "type": "technique",
+ "author": "Maysa Rizk",
+ "url": "https://www.ifixit.com/Guide/Upgrade+Storage+for+the+New+Nintendo+3DS+XL+2015/126581",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Make sure your device is powered off before advancing to the next step. Failure to do this could result in electrical shock or damage to the device.",
+    "Power off the device by locating the circular power button and pressing Power Off on the screen."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "",
+   "lines": [
+    "Turn the Nintendo 3DS around, so that you are looking at the back of the device.",
+    "Remove the stylus from the device.",
+    "Failure to remove the stylus can result in damage to the stylus and internal damage to the device."
+   ],
+   "images": [
+    "step02_1.jpg",
+    "step02_2.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Remove the game cartridge by pulling it out of its slot.",
+    "Failure to remove the game cartridge may result in permanent damage to the game."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "Loosen the two screws using a Phillips #0 screwdriver.",
+    "The screws will not completely come out of the backplate. When a clicking sound is heard, the screws will be loose."
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "Wedge the system's stylus or an opening pick in the cutout to separate the back plate from the device."
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg",
+    "step05_3.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "Remove the factory-placed micro SD card from the designated slot by pressing down onto the card.",
+    "The spring will then pop the card upwards.",
+    "Slide the card out to fully remove it from the 3DS."
+   ],
+   "images": [
+    "step06_1.jpg",
+    "step06_2.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "A micro SDHC Memory Card must be used when upgrading the 3DS XL memory from standard 4gb. The maximum upgradable memory is 32gb.",
+    "Align the new micro SDHC card with the card slot.",
+    "Verify that the label/ front side of the micro SDHC card is facing towards you when performing these steps.",
+    "Press downwards on the card until you hear a click. This will verify that the card is properly inserted.",
+    "After reassembly, check the settings to verify that the storage has been upgraded."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg",
+    "step07_3.jpg"
+   ]
+  }
+ ]
+}

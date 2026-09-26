@@ -1,0 +1,33 @@
+{
+ "guideid": 6011,
+ "title": "Nintendo 3DS Microphone Replacement",
+ "category": "Nintendo 3DS",
+ "type": "replacement",
+ "author": "David Hodson",
+ "url": "https://www.ifixit.com/Guide/Nintendo+3DS+Microphone+Replacement/6011",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Use the flat end of a spudger or your fingernail to flip up the retaining flap on the microphone ribbon cable ZIF socket.",
+    "Be sure you are prying up on the hinged retaining flap, '''not''' the socket itself."
+   ],
+   "images": [
+    "step01_1.jpg",
+    "step01_2.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "",
+   "lines": [
+    "Lift the microphone and its attached ribbon cable off the motherboard."
+   ],
+   "images": [
+    "step02_1.jpg"
+   ]
+  }
+ ]
+}

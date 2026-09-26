@@ -1,0 +1,112 @@
+{
+ "guideid": 104871,
+ "title": "New Nintendo 3DS XL 2015 Circle Pad Replacement",
+ "category": "Nintendo 3DS XL 2015",
+ "type": "replacement",
+ "author": "Tori Anderson",
+ "url": "https://www.ifixit.com/Guide/New+Nintendo+3DS+XL+2015+Circle+Pad+Replacement/104871",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Fully power off the console and flip it upside down.",
+    "Remove the game card, headphones, charging cable, stylus, and anything else connected."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Remove the back cover",
+   "lines": [
+    "Use a JIS 00 screwdriver to loosen the two black captive screws on the back cover.",
+    "Gently pry the tabs on the side of the device with a spudger or your thumbnail to release the clips securing the back cover.",
+    "Remove the back cover."
+   ],
+   "images": [
+    "step02_1.jpg",
+    "step02_2.jpg",
+    "step02_3.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "Remove the microSD card",
+   "lines": [
+    "Push the microSD card in to eject it, then remove it."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "Remove the battery",
+   "lines": [
+    "Hold the console securely in one hand, with the battery facing up.",
+    "Flip the console over so the battery falls out into your other hand."
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg",
+    "step04_3.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "Lift the bottom cover",
+   "lines": [
+    "Use the point of a spudger or thumb tack to pry out the two rubber bumpers on the back of the device.",
+    "Use a JIS 00 screwdriver to remove all 8 of the screws securing the bottom cover.",
+    "Lift off the bottom cover, being sure not to disconnect the cables for the L/R buttons on the back of the device."
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg",
+    "step05_3.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "Lift the circle pad",
+   "lines": [
+    "Use a JIS 00 screwdriver to remove the two screws securing the circle pad module.",
+    "The circle pad screws are slightly longer than the ones for the bottom cover.",
+    "Flip the circle pad over to expose its ZIF connector."
+   ],
+   "images": [
+    "step06_1.jpg",
+    "step06_2.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "Using the tip of the spudger, gently lift off the lid of the ZIF connector to release the circle pad cable."
+   ],
+   "images": [
+    "step07_1.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "",
+   "lines": [
+    "Take the new circle pad assembly and insert the cable back into the open ZIF connector and close it using the spudger.",
+    "Ensure the internal component of the circle pad is correctly oriented with a small screwdriver or spudger.",
+    "Gently place the new circle pad back into its place and secure with the screws.",
+    "We had to try this step a few times before we were able to orient it correctly. Try to make sure that the circle pad does not move the internal assembly once it is inserted."
+   ],
+   "images": [
+    "step08_1.jpg",
+    "step08_2.jpg",
+    "step08_3.jpg"
+   ]
+  }
+ ]
+}

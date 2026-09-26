@@ -1,0 +1,32 @@
+{
+ "guideid": 95708,
+ "title": "Re-installing the motherboard of the  3DS XL",
+ "category": "Nintendo 3DS XL",
+ "type": "technique",
+ "author": "Dan",
+ "url": "https://www.ifixit.com/Guide/Re-installing+the+motherboard+of+the++3DS+XL/95708",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Stage the motherboard for installation",
+   "lines": [
+    "Lay the motherboard flat on the table, as shown.",
+    "On the chassis, make sure that the green antenna wire is in its slot, and that the touchscreen ribbon cable is properly positioned.",
+    "Lay the opened chassis on a table near the motherboard and gently separate the upper and lower motherboard ribbon connectors.",
+    "Still holding them separated, slide the motherboard into that separation, so that only one ribbon connector is above the motherboard, and the 2 plastic pins are resting in their holes."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Insert ribbon cable into socket",
+   "lines": [
+    "Now you can grasp the uppermost ribbon connector gently with [product|IF145-020|tweezers], and guide it into its socket without having to also wrestle the motherboard and the chassis."
+   ],
+   "images": []
+  }
+ ]
+}

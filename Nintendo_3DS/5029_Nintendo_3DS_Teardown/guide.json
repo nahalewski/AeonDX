@@ -1,0 +1,305 @@
+{
+ "guideid": 5029,
+ "title": "Nintendo 3DS Teardown",
+ "category": "Nintendo 3DS",
+ "type": "teardown",
+ "author": "Walter Galan",
+ "url": "https://www.ifixit.com/Teardown/Nintendo+3DS+Teardown/5029",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Fresh from the Land of the Rising Sun comes the long-awaited Nintendo 3DS! It's a great little device, and it feels high-quality when you get your hands on it.",
+    "New additions to the exterior of the latest unit in the DS line include:",
+    "3D top screen (duh)",
+    "Dual cameras for 3D pictures/gaming",
+    "\"Circle Pad\" joystick",
+    "IR port",
+    "Metal stylus",
+    "Revised Start/Select buttons and a new Home button"
+   ],
+   "images": [
+    "step01_1.jpg",
+    "step01_2.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "",
+   "lines": [
+    "Here's how it stacks up to the Nintendo DSi XL. Note that it trades a smaller footprint for a bit of a thicker casing.",
+    "Nintendo has changed up the layout on the top side of the 3DS when compared to the DSi XL.",
+    "The charging port has been moved to the right side and contacts have been added presumably for the charging cradle, the stylus hole is now next to the game cartridge slot, an IR sensor window has been added, and holes for a strap have been moved to the bottom."
+   ],
+   "images": [
+    "step02_1.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "The 3D-adjustometer. You can select how deep of a 3D field of view you'd like by adjusting this slider up or down.",
+    "The top display of the 3DS reportedly produces 3D images through the use of [link|http://en.wikipedia.org/wiki/Parallax|parallax]. A layer in the top LCD responds to adjustments in the 3D slider and changes the image slightly between each of your two eyes. When it is viewed from the recommended distance, the image appears to be 3D.",
+    "Nintendo is no stranger to 3D gaming, considering its past experience with the ridiculously cool and underrated [guide|3540|Virtual Boy] that uses slightly different means to achieve a similar 3D effect.",
+    "The 3D view *should* work for most people, but one iFixit employee (out of about 10 that tried it) had trouble viewing it. To him the screen looked different, but not \"3D\" like."
+   ],
+   "images": [
+    "step03_1.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "We found an interesting little feature of the 3DS by accident while blowing away some dust with canned air.",
+    "External mics on the 3DS pick up the characteristic noise of wind blowing by the device and spin the live icons in the background of each menu as if they were in a tornado."
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg",
+    "step04_3.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "It turns out 3D doesn't show up very well when you try to take a picture of it. You can still get a good view of the touch-sensitive lower screen and the newly designed metal stylus, though.",
+    "Since none of us in the office are fluent in Japanese, we'll have to wait until later this month to get a 3DS that we can fully enjoy."
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "A couple of Phillips screws are all that stand in the way of us and the precious.",
+    "Unlike [guide|2181|previous|stepid=11098] DS [guide|714|consoles|stepid=3768], the entire back cover of the 3DS comes off as one piece rather than having a small door to access the battery. This makes for a cleaner look, but also means that replacing the battery will take a little longer."
+   ],
+   "images": [
+    "step06_1.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "The 3.7V 1300mAh 5Wh Li-Ion battery provides a measly 3-5 hours of battery life. The sweet 3D action comes at a price. Even when playing original DS games, the 3DS lasts only 5-8 hours on a single charge.",
+    "The battery life is most likely diminished by the reported faster processor, dual LCD elements in the top display (to control the parallax effect), and more hardware intensive programs.",
+    "With the short battery life in mind, Nintendo ships the 3DS with a charging cradle for convenient charging. According to them, a full charge takes 3.5 hours."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "",
+   "lines": [
+    "A cool telescoping stylus is stored in a slot to the left of the game cartridge slot.",
+    "Its metal construction makes it feel higher quality than the single piece injection molded stylus found on [guide|3245|earlier|stepid=15793] DS revisions."
+   ],
+   "images": [
+    "step08_1.jpg",
+    "step08_2.jpg",
+    "step08_3.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "",
+   "lines": [
+    "A few Phillips screws are removed with our trusty [product|IF145-022|54-piece bit kit], and the lower case lifts right off.",
+    "With the lower case off, we get a good look at the motherboard and its many attached components. Having items like the joystick and SD card reader on separate boards makes their replacement less costly if they are to break in the future."
+   ],
+   "images": [
+    "step09_1.jpg",
+    "step09_2.jpg"
+   ]
+  },
+  {
+   "step": 10,
+   "title": "",
+   "lines": [
+    "The Wi-Fi board can easily be removed from the motherboard with a [product|IF145-000|plastic opening tool].",
+    "After disconnecting its singular antenna, it is free from the 3DS.",
+    "The back of the board has a sticker labeled Mitsumi DWM-W028, but at its heart lies an Atheros AR6014 IC for 802.11 b/g connectivity."
+   ],
+   "images": [
+    "step10_1.jpg",
+    "step10_2.jpg",
+    "step10_3.jpg"
+   ]
+  },
+  {
+   "step": 11,
+   "title": "",
+   "lines": [
+    "Moving on, the miniscule IR board can be pried off the board next.",
+    "Nobody is really certain what the infrared port on the 3DS will do just yet, but we're thinking it's for some 3DS to 3DS line-of-sight communication.",
+    "The IR controller IC is manufactured by NXP and has the markings:",
+    "S750 0803 TSD031C"
+   ],
+   "images": [
+    "step11_1.jpg",
+    "step11_2.jpg"
+   ]
+  },
+  {
+   "step": 12,
+   "title": "",
+   "lines": [
+    "The bottom of the Circle Pad and SD card slot sit side-by-side and come out with little effort.",
+    "This is the first time a Nintendo handheld console has had directional buttons other than the D-pad, whereas the Sony PSP has featured an analog joystick since its debut in late 2004.",
+    "A 2 GB SD card comes standard with the 3DS, and can easily be upgraded to a larger capacity SD or SDHC card, an important option if you plan on snapping lots of 3D photos and purchasing games from the Nintendo eShop."
+   ],
+   "images": [
+    "step12_1.jpg",
+    "step12_2.jpg",
+    "step12_3.jpg"
+   ]
+  },
+  {
+   "step": 13,
+   "title": "",
+   "lines": [
+    "Removing the remaining pesky screws securing the motherboard to the lower case.",
+    "Motherboard almost out...this [guide|4784|looks|stepid=21548] [guide|3748|kinda|stepid=17711] [guide|3248|familiar|stepid=15807]..."
+   ],
+   "images": [
+    "step13_1.jpg",
+    "step13_2.jpg"
+   ]
+  },
+  {
+   "step": 14,
+   "title": "",
+   "lines": [
+    "Chips we've found inside the 3DS motherboard (click [http://guide-images.ifixit.net/igi/ishJaSCOwLkvbLYK|here] for high-res version):",
+    "Nintendo 1048 0H ARM CPU",
+    "Fujitsu MB82M8080-07L 128MB FC-RAM",
+    "Toshiba THGBM2G3P1FBAI8 2 GB NAND Flash",
+    "Texas Instruments PAIC3010B 0AA37DW",
+    "UC CTR 041KM73 KG10",
+    "Invensense ITG-3270 MEMS Gyroscope",
+    "ST Micro 2048 33DH X1MAQ Accelerometer Model LIS331DH"
+   ],
+   "images": [
+    "step14_1.jpg"
+   ]
+  },
+  {
+   "step": 15,
+   "title": "",
+   "lines": [
+    "The back of the motherboard is a little less exciting:",
+    "TI 93045A4 OAAH86W"
+   ],
+   "images": [
+    "step15_1.jpg"
+   ]
+  },
+  {
+   "step": 16,
+   "title": "",
+   "lines": [
+    "The lower LCD assembly lifts out without any trouble.",
+    "The 2.42\" x 1.81\" LCD with 320 x 240 pixel resolution is capable of displaying 16.77 million colors.",
+    "The digitizer on the bottom display is much thicker than those found on most cellphones, most likely due to the fact that the touch display is used with a stylus, rather than a fingertip.",
+    "Also, the lower microphone can be pulled out of the case at this point."
+   ],
+   "images": [
+    "step16_1.jpg",
+    "step16_2.jpg",
+    "step16_3.jpg"
+   ]
+  },
+  {
+   "step": 17,
+   "title": "",
+   "lines": [
+    "Whereas older versions of the DS had four rubber screw covers on the front display bezel, Nintendo opted for a sleeker approach for their new system by adhering a front panel to the bezel to hide the screws.",
+    "A little bit of help from a [product|IF145-031|heat gun] and a [product|IF145-000|plastic opening tool] gives us fairly easy access to the upper display."
+   ],
+   "images": [
+    "step17_1.jpg",
+    "step17_2.jpg"
+   ]
+  },
+  {
+   "step": 18,
+   "title": "",
+   "lines": [
+    "The rear bezel lifts off the display after removing six Phillips screws to reveal the speakers, Wi-Fi antenna, and upper LCD.",
+    "To continue the disassembly, we have to separate the hinges and do a bunch of cringe-inducing threading of ribbon cables through the hollow hinges.",
+    "Threading the upper display and camera cables through the tiny hinge tube is something that Nintendo undoubtedly accomplishes by the use of robotic machinery."
+   ],
+   "images": [
+    "step18_1.jpg",
+    "step18_2.jpg",
+    "step18_3.jpg"
+   ]
+  },
+  {
+   "step": 19,
+   "title": "",
+   "lines": [
+    "All three cameras are connected together via one ribbon cable. We're finding this to be a trend amongst the smaller multiple-camera devices, and it makes sense -- the info needs to go to the same place to be processed.",
+    "It's official -- this is the most camera-laden device we've ever taken apart."
+   ],
+   "images": [
+    "step19_1.jpg",
+    "step19_2.jpg"
+   ]
+  },
+  {
+   "step": 20,
+   "title": "",
+   "lines": [
+    "The stereo speaker assembly provides the ~~tight bass and crisp highs~~ adequate, tinny sounds people have come to expect from portable devices.",
+    "These speakers play more than just game sounds; the Nintendo 3DS is compatible with both MP3 and AAC files, but we doubt it will be replacing anyone's iPod in the foreseeable future.",
+    "The speaker assembly ribbon cable also contains the 3D field of view adjustment slider and the dual camera status LED."
+   ],
+   "images": [
+    "step20_1.jpg"
+   ]
+  },
+  {
+   "step": 21,
+   "title": "",
+   "lines": [
+    "After removing the speakers, the top LCD module comes right out.",
+    "There's three cable connectors for this LCD -- to display the image, as well as for the [http://en.wikipedia.org/wiki/Parallax_barrier|parallax barrier] that gives the \"3D\" effect in the 3DS' games.",
+    "Our friends over at [http://techon.nikkeibp.co.jp/english/|Nikkei Electronics' Tech-On] disassembled the LCD panel a little bit further than we did, finding [http://techon.nikkeibp.co.jp/english/NEWS_EN/20110302/190006/|six discrete optical elements]."
+   ],
+   "images": [
+    "step21_1.jpg",
+    "step21_2.jpg"
+   ]
+  },
+  {
+   "step": 22,
+   "title": "",
+   "lines": [
+    "Nintendo 3DS Repairability Score: '''5 out of 10''' (10 is easiest to repair)",
+    "The battery is easily swappable by removing the back cover.",
+    "No proprietary Tri-Wing screws were used, just Phillips #00.",
+    "The top display's cables are routed in such a way that it makes them quite frustrating to remove without ripping them off, and just as difficult to re-seat properly during device reassembly.",
+    "There's tons of little components inside the 3DS, which may potentially cause problems if you happen to lose one while performing a repair.",
+    "The majority of connectors are ZIF, and it's difficult to ensure each one is connected properly without reassembling the whole thing and starting up the device.",
+    "The headphone jack and charging connector are soldered to the motherboard, meaning you need to take out your soldering iron if you accidentally break them."
+   ],
+   "images": [
+    "step22_1.jpg",
+    "step22_2.jpg"
+   ]
+  }
+ ]
+}

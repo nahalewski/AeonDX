@@ -1,0 +1,161 @@
+{
+ "guideid": 117948,
+ "title": "New Nintendo 2DS XL Top Screen  Replacement",
+ "category": "New Nintendo 2DS XL",
+ "type": "replacement",
+ "author": "Chris Julian",
+ "url": "https://www.ifixit.com/Guide/New+Nintendo+2DS+XL+Top+Screen++Replacement/117948",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Prepare for disassembly",
+   "lines": [
+    "Before you begin, power off the console and remove:",
+    "The stylus",
+    "Any game cartridge",
+    "The microSD card"
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Remove the back cover screws",
+   "lines": [
+    "Use a tri\u2011point Y00 screwdriver to remove the four 6 mm\u2011long screws located at the four corners of the bottom panel."
+   ],
+   "images": [
+    "step02_1.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "Release the back cover clips",
+   "lines": [
+    "Use a spudger to gently pry around the two short edges and front edge (with the stylus cut\u2011out) to release the clips securing the back cover.",
+    "Swing the back cover open from its front edge to release the clips along the hinge edge. Don't remove it fully\u2014three cables are connecting it to the motherboard (two on each side and one in the rear)."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "Disconnect the back cover",
+   "lines": [
+    "Use [product|IF145-020|tweezers] to disconnect the two cables that connect the rear buttons on either side to the motherboard by gently pulling them upwards.",
+    "Fold the back cover over the hinge edge, keeping the cable connected. ***Don't strain the cable.***"
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg",
+    "step04_3.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "Battery Removal",
+   "lines": [
+    "The battery is lightly adhered to its enclosure.",
+    "Use the flat end of a spudger to gently pry the battery out of its plastic enclosure."
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "Disconnect Top Screen",
+   "lines": [
+    "Release the top screen ribbon cable in image 1. Thread it through the rectangular slot below the [product|IF145-020|tweezers].",
+    "Carefully coil the ribbon cable and prepare to slide it through the cylinder hinge."
+   ],
+   "images": [
+    "step06_1.jpg",
+    "step06_2.jpg",
+    "step06_3.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "Remove Plastic Plate",
+   "lines": [
+    "Remove the two screws holding the plastic cover plate down to reveal the red wifi wire which will come out along with the top screen and case."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "Disconnect Wi-fi Antenna",
+   "lines": [
+    "Disconnect the wifi wire and unclip it along its path around the battery tray and under the plastic plate we removed before.",
+    "Slide out the cylinder that holds the other side of the hinge together.",
+    "On my 2DS XL, I wiggled the top half of the case and the cylinder wiggled out enough to grab it with the tweezers."
+   ],
+   "images": [
+    "step08_1.jpg",
+    "step08_2.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "Remove Top Screen and Shell",
+   "lines": [
+    "Finish sliding the ribbon cable through the hinge and free the red wifi wire, as well.",
+    "The top part of the case is now free, and you are okay to set the rest of the 2DS XL aside for reassembly.",
+    "I apologize for the quality of the picture, but as you can see, the cable slides through a slot on the top case's hinge body. carefully slide the cable out of the slot and free the cable from the two pins holding it down to the case frame."
+   ],
+   "images": [
+    "step09_1.jpg",
+    "step09_2.jpg"
+   ]
+  },
+  {
+   "step": 10,
+   "title": "Remove Plastic Plate",
+   "lines": [
+    "Insert a spudger along the edge of the plastic plate on the top shell. Pry up gently until the glue releases. There is a large glue pad under this plate, but there is nothing else holding it on.",
+    "After prying off the plate, there are four screws marked in the rings to release the back plate from the screen plate.",
+    "Once the screws are removed, lift off the back plate to reveal the screen and plastic trim."
+   ],
+   "images": [
+    "step10_1.jpg",
+    "step10_2.jpg",
+    "step10_3.jpg"
+   ]
+  },
+  {
+   "step": 11,
+   "title": "Separate Screen and Bezel",
+   "lines": [
+    "Gently pry around the top edge of the case. As you can see, my case is cracked, but not as a result of this repair. This plastic is very thin, so do be careful working your way around the case.",
+    "The front lens is plastic, but it is held to the frame with glue pads. Using multiple soft tools, work your way around the lens to free the lens and the screen from the frame bezel.",
+    "You can now set aside the bezel for reassembly."
+   ],
+   "images": [
+    "step11_1.jpg",
+    "step11_2.jpg",
+    "step11_3.jpg"
+   ]
+  },
+  {
+   "step": 12,
+   "title": "Remove Screen from Lens",
+   "lines": [
+    "Because the lens is plastic, I gently bent the lens away from the screen to release it. Using a spudger or pry tool will also be very useful here.",
+    "Once you have removed the screen, you are ready to replace the screen and begin reassembly.",
+    "Be very mindful of the ribbon cable as it goes back through the hinge during reassembly, as it can be damaged very easily."
+   ],
+   "images": [
+    "step12_1.jpg"
+   ]
+  }
+ ]
+}

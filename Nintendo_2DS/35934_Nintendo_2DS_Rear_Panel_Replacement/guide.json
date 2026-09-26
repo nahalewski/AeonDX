@@ -1,0 +1,44 @@
+{
+ "guideid": 35934,
+ "title": "Nintendo 2DS Rear Panel Replacement",
+ "category": "Nintendo 2DS",
+ "type": "replacement",
+ "author": "Fina Beauchamp",
+ "url": "https://www.ifixit.com/Guide/Nintendo+2DS+Rear+Panel+Replacement/35934",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Remove the ten Phillips screws attaching the rear panel."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "",
+   "lines": [
+    "The rear panel is attached to the motherboard by a ribbon cable, so be careful not to lift the rear panel too far from the device.",
+    "Carefully pull the rear panel straight up from the device."
+   ],
+   "images": [
+    "step02_1.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Use your fingernail or the flat end of a spudger to flip up the connector securing the ribbon cable to the motherboard",
+    "Remove the cable from the connector",
+    "Take the opportunity to remove the Left and Right triggers, they have hinges that may break and springs that may jump away."
+   ],
+   "images": [
+    "step03_1.jpg"
+   ]
+  }
+ ]
+}

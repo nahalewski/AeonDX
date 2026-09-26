@@ -1,0 +1,3 @@
+Photos and text: iFixit (https://www.ifixit.com), CC BY-NC-SA 3.0
+(https://creativecommons.org/licenses/by-nc-sa/3.0/).  Credit iFixit and each
+guide's author (INDEX.tsv) wherever a photo is used.

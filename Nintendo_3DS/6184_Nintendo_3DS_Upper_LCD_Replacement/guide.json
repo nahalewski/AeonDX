@@ -1,0 +1,23 @@
+{
+ "guideid": 6184,
+ "title": "Nintendo 3DS Upper LCD Replacement",
+ "category": "Nintendo 3DS",
+ "type": "replacement",
+ "author": "David Hodson",
+ "url": "https://www.ifixit.com/Guide/Nintendo+3DS+Upper+LCD+Replacement/6184",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Use your thumbs to push the upper LCD from the front out of the upper display bezel.",
+    "Remove the upper LCD."
+   ],
+   "images": [
+    "step01_1.jpg",
+    "step01_2.jpg"
+   ]
+  }
+ ]
+}

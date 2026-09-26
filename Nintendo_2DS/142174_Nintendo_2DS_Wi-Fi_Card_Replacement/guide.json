@@ -1,0 +1,128 @@
+{
+ "guideid": 142174,
+ "title": "Nintendo 2DS Wi-Fi Card Replacement",
+ "category": "Nintendo 2DS",
+ "type": "replacement",
+ "author": "Ella",
+ "url": "https://www.ifixit.com/Guide/Nintendo+2DS+Wi-Fi+Card+Replacement/142174",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Battery",
+   "lines": [
+    "Flip over the 2DS."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "",
+   "lines": [
+    "Remove the game cartridge, SD card and stylus if your console has them inserted."
+   ],
+   "images": [
+    "step02_1.jpg",
+    "step02_2.jpg",
+    "step02_3.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Undo the 2 Phillips #00 screws.",
+    "The screws will not completely detach from the battery cover."
+   ],
+   "images": [
+    "step03_1.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "Lift the battery cover up and pull it out."
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "Lift up the battery and remove it."
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "Wi-Fi Card",
+   "lines": [
+    "Remove the 10 Phillips #00 screws."
+   ],
+   "images": [
+    "step06_1.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "Carefully remove the rear panel.",
+    "There's a ribbon cable on the rear panel attached to the motherboard, so be very careful not to damage that cable!"
+   ],
+   "images": [
+    "step07_1.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "",
+   "lines": [
+    "Pull up the Wi-Fi card from the left side."
+   ],
+   "images": [
+    "step08_1.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "",
+   "lines": [
+    "Use a spudger or your fingernail to carefully pull up on the right side of Wi-Fi card. This'll disconnect the Wi-Fi card.",
+    "There's a cable behind the Wi-Fi card, so be very careful removing it!"
+   ],
+   "images": [
+    "step09_1.jpg"
+   ]
+  },
+  {
+   "step": 10,
+   "title": "",
+   "lines": [
+    "Flip over the Wi-Fi card."
+   ],
+   "images": [
+    "step10_1.jpg"
+   ]
+  },
+  {
+   "step": 11,
+   "title": "",
+   "lines": [
+    "Use a spudger or your fingernail to remove the cable from the Wi-Fi card."
+   ],
+   "images": [
+    "step11_1.jpg"
+   ]
+  }
+ ]
+}

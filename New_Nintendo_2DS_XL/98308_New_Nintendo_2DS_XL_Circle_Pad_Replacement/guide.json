@@ -1,0 +1,111 @@
+{
+ "guideid": 98308,
+ "title": "New Nintendo 2DS XL Circle Pad Replacement",
+ "category": "New Nintendo 2DS XL",
+ "type": "replacement",
+ "author": "Tim Newman",
+ "url": "https://www.ifixit.com/Guide/New+Nintendo+2DS+XL+Circle+Pad+Replacement/98308",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Prepare for disassembly",
+   "lines": [
+    "Before you begin, power off the console and remove:",
+    "The stylus",
+    "Any game cartridge",
+    "The microSD card"
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Remove the back cover screws",
+   "lines": [
+    "Use a tri\u2011point Y00 screwdriver to remove the four 6 mm\u2011long screws located at the four corners of the bottom panel."
+   ],
+   "images": [
+    "step02_1.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "Release the back cover clips",
+   "lines": [
+    "Use a spudger to gently pry around the two short edges and front edge (with the stylus cut\u2011out) to release the clips securing the back cover.",
+    "Swing the back cover open from its front edge to release the clips along the hinge edge. Don't remove it fully\u2014three cables are connecting it to the motherboard (two on each side and one in the rear)."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "Disconnect the back cover",
+   "lines": [
+    "Use [product|IF145-020|tweezers] to disconnect the two cables that connect the rear buttons on either side to the motherboard by gently pulling them upwards.",
+    "Fold the back cover over the hinge edge, keeping the cable connected. ***Don't strain the cable.***"
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg",
+    "step04_3.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "Battery Removal",
+   "lines": [
+    "The battery is lightly adhered to its enclosure.",
+    "Use the flat end of a spudger to gently pry the battery out of its plastic enclosure."
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "Disconnect the cameras",
+   "lines": [
+    "Flip the back cover over so it's resting on the motherboard. Reposition the back cover if needed to reveal the camera cable connector on the motherboard.",
+    "Use a spudger to pry up the hinged locking flap on the camera cable [guide|25629|ZIF connector|stepid=64969|new_window=true].",
+    "Use tweezers or your fingers to gently pull the cable out of its socket."
+   ],
+   "images": [
+    "step06_1.jpg",
+    "step06_2.jpg",
+    "step06_3.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "Circle Pad",
+   "lines": [
+    "Use a Phillips screwdriver to remove the two 7.5 mm\u2011long screws securing the circle pad.",
+    "Lift the circle pad module off its face plate and flip it over to access its cable connector on the motherboard.",
+    "A black plastic disc sits between the circle pad module and the circle pad stick. During reassembly, stand the unit on end and hang the plastic disc on the circle pad module. Then, hold the stick from the front and press them back together."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "",
+   "lines": [
+    "Use a spudger to flip up the hinged locking flap on the circle pad cable ZIF connector.",
+    "Pick up the circle pad module and pull its cable straight out of its connector to remove it."
+   ],
+   "images": [
+    "step08_1.jpg",
+    "step08_2.jpg",
+    "step08_3.jpg"
+   ]
+  }
+ ]
+}

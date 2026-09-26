@@ -1,0 +1,402 @@
+{
+ "guideid": 36346,
+ "title": "New Nintendo 3DS XL 2015 Teardown",
+ "category": "Nintendo 3DS XL 2015",
+ "type": "teardown",
+ "author": "Miroslav Djuric",
+ "url": "https://www.ifixit.com/Teardown/New+Nintendo+3DS+XL+2015+Teardown/36346",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "We braved a [https://d3nevzfk7ii3be.cloudfront.net/igi/4UBHqAd3kUWihJ2B.huge|gnarly midnight line] at our local GameStop to bring you this teardown. No expense was spared for your enjoyment.",
+    "Hot off the press, the Nintendo 3DS XL 2015 boasts the following tech specs:",
+    "\"Super-stable, face-tracking 3D\"",
+    "Addition of the C stick along with new ZL and ZR buttons",
+    "Built-in near-field communication (NFC) reader",
+    "Improved CPU performance",
+    "Upgraded rear-facing cameras and microSDHC support",
+    "*Charger ''[http://www.theverge.com/2015/2/11/8020655/nintendo-new-3ds-xl-charger-hard-to-buy|not included|new_window=true].'' Thankfully there's a [http://www.amazon.com/gp/product/B0024ZT3XO|simple solution|new_window=true] for that problem."
+   ],
+   "images": [
+    "step01_1.jpg",
+    "step01_2.jpg",
+    "step01_3.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "",
+   "lines": [
+    "Making its comeback debut, not seen since the Gamecube era, put your hands together for the C stick. All glory to the [link|http://www.reaxxion.com/wp-content/uploads/2014/12/247650380_4e3f25b5e0.jpg|C stick|new_window=true].",
+    "We haven't seen this sort of incredible technology since the [https://www.ifixit.com/Device/IBM_Laptop|ThinkPad|new_window=true].",
+    "How do these things work again?"
+   ],
+   "images": []
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "It's time for a face off between the New 3DS XL, and its older brother, the original 3DS XL.",
+    "Perhaps the biggest change is the shifting of the cartridge slot to the front of the device, making room for the new ZL and ZR buttons.",
+    "It looks like the New 3DS XL has lost some weight too! Weighing in at 329 grams, Nintendo has shaved 7 grams off of the original 336 gram weight.",
+    "The New 3DS XL is also slightly larger and thinner, coming in a 160 x 93.5 x 21.5 mm vs the original 156 x 93 x 22 mm.",
+    "Also the new one is ''shiny''."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg",
+    "step03_3.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "It's a bit hard to see, but there's a very subtle [http://en.wikipedia.org/wiki/Moir%C3%A9_pattern|moir\u00e9 pattern|new_window=true] on the New 3DS XL's shiny exterior.",
+    "The back cover shows off the usual disclaimer/manufacturer imagery, telling you this is the *New* version and not the old one.",
+    "You'll have to remove the stylus before disassembling your New 3DS. After pulling it out, we noticed it to be a bit different than the old one.",
+    "It's the same weight as the old one\u20141.8 grams, according to our ~~dealer~~ precision scale. Yet, it's a bit stubbier, and feels a little cheaper."
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg",
+    "step04_3.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "That's right, you need a [link|http://kotaku.com/you-need-a-friggin-screwdriver-to-change-memory-cards-i-1679808994|frickin' screwdriver|new_window=true] to replace the (now micro) SD card. Gone are the days of flappy door access.",
+    "At least they're captive screws so you don't have to worry about losing them.",
+    "And once you're inside, the card and battery are easily accessible.",
+    "And very easily removable..."
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg",
+    "step05_3.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "Battery removal and installation in 3 seconds. Hey Apple, take note. This is how it's done."
+   ],
+   "images": []
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "Two teardowns for the price of one! We never gave you an original 3DS XL teardown (although we have [[Topic:Nintendo 3DS XL|many lovely guides|new_window=true]]), so here's the skinny on batteries, at least.",
+    "On the left is the New 3DS XL battery, with the \"old\" 3DS XL battery on the right.",
+    "It seems Nintendo didn't bother upgrading the battery in the New 3DS XL. Both models feature a 3.7 V, 1750 mAh battery rated at 6.5 Wh.",
+    "Here's a point where the New 3DS XL isn't quite as new as we thought! We tested, and the batteries are interchangeable between both 3DS XL models."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "",
+   "lines": [
+    "All it takes is a push from a fingernail to get the micro SD card out of its tiny house. So out it went with little effort on our part.",
+    "Speaking of removing the micro SD card, if you're upgrading from a 3DS, 2DS, or 3DS XL, check out our (and Nintendo's) [https://www.ifixit.com/Guide/How+To+Transfer+Content+To+Your+New+3DS+XL/36349|guide on how to transfer your data|new_window=true].",
+    "Nintendo hid two screws under a couple of rubber feet; the other six were exposed when we removed the bottom cover. We've been in this game long enough to not fall for that hidden-screw trick.",
+    "We push-pinned those little rubbers out of the 3DS, and presto-blamo \u2014 cracked it open!"
+   ],
+   "images": [
+    "step08_1.jpg",
+    "step08_2.jpg",
+    "step08_3.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "",
+   "lines": [
+    "What \"new\" magic awaits inside the New 3DS XL? Let's find out!",
+    "The flappy shoulder bumper buttons stay in the lower case, so we employ a bit of cable-spudgering to separate the pieces.",
+    "It looks like Nintendo doesn't care much for internal appearances \u2014 they left some uncured powder coat on the interior of the lower case."
+   ],
+   "images": [
+    "step09_1.jpg",
+    "step09_2.jpg"
+   ]
+  },
+  {
+   "step": 10,
+   "title": "",
+   "lines": [
+    "Okay, what [http://en.wikipedia.org/wiki/Ouroboros|Ouroboros|new_window=true] business is going on here?",
+    "The circle pad cable is weirdly wrapped over its own ZIF connector, hindering access to...itself.",
+    "Our first inclination was to disconnect the ZIF connector and proceed with removing the motherboard. But it's such a tiny, frail connector, and cable, that we decided to remove the assembly first.",
+    "Out the circle pad goes! More on that in just a jiffy \u2014 first we focus on the motherboard."
+   ],
+   "images": [
+    "step10_1.jpg",
+    "step10_2.jpg"
+   ]
+  },
+  {
+   "step": 11,
+   "title": "",
+   "lines": [
+    "Once we got inside, our trusty Phillips drivers started to mysteriously let us down\u2014these screws seemed to be in between two sizes.",
+    "Surprise, they're [http://en.wikipedia.org/wiki/Japanese_Industrial_Standards|JIS|new_window=true]! Now, where do we get ahold of a [product|IF145-022|JIS bit|new_window=true]...",
+    "With our driver properly equipped, the motherboard comes flying out without delay...",
+    "...or not? There's not one, but ''two'' cables attached to the rear of the motherboard, just to make things tricky.",
+    "Boy, [https://d3nevzfk7ii3be.cloudfront.net/igi/ANGNNhLGB2uOWghs|reassembly's gonna be fun|new_window=true]."
+   ],
+   "images": [
+    "step11_1.jpg",
+    "step11_2.jpg",
+    "step11_3.jpg"
+   ]
+  },
+  {
+   "step": 12,
+   "title": "",
+   "lines": [
+    "With the motherboard extracted, we're free to remove the microSDHC reader.",
+    "Nintendo claims that the New 3DS XL will support microSDHC cards [http://en-americas-support.nintendo.com/app/answers/detail/a_id/13995/~/microsd-cards-that-have-been-tested-to-work-with-the-new-nintendo-3ds-xl|up to 32 GB|new_window=true], which is plenty of space for storing all of your files, like a [https://www.youtube.com/watch?v=8VkshYOHbdE|10 hour loop of the Super Mario Bros. theme song|new_window=true], or all of your digitally downloaded games."
+   ],
+   "images": [
+    "step12_1.jpg"
+   ]
+  },
+  {
+   "step": 13,
+   "title": "",
+   "lines": [
+    "It's time for some motherboard action!",
+    "Nintendo 1446 17 CPU LGR A (custom CPU, [http://www.itproportal.com/2011/03/28/exclusive-nintendo-3ds-chip-analysis-reveals-tiny-arm-core/|likely based on an ARM core|new_window=true])",
+    "Atheros [https://chipworks.secure.force.com/catalog/ProductDetails?sku=ATH-AR6014G-AL1C|AR6014G-AL1C|new_window=true] Wi-Fi SoC",
+    "Samsung KLM4G1YEMD-B031 4 GB eMMC NAND Flash",
+    "Fujitsu 82MK9A9A 7LFCRAM 1445 962 [link|http://www.fujitsu.com/global/products/devices/semiconductor/memory/fcram/|FCRAM|new_window=true] (Fast Cycle RAM)",
+    "Texas Instruments 93045A4 49AF3NW G2 (Possibly Power Management IC)",
+    "Renesas Electronics UC KTR 442KM13 TK14"
+   ],
+   "images": [
+    "step13_1.jpg"
+   ]
+  },
+  {
+   "step": 14,
+   "title": "",
+   "lines": [
+    "The back of the motherboard has a few goodies as well.",
+    "Texas Instruments AIC3010D 48C01JW (Possibly Codec IC)",
+    "NXP S750 1603 TSD438C Infrared IC",
+    "Texas Instruments [http://www.ti.com/lit/ds/scps194b/scps194b.pdf|PH416A|new_window=true] I/O Expander"
+   ],
+   "images": [
+    "step14_1.jpg"
+   ]
+  },
+  {
+   "step": 15,
+   "title": "",
+   "lines": [
+    "Break time: We did a quick reassembly, followed by a nostalgia overload.",
+    "My my, how far we've come since the good ol' days.",
+    "Now that the tech writers are fed and caffeinated, we'll be moving on..."
+   ],
+   "images": [
+    "step15_1.jpg",
+    "step15_2.jpg"
+   ]
+  },
+  {
+   "step": 16,
+   "title": "",
+   "lines": [
+    "Hey guys, ever wonder how a circle pad works? Yeah? We did too!",
+    "Allow us to present to you [http://ifix.gd/1DMFnvK|Xzibit A:|new_window=true] the internals of the circle pad. Here it is in action.",
+    "But wait, there's more!"
+   ],
+   "images": []
+  },
+  {
+   "step": 17,
+   "title": "",
+   "lines": [
+    "The circle pad consists of a small, donut-ish PCB with traces, a backing plate, and the spring-loaded X-Y sliders.",
+    "The X-Y sliders each have two metal contacts that are always touching the PCB.",
+    "As you move the sliders up/down and left/right, the metal contacts are adjusting the resistance of the circuit on the PCB.",
+    "This, in turn, is registered as movement in whatever game you're playing.",
+    "Regarding the spring-loaded sliders: A spring inside the mechanism makes the \"stick\" always return to center. If you wanted to convert the circle pad to more of a \"throttle\" type joystick \u2014 where it doesn't return to center automatically \u2014 all you would have to do is take the circle pad apart and remove the spring found within.",
+    "This precarious conversion should only be undertaken by the truly dedicated among us."
+   ],
+   "images": [
+    "step17_1.jpg",
+    "step17_2.jpg",
+    "step17_3.jpg"
+   ]
+  },
+  {
+   "step": 18,
+   "title": "",
+   "lines": [
+    "Ah, the game cartridge reader. It sure does bring back memories of the good 'ol days of blowing into the cartridge.",
+    "For all the internal space dedicated to the cartridge reader, and with so many downloadable titles, we're wondering how much longer physical media will be a part of Nintendo handhelds."
+   ],
+   "images": [
+    "step18_1.jpg",
+    "step18_2.jpg",
+    "step18_3.jpg"
+   ]
+  },
+  {
+   "step": 19,
+   "title": "",
+   "lines": [
+    "Oh hey, the button board comes out!",
+    "The ABXY buttons are right on the board, but the C stick can come and go as it pleases.",
+    "Said C stick doesn't actually move or push anything, and therefore seems to be powered by magic.",
+    "You nudge it with your finger, and the 3DS just ''knows''. Our best guess is that this actually uses strain gauges to sense how hard you're pushing."
+   ],
+   "images": [
+    "step19_1.jpg",
+    "step19_2.jpg",
+    "step19_3.jpg"
+   ]
+  },
+  {
+   "step": 20,
+   "title": "",
+   "lines": [
+    "With the cartridge reader out of the way, we easily remove the D-pad buttons.",
+    "Fastest way to get half a dozen button covers out of a half-disassembled 3DS XL?",
+    "(Shake, Shake, Shake) [https://www.youtube.com/watch?v=N1YXcD0njts#t=35|Shake Your Buttons|new_window=true]."
+   ],
+   "images": [
+    "step20_1.jpg",
+    "step20_2.jpg"
+   ]
+  },
+  {
+   "step": 21,
+   "title": "",
+   "lines": [
+    "The lower screen has a large black frame, perhaps as a defense against over-eager tapping.",
+    "This frame also houses what appears to be the NFC antenna for [http://static1.gamespot.com/uploads/original/1406/14063904/2557630-amiibo_img03_e3_formediadistro.png|Amiibo|new_window=true] figurines.",
+    "Always one to [http://img.pandawhale.com/61662-Steve-buscemi-How-do-you-do-fe-uwqM.gif|stay hip with the kids|new_window=true], Nintendo has expanded beyond [http://en.wikipedia.org/wiki/Augmented_reality|AR|new_window=true] cards to the collect-to-game cash cow."
+   ],
+   "images": [
+    "step21_1.jpg",
+    "step21_2.jpg"
+   ]
+  },
+  {
+   "step": 22,
+   "title": "",
+   "lines": [
+    "Poppin' the lower LCD off some adhesive seems scary, but isn't too bad. No heat required!",
+    "There's a protective plastic film over the lower screen, both to protect the LCD and enable the touch action, so we feel pretty safe pushing on it.",
+    "The plastic LCD cover is threaded with a very-faintly-visible grid of dots. We didn't notice it at first, and taking a photo of it is near impossible \u2014 but it's there! We promise!",
+    "[http://en.wikipedia.org/wiki/Resistive_touchscreen|Resistive touchscreens] like this one rely on contact between two layers of resistive material to register a touch. This way you can use a [http://en.wikipedia.org/wiki/Touchscreen#Capacitive|capacitative-touch]-unfriendly stylus."
+   ],
+   "images": [
+    "step22_1.jpg",
+    "step22_2.jpg"
+   ]
+  },
+  {
+   "step": 23,
+   "title": "",
+   "lines": [
+    "We were told this is a dual screen unit. Time to see what's up on the top screen.",
+    "Four hidden screws and plastic clips along the perimeter hold the secret to its undoing.",
+    "Our opening pick makes the perfect tool for prying apart the two halves of the top case.",
+    "Want to see pictures of our cats? Nah, just kidding, that's not a wallet, it's the back of the LCD. [http://www.johnlund.com/Images/Funny-animal-home-repair.jpg|These are our cats]."
+   ],
+   "images": [
+    "step23_1.jpg",
+    "step23_2.jpg",
+    "step23_3.jpg"
+   ]
+  },
+  {
+   "step": 24,
+   "title": "",
+   "lines": [
+    "It is here that we realize the 3DS XL is basically built like a giant flip phone.",
+    "One side of the hinge is held together with a pin, and the other is hollow to allow the display, audio, and camera, and antenna cables through.",
+    "With the hinge pin popped, the lower assembly slides off the hollow pin, and the cables take refuge in a slot, ready for separation."
+   ],
+   "images": [
+    "step24_1.jpg",
+    "step24_2.jpg"
+   ]
+  },
+  {
+   "step": 25,
+   "title": "",
+   "lines": [
+    "Let's just remove the camera bar. Oh wait.",
+    "There are several cables leading into the side of the display assembly. Our bet is that these control the parallax barrier, used to generate that awesome glasses-less 3D effect.",
+    "What's a [http://en.wikipedia.org/wiki/Parallax_barrier|parallax barrier|new_window=true]? Imagine placing a very small picket fence in front of your screen, so that when you look at the display, each eye sees different pixels while they peer around the fence boards.",
+    "Then, with a combination of the magic of geometry, and the new face-tracking \"super-stable 3D\", the 3DS knows which pixels each eye can see, and draws two overlapping versions of the same scene\u2014one for each eye. The combination of these two versions gets slapped together in your thinkpan as a sweet, sweet stereoscopic 3D image."
+   ],
+   "images": [
+    "step25_1.jpg",
+    "step25_2.jpg",
+    "step25_3.jpg"
+   ]
+  },
+  {
+   "step": 26,
+   "title": "",
+   "lines": [
+    "Good news: The display assembly is only mildly adhered to the frame, meaning we can pop it free with little effort.",
+    "Bad news: Its ribbon cable, and two others, are routed through the hinge, and need to be rolled up and pulled through in a horrible, painstaking, risky maneuver.",
+    "But then it's free!"
+   ],
+   "images": [
+    "step26_1.jpg",
+    "step26_2.jpg",
+    "step26_3.jpg"
+   ]
+  },
+  {
+   "step": 27,
+   "title": "",
+   "lines": [
+    "Front and rear camera(s) bar! Nintendo combined all three cameras into a single bar and cable.",
+    "The front camera is watching your every move, in an effort to serve you the best possible 3D with the least possible jitter.",
+    "The dual rear-facing cameras track AR cards, and take photos with apparently improved low-light capture.",
+    "Sadly, there isn't much component information here. There are no tell-tale inscriptions on either camera board or cables, aside from a vague QR code label that reads \"3600 4C11 03YG.\""
+   ],
+   "images": [
+    "step27_1.jpg",
+    "step27_2.jpg"
+   ]
+  },
+  {
+   "step": 28,
+   "title": "",
+   "lines": [
+    "Nintendo 3DS XL 2015 Repairability Score: '''5 out of 10''' (10 is easiest to repair)",
+    "The battery is fairly easily swappable by unscrewing two screws and removing the back cover.",
+    "Screws and plastic clips are the primary fasteners, rather than adhesive. Also, no Proprietary screw types are used\u2014only Phillips and JIS.",
+    "The top display's cables are routed in such a way that it makes them quite frustrating to remove without ripping them off, and just as difficult to re-seat properly during device reassembly.",
+    "There are tons of little components inside the 3DS, which may potentially cause problems if you happen to lose one while performing a repair.",
+    "The majority of connectors are ZIF, and it's difficult to ensure each one is connected properly without reassembling the whole thing and starting up the device.",
+    "The headphone jack and charging connector are soldered to the motherboard, meaning you need to take out your soldering iron if you accidentally break them."
+   ],
+   "images": [
+    "step28_1.jpg",
+    "step28_2.jpg"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,336 @@
+{
+ "guideid": 25071,
+ "title": "Nintendo 3DS XL Touchscreen Replacement",
+ "category": "Nintendo 3DS XL",
+ "type": "replacement",
+ "author": "Charlene Donlon",
+ "url": "https://www.ifixit.com/Guide/Nintendo+3DS+XL+Touchscreen+Replacement/25071",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Remove the back cover screws",
+   "lines": [
+    "Use a JIS 00 screwdriver to loosen the 4.2 mm\u2011long screws on the top edge of the back cover.",
+    "The screws have locking washers that prevent the screws from falling out. Keep these in place."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Remove the back cover",
+   "lines": [
+    "Use a plastic opening tool to pry off the clips securing the back cover, starting at the top corners and working your way down.",
+    "Use your hands to keep the clips from reattaching.",
+    "Use your hands to remove the back cover."
+   ],
+   "images": [
+    "step02_1.jpg",
+    "step02_2.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Insert the plastic opening tool into the opening located on the right side of the battery.",
+    "Pry the battery out of its recess and remove it."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg",
+    "step03_3.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "Using [product|IF145-020|tweezers] pull out the rubber bumpers that are located at the top of the device on either side of the game cartridge compartment."
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "Remove the six 6.2 mm screws using a Phillips #00 screwdriver"
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "Remove the 2.3 mm screw located above the game cartridge slot with a Phillips #00 screwdriver."
+   ],
+   "images": [
+    "step06_1.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "Make sure the SD card has been removed.",
+    "With a plastic opening tool pry off the lower case starting at the bottom edge and working around the perimeter.",
+    "Two ribbon cables connect the case to the circuit board. Be careful to not pull the case too hard and rip the ribbon cables."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg",
+    "step07_3.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "",
+   "lines": [
+    "Disconnect the ribbon cables located underneath the left and right bumpers by prying up the base of the cables with a plastic opening tool.",
+    "Completely remove the lower case from the rest of the device and set aside."
+   ],
+   "images": [
+    "step08_1.jpg",
+    "step08_2.jpg",
+    "step08_3.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "",
+   "lines": [
+    "Position the device such that the game cartridge slot is located at the top.",
+    "Locate the circle pad on the right side of the device.",
+    "Remove the two 7.5 mm screws on the upper left and the bottom right corners."
+   ],
+   "images": [
+    "step09_1.jpg",
+    "step09_2.jpg"
+   ]
+  },
+  {
+   "step": 10,
+   "title": "",
+   "lines": [
+    "Using a plastic opening tool pop off the circle pad joystick.",
+    "Do not use excessive force with the plastic opening tool. There is a ribbon attaching the circle pad joystick to the motherboard that will remain attached.",
+    "There is a loose washer located in between the circle pad joystick and the circle pad. Use caution and do not lose this piece."
+   ],
+   "images": [
+    "step10_1.jpg",
+    "step10_2.jpg"
+   ]
+  },
+  {
+   "step": 11,
+   "title": "",
+   "lines": [
+    "Using the flat head side of the spudger carefully lift up the retaining flap that attaches the circle pad ribbon to the motherboard.",
+    "Remove the ribbon and circle pad joystick.",
+    "To remove the circle pad joystick, remove the thin ring of plastic under the back of the circle pad, and set it aside. Then, rotate the pad to make it slip out."
+   ],
+   "images": [
+    "step11_1.jpg",
+    "step11_2.jpg"
+   ]
+  },
+  {
+   "step": 12,
+   "title": "",
+   "lines": [
+    "Position the device such that the game cartridge slot is located at the top.",
+    "Locate the IR board on the upper right side of the motherboard.",
+    "The IR board is installed ''upside-down'' in these photos by mistake. Installing it this way will result in your DS failing to start. Note the orientation of your IR board before you remove it, and reinstall it the same way.",
+    "Remove the IR board with a plastic opening tool by inserting the tool below the IR board and gently prying up."
+   ],
+   "images": [
+    "step12_1.jpg",
+    "step12_2.jpg"
+   ]
+  },
+  {
+   "step": 13,
+   "title": "",
+   "lines": [
+    "Using a plastic opening tool, pry off the Wi-Fi board.",
+    "The Wi-Fi board will still be connected by a wire and it is not necessary to completely remove it for this step. Simply place it out of the way for this step."
+   ],
+   "images": [
+    "step13_1.jpg",
+    "step13_2.jpg"
+   ]
+  },
+  {
+   "step": 14,
+   "title": "",
+   "lines": [
+    "Locate the volume switch on the right side of the motherboard next to the circle pad joystick.",
+    "Using [product|IF145-020|tweezers], carefully remove the volume board from the casing. It will still be attached to the motherboard by a ribbon cable."
+   ],
+   "images": [
+    "step14_1.jpg",
+    "step14_2.jpg"
+   ]
+  },
+  {
+   "step": 15,
+   "title": "",
+   "lines": [
+    "Using the flat head side of the spudger carefully lift up the flap that attaches the volume board ribbon to the motherboard.",
+    "Remove the volume board and set aside."
+   ],
+   "images": [
+    "step15_1.jpg"
+   ]
+  },
+  {
+   "step": 16,
+   "title": "",
+   "lines": [
+    "Remove the black plastic pieces from the lower left and right hand corners with either your fingers or tweezers.",
+    "You can also remove these pieces easily by carefully lifting up the 3DS and holding it upside-down. They normally fall right out, but don't lose them!"
+   ],
+   "images": [
+    "step16_1.jpg",
+    "step16_2.jpg"
+   ]
+  },
+  {
+   "step": 17,
+   "title": "",
+   "lines": [
+    "Using the flat head side of the spudger carefully lift up the flaps that attach the two smaller ribbons to the motherboard.",
+    "These flaps are located on the top right and bottom right side of the motherboard.",
+    "Remove the ribbons from the flaps."
+   ],
+   "images": [
+    "step17_1.jpg",
+    "step17_2.jpg",
+    "step17_3.jpg"
+   ]
+  },
+  {
+   "step": 18,
+   "title": "",
+   "lines": [
+    "Using the flat head side of the spudger carefully lift up the flaps that attach the wider ribbons to the motherboard.",
+    "For the wider ribbons make sure to lift the flaps from the white side.",
+    "Remove the ribbons from the opened flaps."
+   ],
+   "images": [
+    "step18_1.jpg",
+    "step18_2.jpg",
+    "step18_3.jpg"
+   ]
+  },
+  {
+   "step": 19,
+   "title": "",
+   "lines": [
+    "Using the flat head side of the spudger carefully lift up the flap that attaches the ribbon to the motherboard.",
+    "For this flap lift from the black side.",
+    "Remove the ribbon from the flap.",
+    "***Reassembly: ***This wide ribbon is the one with the ***black stripe*** and goes on the upper (visible) side of the motherboard during reassembly."
+   ],
+   "images": [
+    "step19_1.jpg",
+    "step19_2.jpg"
+   ]
+  },
+  {
+   "step": 20,
+   "title": "",
+   "lines": [
+    "Use a Phillips #00 screwdriver to remove ten 3.0 mm screws that are located around the face of the motherboard."
+   ],
+   "images": [
+    "step20_1.jpg",
+    "step20_2.jpg"
+   ]
+  },
+  {
+   "step": 21,
+   "title": "",
+   "lines": [
+    "The motherboard will still be attached at the top right hand corner so do not completely detach it at this point.",
+    "Carefully lift the board straight up just enough to clear the two plastic mounts located near the top corners of the cartridge slot.",
+    "Gently flip the motherboard over the top side."
+   ],
+   "images": [
+    "step21_1.jpg",
+    "step21_2.jpg"
+   ]
+  },
+  {
+   "step": 22,
+   "title": "",
+   "lines": [
+    "Be very careful not to tear the cable during this step.",
+    "Using the flat head side of the spudger carefully lift up the flap that attaches the wider ribbon on the upper right side to the motherboard.",
+    "Make sure to lift the flap from the white side.",
+    "Remove the ribbon from the opened flap.",
+    "Set the motherboard aside."
+   ],
+   "images": [
+    "step22_1.jpg",
+    "step22_2.jpg"
+   ]
+  },
+  {
+   "step": 23,
+   "title": "",
+   "lines": [
+    "Open the device's hinge.",
+    "Gently press upward on the touchscreen until it separates from the casing.",
+    "If you are replacing the touchscreen assembly (touch digitizer & display), this is the final step. Continue to the next step if you are replacing the display separately from the touch digitizer."
+   ],
+   "images": [
+    "step23_1.jpg",
+    "step23_2.jpg"
+   ]
+  },
+  {
+   "step": 24,
+   "title": "Separate the touchscreen",
+   "lines": [
+    "Starting at the bottom right corner, insert the flat end of a spudger between the touch digitizer and LCD frame and gently pry the touchscreen off the LCD.",
+    "Do not run the spudger down the side of the display assembly to loosen the touch digitizer. The two components of the display assembly are held together by a fairly weak adhesive tape, and running the spudger between the two could tangle or damage the tape.",
+    "Insert the spudger into the top right corner between the two pieces and pry the touch digitizer off the LCD frame."
+   ],
+   "images": [
+    "step24_1.jpg",
+    "step24_2.jpg"
+   ]
+  },
+  {
+   "step": 25,
+   "title": "",
+   "lines": [
+    "Repeat the above procedure for the remaining two corners to pry the touch digitizer off the LCD frame."
+   ],
+   "images": [
+    "step25_1.jpg",
+    "step25_2.jpg"
+   ]
+  },
+  {
+   "step": 26,
+   "title": "",
+   "lines": [
+    "Gently lift the touch digitizer up to completely separate it from the lower LCD.",
+    "If your replacement touch digitizer does not include new adhesive, use [product|IF317-072-6|thin, double-sided tape|new_window=true] instead"
+   ],
+   "images": [
+    "step26_1.jpg"
+   ]
+  }
+ ]
+}

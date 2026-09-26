@@ -1,0 +1,146 @@
+{
+ "guideid": 25074,
+ "title": "Nintendo 3DS XL Circle Pad Replacement",
+ "category": "Nintendo 3DS XL",
+ "type": "replacement",
+ "author": "Charlene Donlon",
+ "url": "https://www.ifixit.com/Guide/Nintendo+3DS+XL+Circle+Pad+Replacement/25074",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Remove the back cover screws",
+   "lines": [
+    "Use a JIS 00 screwdriver to loosen the 4.2 mm\u2011long screws on the top edge of the back cover.",
+    "The screws have locking washers that prevent the screws from falling out. Keep these in place."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Remove the back cover",
+   "lines": [
+    "Use a plastic opening tool to pry off the clips securing the back cover, starting at the top corners and working your way down.",
+    "Use your hands to keep the clips from reattaching.",
+    "Use your hands to remove the back cover."
+   ],
+   "images": [
+    "step02_1.jpg",
+    "step02_2.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Insert the plastic opening tool into the opening located on the right side of the battery.",
+    "Pry the battery out of its recess and remove it."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg",
+    "step03_3.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "Using [product|IF145-020|tweezers] pull out the rubber bumpers that are located at the top of the device on either side of the game cartridge compartment."
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "Remove the six 6.2 mm screws using a Phillips #00 screwdriver"
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "Remove the 2.3 mm screw located above the game cartridge slot with a Phillips #00 screwdriver."
+   ],
+   "images": [
+    "step06_1.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "Make sure the SD card has been removed.",
+    "With a plastic opening tool pry off the lower case starting at the bottom edge and working around the perimeter.",
+    "Two ribbon cables connect the case to the circuit board. Be careful to not pull the case too hard and rip the ribbon cables."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg",
+    "step07_3.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "",
+   "lines": [
+    "Disconnect the ribbon cables located underneath the left and right bumpers by prying up the base of the cables with a plastic opening tool.",
+    "Completely remove the lower case from the rest of the device and set aside."
+   ],
+   "images": [
+    "step08_1.jpg",
+    "step08_2.jpg",
+    "step08_3.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "",
+   "lines": [
+    "Position the device such that the game cartridge slot is located at the top.",
+    "Locate the circle pad on the right side of the device.",
+    "Remove the two 7.5 mm screws on the upper left and the bottom right corners."
+   ],
+   "images": [
+    "step09_1.jpg",
+    "step09_2.jpg"
+   ]
+  },
+  {
+   "step": 10,
+   "title": "",
+   "lines": [
+    "Using a plastic opening tool pop off the circle pad joystick.",
+    "Do not use excessive force with the plastic opening tool. There is a ribbon attaching the circle pad joystick to the motherboard that will remain attached.",
+    "There is a loose washer located in between the circle pad joystick and the circle pad. Use caution and do not lose this piece."
+   ],
+   "images": [
+    "step10_1.jpg",
+    "step10_2.jpg"
+   ]
+  },
+  {
+   "step": 11,
+   "title": "",
+   "lines": [
+    "Using the flat head side of the spudger carefully lift up the retaining flap that attaches the circle pad ribbon to the motherboard.",
+    "Remove the ribbon and circle pad joystick.",
+    "To remove the circle pad joystick, remove the thin ring of plastic under the back of the circle pad, and set it aside. Then, rotate the pad to make it slip out."
+   ],
+   "images": [
+    "step11_1.jpg",
+    "step11_2.jpg"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,91 @@
+{
+ "guideid": 6004,
+ "title": "Nintendo 3DS Motherboard Assembly Replacement",
+ "category": "Nintendo 3DS",
+ "type": "replacement",
+ "author": "David Hodson",
+ "url": "https://www.ifixit.com/Guide/Nintendo+3DS+Motherboard+Assembly+Replacement/6004",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Grasp the microphone ribbon cable near the microphone with a pair of [product|IF145-020|tweezers].",
+    "Pull the microphone straight up out of the upper case."
+   ],
+   "images": [
+    "step01_1.jpg",
+    "step01_2.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "",
+   "lines": [
+    "Use the flat end of a spudger or your fingernail to flip up the retaining flap on the speaker assembly ribbon cable ZIF socket.",
+    "Be sure you are prying up on the hinged retaining flap, NOT the socket itself. Damaging the socket or cable will result in a 3DS that will blink its power LED when you press the power button - and do nothing else.",
+    "Disconnect the speaker assembly ribbon cable with a pair of tweezers."
+   ],
+   "images": [
+    "step02_1.jpg",
+    "step02_2.jpg",
+    "step02_3.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Use the flat end of a spudger or your fingernail to flip up the retaining flap on the camera ribbon cable ZIF socket.",
+    "Be sure you are prying up on the hinged retaining flap, '''not''' the socket itself.",
+    "When reassembling, note that the gold contacts face toward the motherboard (as opposed to the camera cable's gold contacts facing away)."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "Remove seven Phillips screws securing the motherboard to the upper case:",
+    "Four 2.5 mm gold screws",
+    "Two 3.5 mm black screws",
+    "One 2.5 mm silver screw",
+    "When you remove this screw the volume slider can fall out.",
+    "Lift the side of the motherboard that sits along the bottom edge of the 3DS."
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg",
+    "step04_3.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "Continue lifting the motherboard assembly and rotate it until it is resting next to the rest of the device.",
+    "Use the flat end of a spudger or your fingernail to flip up the retaining flap on the LCD ribbon cable ZIF socket.",
+    "Be sure you are prying up on the hinged retaining flap, '''not''' the socket itself. Damaging the socket or cable will result in a 3DS that won't have a functional top screen."
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg",
+    "step05_3.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "Remove the motherboard assembly from the rest of the device."
+   ],
+   "images": [
+    "step06_1.jpg"
+   ]
+  }
+ ]
+}

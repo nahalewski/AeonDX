@@ -1,0 +1,53 @@
+{
+ "guideid": 41066,
+ "title": "New Nintendo 3DS XL 2015 Battery Replacement",
+ "category": "Nintendo 3DS XL 2015",
+ "type": "replacement",
+ "author": "Kobbe Farwick",
+ "url": "https://www.ifixit.com/Guide/New+Nintendo+3DS+XL+2015+Battery+Replacement/41066",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Prepare the console",
+   "lines": [
+    "Fully power off the console and flip it upside down.",
+    "Remove the game card, headphones, charging cable, stylus, and anything else connected."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Loosen the back cover screws",
+   "lines": [
+    "Use a JIS 0 screwdriver to loosen the two black captive screws on the back cover.",
+    "The screws are held in place by captive washers and shouldn't be completely removed."
+   ],
+   "images": [
+    "step02_1.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "Remove the back cover",
+   "lines": [
+    "Pry off the back cover and remove it."
+   ],
+   "images": [
+    "step03_1.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "Insert an opening tool or the flat end of a spudger into the small notch above the battery and pry the battery out."
+   ],
+   "images": [
+    "step04_1.jpg"
+   ]
+  }
+ ]
+}

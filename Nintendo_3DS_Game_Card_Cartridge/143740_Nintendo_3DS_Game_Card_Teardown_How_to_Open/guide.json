@@ -1,0 +1,52 @@
+{
+ "guideid": 143740,
+ "title": "Nintendo 3DS Game Card Teardown/How to Open",
+ "category": "Nintendo 3DS Game Card (Cartridge)",
+ "type": "teardown",
+ "author": "Mr. L",
+ "url": "https://www.ifixit.com/Teardown/Nintendo+3DS+Game+Card+Teardown-How+to+Open/143740",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Locate the Tab on the Game Card",
+   "lines": [
+    "Find the tab on the left side of the cartridge."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Pry open the Cartridge",
+   "lines": [
+    "Use your fingernails to pop open the top from the bottom",
+    "BE CAREFUL WHILE DOING THIS. If you aren\u2019t careful, the game case may crack and or not go back together."
+   ],
+   "images": [
+    "step02_1.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "Pry around the rest of the Game Card with an Opening Tool",
+   "lines": [
+    "Go around all parts of the cartridge and do not crack the plastic."
+   ],
+   "images": [
+    "step03_1.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "Remove the top of the Cartridge",
+   "lines": [
+    "Remove the top of the Game Card with your fingers."
+   ],
+   "images": [
+    "step04_1.jpg"
+   ]
+  }
+ ]
+}

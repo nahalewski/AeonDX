@@ -1,0 +1,49 @@
+{
+ "guideid": 36349,
+ "title": "How To Transfer Content To Your New 3DS XL",
+ "category": "Nintendo 3DS XL 2015",
+ "type": "technique",
+ "author": "Geoff Wacker",
+ "url": "https://www.ifixit.com/Guide/How+To+Transfer+Content+To+Your+New+3DS+XL/36349",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Start by removing the stylus from the frame of the New 3DS XL."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "",
+   "lines": [
+    "Loosen the two captive Phillips #1 screws on the back of the device.",
+    "These captive screws will conveniently stay in the rear cover, so don't try to remove them.",
+    "Prying from the thumb slots on each side, pull the rear panel off the back of the device."
+   ],
+   "images": [
+    "step02_1.jpg",
+    "step02_2.jpg",
+    "step02_3.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Press the microSD card slightly deeper into its slot until you hear a click.",
+    "After the click, release the card and it will pop out of its slot.",
+    "Use a PC to copy the data from the source SD card to the New 3DS XL microSD card.",
+    "You may need a [http://www.amazon.com/Digital-Media-Source-MicroSDHC-Smartphones/dp/B001GGL7Z4/ref=sr_1_1?ie=UTF8&qid=1423838042&sr=8-1&keywords=micro+SD+to+SD+adapter|micro SD to SD adapter|new_window=true].",
+    "For reassembly, push the microSD card into the slot until it clicks in place."
+   ],
+   "images": [
+    "step03_1.jpg"
+   ]
+  }
+ ]
+}

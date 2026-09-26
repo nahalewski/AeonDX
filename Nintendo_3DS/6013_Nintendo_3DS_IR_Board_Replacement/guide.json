@@ -1,0 +1,24 @@
+{
+ "guideid": 6013,
+ "title": "Nintendo 3DS IR Board Replacement",
+ "category": "Nintendo 3DS",
+ "type": "replacement",
+ "author": "David Hodson",
+ "url": "https://www.ifixit.com/Guide/Nintendo+3DS+IR+Board+Replacement/6013",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Insert the flat end of a spudger between the IR board and the motherboard.",
+    "Pry the IR board off its socket on the motherboard.",
+    "Remove the IR board from the motherboard."
+   ],
+   "images": [
+    "step01_1.jpg",
+    "step01_2.jpg"
+   ]
+  }
+ ]
+}

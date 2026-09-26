@@ -1,0 +1,153 @@
+{
+ "guideid": 72240,
+ "title": "Nintendo 3DS 2015 Circle Pad Replacement",
+ "category": "Nintendo 3DS 2015",
+ "type": "replacement",
+ "author": "Michael",
+ "url": "https://www.ifixit.com/Guide/Nintendo+3DS+2015+Circle+Pad+Replacement/72240",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Unscrew the two 3mm Phillips #1 head screws along the top edge of the device.",
+    "The screws on the back panel strip easily. Go slowly and press down firmly.",
+    "The screws on the back panel are held in by locking washers, so they won't come out of the back panel."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "",
+   "lines": [
+    "Pull the top corner tabs of the front face plate outward and towards you.",
+    "Pull the faceplate up and out of the slots at the bottom of the device.",
+    "Set aside the back faceplate."
+   ],
+   "images": [
+    "step02_1.jpg",
+    "step02_2.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Insert a plastic opening tool into the notch at the top of the battery.",
+    "Pry the battery up with the plastic opening tool."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg",
+    "step03_3.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "Unscrew the three 3mm Y0 screws along the right and bottom of the SD card reader.",
+    "The bottom of the SD card reader should slightly pop out after removing the screws."
+   ],
+   "images": [
+    "step04_1.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "Pull the SD card reader from the edge with two holes gently to free the tab at the top of the SD card reader.",
+    "Don't completely pull the SD card out of the device yet. There is a ribbon cable connected under the SD card reader.",
+    "Reorient the device so that the power jack faces you."
+   ],
+   "images": [
+    "step05_1.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "Lift the SD card reader gently.",
+    "Use a plastic opening tool to pry the SD card ribbon cable off the socket on the motherboard.",
+    "Lift the SD card reader out off of the lower casing."
+   ],
+   "images": [
+    "step06_1.jpg",
+    "step06_2.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "Reorient the device so that the game slot now faces you.",
+    "Remove the two rubber bumpers along the top of the device using [product|IF145-020|tweezers].",
+    "Unscrew the seven 6mm Phillips #00 screws along the top and bottom of the 3DS."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg",
+    "step07_3.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "",
+   "lines": [
+    "Lift the top edge of the lower case slightly off on the 3DS.",
+    "Don't pull the lower casing completely off, you may break those connections. There are ribbon cables that must be disconnected first.",
+    "Pry the ribbon cable socket under the right trigger using a plastic opening tool.",
+    "Pry the ribbon cable socket under the infrared receiver cover using a plastic opening tool."
+   ],
+   "images": [
+    "step08_1.jpg",
+    "step08_2.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "",
+   "lines": [
+    "Open the device slowly from its top edge. Be careful not to tug the ribbon cable connected near the bottom edge of the device.",
+    "Pry the last ribbon cable attached to the lower case using a plastic opening tool."
+   ],
+   "images": [
+    "step09_1.jpg",
+    "step09_2.jpg",
+    "step09_3.jpg"
+   ]
+  },
+  {
+   "step": 10,
+   "title": "",
+   "lines": [
+    "Locate the joystick assembly near the top right corner of the motherboard.",
+    "Remove the two 8mm Phillips #00 screws from the back of the joystick.",
+    "Use the flat end of the spudger to pry off the joystick pad from its plastic housing."
+   ],
+   "images": [
+    "step10_1.jpg",
+    "step10_2.jpg",
+    "step10_3.jpg"
+   ]
+  },
+  {
+   "step": 11,
+   "title": "",
+   "lines": [
+    "Lift the joystick pad and place it on its back. This will reveal the ribbon cable connected to the joystick pad.",
+    "Use the flat end of the spudger to pry up the retaining flap for the ribbon cable.",
+    "Lift the joystick out of the device."
+   ],
+   "images": [
+    "step11_1.jpg",
+    "step11_2.jpg"
+   ]
+  }
+ ]
+}

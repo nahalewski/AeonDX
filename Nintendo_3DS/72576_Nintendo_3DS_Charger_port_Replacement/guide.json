@@ -1,0 +1,101 @@
+{
+ "guideid": 72576,
+ "title": "Nintendo 3DS Charger port Replacement",
+ "category": "Nintendo 3DS",
+ "type": "replacement",
+ "author": "Kaylee Morton",
+ "url": "https://www.ifixit.com/Guide/Nintendo+3DS+Charger+port+Replacement/72576",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Take out the 4 screws on the back of the system using a Phillips #00 Screwdriver."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "",
+   "lines": [
+    "Remove the back cover"
+   ],
+   "images": [
+    "step02_1.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Before proceeding, make sure you have removed the battery."
+   ],
+   "images": [
+    "step03_1.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "You will see small black screws in nine different holes. make sure you use the right screwdriver and remove them. Also remove the one silver screw that holds the game cartridge slot."
+   ],
+   "images": [
+    "step04_1.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "After you have unscrewed all of the screws. Carefully remove the back with a spudger."
+   ],
+   "images": [
+    "step05_1.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "After you pull it open, you will see the motherboard. Locate the charging port. It should look like this."
+   ],
+   "images": [
+    "step06_1.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "Using a soldering iron, desolder the old charging port."
+   ],
+   "images": [
+    "step07_1.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "",
+   "lines": [
+    "If you got a charger port for a 3DS, you can skip this step. From another 3DS, desolder the charger port."
+   ],
+   "images": [
+    "step08_1.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "",
+   "lines": [
+    "Solder the new charging port to the motherboard."
+   ],
+   "images": [
+    "step09_1.jpg"
+   ]
+  }
+ ]
+}

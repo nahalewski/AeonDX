@@ -1,0 +1,33 @@
+{
+ "guideid": 6014,
+ "title": "Nintendo 3DS Volume Switch Replacement",
+ "category": "Nintendo 3DS",
+ "type": "replacement",
+ "author": "David Hodson",
+ "url": "https://www.ifixit.com/Guide/Nintendo+3DS+Volume+Switch+Replacement/6014",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Turn the motherboard over.",
+    "Use the flat end of a spudger to pry the volume switch connector out of its socket on the motherboard."
+   ],
+   "images": [
+    "step01_1.jpg",
+    "step01_2.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "",
+   "lines": [
+    "Remove the volume switch from the motherboard."
+   ],
+   "images": [
+    "step02_1.jpg"
+   ]
+  }
+ ]
+}

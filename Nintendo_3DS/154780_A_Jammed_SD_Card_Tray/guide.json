@@ -1,0 +1,60 @@
+{
+ "guideid": 154780,
+ "title": "A Jammed SD Card Tray",
+ "category": "Nintendo 3DS",
+ "type": "technique",
+ "author": "Sqwerks",
+ "url": "https://www.ifixit.com/Guide/A+Jammed+SD+Card+Tray/154780",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "As you see the sd tray is bent in.",
+    "And you can\u2019t get it open like usual."
+   ],
+   "images": [
+    "step01_1.jpg",
+    "step01_2.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Popping up tray",
+   "lines": [
+    "Pop up the sd port tray"
+   ],
+   "images": [
+    "step02_1.jpg",
+    "step02_2.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "Popping open tray",
+   "lines": [
+    "Here is the tool you need or something similar",
+    "*** PLEASE BE CAREFUL IT CAN DAMAGE THE EXPOSED MOTHERBOARD INSIDE IF NOT***"
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg",
+    "step03_3.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "Remove sd card",
+   "lines": [
+    "You have to press down on sd like the physical game to get it out",
+    "And don\u2019t forget to close the tray"
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg",
+    "step04_3.jpg"
+   ]
+  }
+ ]
+}

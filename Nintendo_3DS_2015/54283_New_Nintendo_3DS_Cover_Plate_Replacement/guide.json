@@ -1,0 +1,73 @@
+{
+ "guideid": 54283,
+ "title": "New Nintendo 3DS Cover Plate Replacement",
+ "category": "Nintendo 3DS 2015",
+ "type": "replacement",
+ "author": "ethan2226",
+ "url": "https://www.ifixit.com/Guide/New+Nintendo+3DS+Cover+Plate+Replacement/54283",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Placing the system on a flat table.",
+   "lines": [
+    "Ensure your device is powered off before proceeding. Failure to do so may result in electrical shock or damage to the device.",
+    "Place the system on a flat stable surface.",
+    "The Cover Plates will ONLY work with the New Nintendo 3DS. They are not compatible with New Nintendo 3DS XL or any other Nintendo system."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Unscrewing the back cover plate.",
+   "lines": [
+    "Use a size #0 phillips-head screwdriver to loosen the screws from the back cover plate. The screws are attached to the cover, so they will not come out completely."
+   ],
+   "images": [
+    "step02_1.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "Prying up the back cover plate.",
+   "lines": [
+    "Use the nub on the end of the stylus , a fingernail or a plastic opening tool to gently pry on the small slots on each side near the L and R buttons. Once the cover plate begins to separate from the system, gently remove it."
+   ],
+   "images": [
+    "step03_1.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "Prying the front cover plate.",
+   "lines": [
+    "Use the nub on the end of the stylus , a fingernail, or a plastic opening tool to gently pry on the small slots on each side near the L and R buttons. Once the cover plate begins to separate from the system, gently remove it."
+   ],
+   "images": [
+    "step04_1.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "Attaching the front cover plate.",
+   "lines": [
+    "Attach the new front cover plate."
+   ],
+   "images": [
+    "step05_1.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "Attaching the back cover plate.",
+   "lines": [
+    "Attach the new back cover plate and tighten the two #0 phillips-head screws."
+   ],
+   "images": [
+    "step06_1.jpg"
+   ]
+  }
+ ]
+}

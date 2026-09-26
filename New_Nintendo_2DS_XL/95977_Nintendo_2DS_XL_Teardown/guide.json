@@ -1,0 +1,24 @@
+{
+ "guideid": 95977,
+ "title": "Nintendo 2DS XL Teardown",
+ "category": "New Nintendo 2DS XL",
+ "type": "teardown",
+ "author": "Michael Degnan",
+ "url": "https://www.ifixit.com/Teardown/Nintendo+2DS+XL+Teardown/95977",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Final Thoughts",
+   "lines": [
+    "The battery is fairly easy to swap out once you remove the back cover.",
+    "The rear panel is secured by tri-point screws.",
+    "The headphone jack and charging connector are soldered to the motherboard.",
+    "The upper display is glued in place and requires prying that can potentially break the display."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  }
+ ]
+}

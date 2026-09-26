@@ -1,0 +1,60 @@
+{
+ "guideid": 5972,
+ "title": "Nintendo 3DS Circle Pad Joystick Replacement",
+ "category": "Nintendo 3DS",
+ "type": "replacement",
+ "author": "David Hodson",
+ "url": "https://www.ifixit.com/Guide/Nintendo+3DS+Circle+Pad+Joystick+Replacement/5972",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Remove the two 7.7 mm Phillips screws securing the back of the Circle Pad to the motherboard."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "",
+   "lines": [
+    "Use the flat end of a spudger to pry the back of the Circle Pad off the motherboard.",
+    "Lift the Circle Pad joystick off the motherboard and lay it on its back so that the ribbon cable connector is accessible."
+   ],
+   "images": [
+    "step02_1.jpg",
+    "step02_2.jpg",
+    "step02_3.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Use the flat end of a spudger or your fingernail to flip up the retaining flap on the Circle Pad ribbon cable ZIF socket.",
+    "Be sure you are prying up on the hinged retaining flap, '''not''' the socket itself.",
+    "Lift the Circle Pad joystick off the motherboard."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg",
+    "step03_3.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "To decrease the chance of losing it during repairs, you may want to remove the two thin pads underneath the Circle Pad joystick.",
+    "Use a spudger or screwdriver to lift the pads up and remove them from the device."
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg"
+   ]
+  }
+ ]
+}

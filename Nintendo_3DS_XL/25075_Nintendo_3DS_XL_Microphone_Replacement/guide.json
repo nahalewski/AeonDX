@@ -1,0 +1,133 @@
+{
+ "guideid": 25075,
+ "title": "Nintendo 3DS XL Microphone Replacement",
+ "category": "Nintendo 3DS XL",
+ "type": "replacement",
+ "author": "Charlene Donlon",
+ "url": "https://www.ifixit.com/Guide/Nintendo+3DS+XL+Microphone+Replacement/25075",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Remove the back cover screws",
+   "lines": [
+    "Use a JIS 00 screwdriver to loosen the 4.2 mm\u2011long screws on the top edge of the back cover.",
+    "The screws have locking washers that prevent the screws from falling out. Keep these in place."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Remove the back cover",
+   "lines": [
+    "Use a plastic opening tool to pry off the clips securing the back cover, starting at the top corners and working your way down.",
+    "Use your hands to keep the clips from reattaching.",
+    "Use your hands to remove the back cover."
+   ],
+   "images": [
+    "step02_1.jpg",
+    "step02_2.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Insert the plastic opening tool into the opening located on the right side of the battery.",
+    "Pry the battery out of its recess and remove it."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg",
+    "step03_3.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "Using [product|IF145-020|tweezers] pull out the rubber bumpers that are located at the top of the device on either side of the game cartridge compartment."
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "Remove the six 6.2 mm screws using a Phillips #000 screwdriver."
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "Remove the 2.3 mm screw located above the game cartridge slot with a Phillips #000 screwdriver."
+   ],
+   "images": [
+    "step06_1.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "With a plastic opening tool pry off the lower case starting at the bottom edge and working around the perimeter.",
+    "Two ribbon cables connect the case to the circuit board. Be careful to not pull the case too hard and rip the ribbon cables."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg",
+    "step07_3.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "",
+   "lines": [
+    "Remove the ribbon cables located underneath the left and right bumpers by prying up the base of the cables with a plastic opening tool.",
+    "Completely remove the lower case from the rest of the device and set aside."
+   ],
+   "images": [
+    "step08_1.jpg",
+    "step08_2.jpg",
+    "step08_3.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "",
+   "lines": [
+    "Position the device such that the game cartridge slot is located at the top.",
+    "Locate the microphone in the bottom left corner.",
+    "Using tweezers remove the microphone.",
+    "There will be a ribbon that connects the microphone to the motherboard."
+   ],
+   "images": [
+    "step09_1.jpg",
+    "step09_2.jpg",
+    "step09_3.jpg"
+   ]
+  },
+  {
+   "step": 10,
+   "title": "",
+   "lines": [
+    "Using the flat head side of the spudger carefully lift up the flap and remove the ribbon.",
+    "The attached microphone can now be removed."
+   ],
+   "images": [
+    "step10_1.jpg",
+    "step10_2.jpg"
+   ]
+  }
+ ]
+}

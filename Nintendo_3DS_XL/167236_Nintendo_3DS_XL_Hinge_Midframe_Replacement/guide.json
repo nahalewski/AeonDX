@@ -1,0 +1,313 @@
+{
+ "guideid": 167236,
+ "title": "Nintendo 3DS XL Hinge/Midframe Replacement",
+ "category": "Nintendo 3DS XL",
+ "type": "replacement",
+ "author": "FixitKevin",
+ "url": "https://www.ifixit.com/Guide/Nintendo+3DS+XL+Hinge-Midframe+Replacement/167236",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Flip the 3DS XL upside down."
+   ],
+   "images": [
+    "step01_1.jpg",
+    "step01_2.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "",
+   "lines": [
+    "Remove the two 4.2 mm screws from the back cover using a Phillips #00 screwdriver."
+   ],
+   "images": [
+    "step02_1.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Use an opening tool to pry the cover loose and lift the back cover.",
+    "***Caution: ***Make sure to lift the side with the screws up first as to not break hooks on the cover."
+   ],
+   "images": [
+    "step03_1.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "Use an opening tool to remove the battery."
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "Remove the six 6.2 mm screws from the back cover using a Phillips #00 screwdriver.",
+    "Remove the single 2.3 mm screw from the back cover using a Phillips #00 screwdriver."
+   ],
+   "images": [
+    "step05_1.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "Use your hands to carefully remove the back cover at an angle, while keeping it connected to the top edge with caution regarding the ribbons."
+   ],
+   "images": [
+    "step06_1.jpg",
+    "step06_2.jpg",
+    "step06_3.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "Use a pair of [product|IF145-020|tweezers] to carefully detach both of the ribbon cables connected to the back cover."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "",
+   "lines": [
+    "Remove the two 7.5 mm screws from the white plate.",
+    "Use your fingers to lift it off the space carefully."
+   ],
+   "images": [
+    "step08_1.jpg",
+    "step08_2.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "",
+   "lines": [
+    "Use a pair of tweezers to remove the small plastic circle from the opened space."
+   ],
+   "images": [
+    "step09_1.jpg"
+   ]
+  },
+  {
+   "step": 10,
+   "title": "",
+   "lines": [
+    "Use your fingers to carefully disconnect the small green rectangle ([link|https://fccid.io/MCLJ27H023/User-Manual/User-manual-1449517.pdf|network board|new_window=true])."
+   ],
+   "images": [
+    "step10_1.jpg",
+    "step10_2.jpg"
+   ]
+  },
+  {
+   "step": 11,
+   "title": "",
+   "lines": [
+    "Remove the ten 3 mm screws from the motherboard with a Phillips #00 screwdriver."
+   ],
+   "images": [
+    "step11_1.jpg"
+   ]
+  },
+  {
+   "step": 12,
+   "title": "",
+   "lines": [
+    "On the bottom right corner, remove the small plastic piece using a pair of tweezers."
+   ],
+   "images": [
+    "step12_1.jpg",
+    "step12_2.jpg"
+   ]
+  },
+  {
+   "step": 13,
+   "title": "",
+   "lines": [
+    "On the bottom left corner, remove the small plastic piece using a pair of tweezers."
+   ],
+   "images": [
+    "step13_1.jpg",
+    "step13_2.jpg"
+   ]
+  },
+  {
+   "step": 14,
+   "title": "",
+   "lines": [
+    "With caution yet with slight force, use a pair of tweezers to pull and disconnect the ribbon cable from the latch on the top right corner."
+   ],
+   "images": [
+    "step14_1.jpg",
+    "step14_2.jpg"
+   ]
+  },
+  {
+   "step": 15,
+   "title": "",
+   "lines": [
+    "With caution yet with slight force, use a pair of tweezers to pull and disconnect the second ribbon cable from the latch on the top right corner."
+   ],
+   "images": [
+    "step15_1.jpg",
+    "step15_2.jpg"
+   ]
+  },
+  {
+   "step": 16,
+   "title": "",
+   "lines": [
+    "With caution yet with slight force, use your hands to lift the screen and the green motherboard from the frame.",
+    "***Caution:*** There is still a ribbon cable connected, so do not suddenly remove what was lifted."
+   ],
+   "images": [
+    "step16_1.jpg",
+    "step16_2.jpg"
+   ]
+  },
+  {
+   "step": 17,
+   "title": "",
+   "lines": [
+    "With caution yet with slight force, use a pair of tweezers to pull and disconnect the ribbon cable at the hinge from the latch."
+   ],
+   "images": [
+    "step17_1.jpg",
+    "step17_2.jpg"
+   ]
+  },
+  {
+   "step": 18,
+   "title": "",
+   "lines": [
+    "Use your fingers to disconnect the green rectangle ([link|https://fccid.io/MCLJ27H023/User-Manual/User-manual-1449517.pdf|network board|new_window=true]) from the small green cable."
+   ],
+   "images": [
+    "step18_1.jpg",
+    "step18_2.jpg"
+   ]
+  },
+  {
+   "step": 19,
+   "title": "",
+   "lines": [
+    "Flip the 3DS XL right side up and open it."
+   ],
+   "images": [
+    "step19_1.jpg",
+    "step19_2.jpg"
+   ]
+  },
+  {
+   "step": 20,
+   "title": "",
+   "lines": [
+    "Use a pair of tweezers to remove the small rubber squares from each corner of the front screen."
+   ],
+   "images": [
+    "step20_1.jpg",
+    "step20_2.jpg",
+    "step20_3.jpg"
+   ]
+  },
+  {
+   "step": 21,
+   "title": "",
+   "lines": [
+    "Remove the four 4.3 mm screws from the top screen using a Phillips #00 screwdriver."
+   ],
+   "images": [
+    "step21_1.jpg"
+   ]
+  },
+  {
+   "step": 22,
+   "title": "",
+   "lines": [
+    "Use your hands to remove the top cover by pushing the cover horizontally away from the hinges, as to not break any plastic hooks."
+   ],
+   "images": [
+    "step22_1.jpg",
+    "step22_2.jpg",
+    "step22_3.jpg"
+   ]
+  },
+  {
+   "step": 23,
+   "title": "",
+   "lines": [
+    "Flip the 3DS XL upside down and find the top left hinge.",
+    "In the small opening, use a small opening tool to push the small white plastic piece down towards the other hinge.",
+    "***Caution***: A decent amount of force will be needed to push it down, so use a small but sturdy object that can fit in the opening to push it down."
+   ],
+   "images": [
+    "step23_1.jpg",
+    "step23_2.jpg"
+   ]
+  },
+  {
+   "step": 24,
+   "title": "",
+   "lines": [
+    "Use a pair of tweezers to remove the small black plastic piece covering the hinge."
+   ],
+   "images": [
+    "step24_1.jpg",
+    "step24_2.jpg"
+   ]
+  },
+  {
+   "step": 25,
+   "title": "",
+   "lines": [
+    "Use a pair of tweezers to remove the small clear plastic piece from the hinge.",
+    "At this point you can remove the bottom frame from the left hinge using your hands."
+   ],
+   "images": [
+    "step25_1.jpg",
+    "step25_2.jpg"
+   ]
+  },
+  {
+   "step": 26,
+   "title": "",
+   "lines": [
+    "At the top right hinge, use your hands to carefully slide the ribbon cables through a small gap next to the hinge to remove them from the bottom frame."
+   ],
+   "images": [
+    "step26_1.jpg",
+    "step26_2.jpg",
+    "step26_3.jpg"
+   ]
+  },
+  {
+   "step": 27,
+   "title": "",
+   "lines": [
+    "Use your fingers to remove all buttons and rubber covers from the old frame and place them into the new frame."
+   ],
+   "images": [
+    "step27_1.jpg",
+    "step27_2.jpg"
+   ]
+  }
+ ]
+}

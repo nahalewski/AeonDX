@@ -1,0 +1,118 @@
+{
+ "guideid": 42742,
+ "title": "Nintendo 2DS Screen Replacement",
+ "category": "Nintendo 2DS",
+ "type": "replacement",
+ "author": "Cassius",
+ "url": "https://www.ifixit.com/Guide/Nintendo+2DS+Screen+Replacement/42742",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Get your tools ready.",
+    "Device",
+    "Screwdrivers: I am using the 54 bit set.",
+    "Replacement screen.",
+    "Optional: Plastic opening tools.",
+    "Optional: [product|IF145-020|Tweezers]."
+   ],
+   "images": [
+    "step01_1.jpg",
+    "step01_2.jpg",
+    "step01_3.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Remove Exterior Screws",
+   "lines": [
+    "Flip the device to show the back.",
+    "Unscrew the two screws on the top half of the device.",
+    "Lift off the panel using the small pull area at the very top. (Marked in yellow)."
+   ],
+   "images": [
+    "step02_1.jpg",
+    "step02_2.jpg",
+    "step02_3.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "Remove Battery",
+   "lines": [
+    "Remove battery.",
+    "Unscrew the 10 screws holding in the back panel.",
+    "Carefully lift up the panel from the bottom and unhook the ribbon."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg",
+    "step03_3.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "Remove frame and unhook things",
+   "lines": [
+    "Gently lift off the coloured frames on the sides.",
+    "Remove L&R triggers",
+    "I recommend using tweezers to push back the spring so allow easy lift and placement.",
+    "Remove circle pad module.",
+    "Remove wifi module",
+    "Unseat the ribbon cables.",
+    "2 big ones mid board, 1 center bottom edge, 2 Bottom right corner."
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg",
+    "step04_3.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "Disconnect camera ribbon.",
+   "lines": [
+    "Unscrew 11 Motherboard screws.",
+    "Lift off motherboard and top colored piece.",
+    "Lift off screen carefully. It had adhesive so don't be surprised."
+   ],
+   "images": [
+    "step05_1.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "Remove coloured bumpbers and shoulder buttons.",
+   "lines": [
+    "Insert wisdom here."
+   ],
+   "images": []
+  },
+  {
+   "step": 7,
+   "title": "Remove Joystick",
+   "lines": [
+    "Insert wisdom here."
+   ],
+   "images": []
+  },
+  {
+   "step": 8,
+   "title": "Dismount wifi card",
+   "lines": [
+    "Insert wisdom here."
+   ],
+   "images": []
+  },
+  {
+   "step": 9,
+   "title": "Unscrew Motherboard",
+   "lines": [
+    "Insert wisdom here."
+   ],
+   "images": []
+  }
+ ]
+}

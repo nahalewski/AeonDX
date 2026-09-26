@@ -1,0 +1,132 @@
+{
+ "guideid": 98314,
+ "title": "New Nintendo 2DS XL Touchscreen Replacement",
+ "category": "New Nintendo 2DS XL",
+ "type": "replacement",
+ "author": "Tim Newman",
+ "url": "https://www.ifixit.com/Guide/New+Nintendo+2DS+XL+Touchscreen+Replacement/98314",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Prepare for disassembly",
+   "lines": [
+    "Before you begin, power off the console and remove:",
+    "The stylus",
+    "Any game cartridge",
+    "The microSD card"
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Remove the back cover screws",
+   "lines": [
+    "Use a tri\u2011point Y00 screwdriver to remove the four 6 mm\u2011long screws located at the four corners of the bottom panel."
+   ],
+   "images": [
+    "step02_1.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "Release the back cover clips",
+   "lines": [
+    "Use a spudger to gently pry around the two short edges and front edge (with the stylus cut\u2011out) to release the clips securing the back cover.",
+    "Swing the back cover open from its front edge to release the clips along the hinge edge. Don't remove it fully\u2014three cables are connecting it to the motherboard (two on each side and one in the rear)."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "Disconnect the back cover",
+   "lines": [
+    "Use [product|IF145-020|tweezers] to disconnect the two cables that connect the rear buttons on either side to the motherboard by gently pulling them upwards.",
+    "Fold the back cover over the hinge edge, keeping the cable connected. ***Don't strain the cable.***"
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg",
+    "step04_3.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "Battery Removal",
+   "lines": [
+    "The battery is lightly adhered to its enclosure.",
+    "Use the flat end of a spudger to gently pry the battery out of its plastic enclosure."
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "There are 8 ribbon cables that need to be removed as shown in the picture.",
+    "2 of connectors (in green) are friction fit, unlike the rest of the connectors. Remove the cable by pulling it out gently flat in the arrow direction. ***Do not attempt to open or unlatch these connectors in any way.*** Doing so will break them.",
+    "For the remaining 6 (in red), use a pair of [product|IF145-020|tweezers] to flip the latches up and pull the ribbon cable out.",
+    "Note that the second picture shows a broken ribbon connector next to the joystick ribbon connector (to the right of the red arrow). ***Do not*** attempt to unlatch this connector as shown in the picture!"
+   ],
+   "images": [
+    "step06_1.jpg",
+    "step06_2.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "Unplug the following wires from the motherboard using a pair of tweezers."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "",
+   "lines": [
+    "Remove the seven 4.4 mm screws using a J00 (or iFixit's Phillips #00) screwdriver bit.",
+    "Remove the motherboard from the device."
+   ],
+   "images": [
+    "step08_1.jpg",
+    "step08_2.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "",
+   "lines": [
+    "Remove the five 7.5mm phillips screws using a PH000 screwdriver.",
+    "Using [product|IF145-020|tweezers], pull up the plate covering the touchpad. The center ribbon cable will slide through this plate."
+   ],
+   "images": [
+    "step09_1.jpg",
+    "step09_2.jpg"
+   ]
+  },
+  {
+   "step": 10,
+   "title": "",
+   "lines": [
+    "The bottom screen is stuck to the front with an adhesive border. Be careful to slowly separate the two. Quick separation can damage both components.",
+    "Using tweezers, pry up the touchscreen."
+   ],
+   "images": [
+    "step10_1.jpg",
+    "step10_2.jpg"
+   ]
+  }
+ ]
+}

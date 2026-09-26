@@ -1,0 +1,145 @@
+{
+ "guideid": 41074,
+ "title": "New Nintendo 3DS XL 2015 A,B,X,Y, Start or Select Button Replacement",
+ "category": "Nintendo 3DS XL 2015",
+ "type": "replacement",
+ "author": "Kobbe Farwick",
+ "url": "https://www.ifixit.com/Guide/New+Nintendo+3DS+XL+2015+ABXY+Start+or+Select+Button+Replacement/41074",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Prepare the console",
+   "lines": [
+    "Fully power off the console and flip it upside down.",
+    "Remove the game card, headphones, charging cable, stylus, and anything else connected."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Loosen the back cover screws",
+   "lines": [
+    "Use a JIS 0 screwdriver to loosen the two black captive screws on the back cover.",
+    "The screws are held in place by captive washers and shouldn't be completely removed."
+   ],
+   "images": [
+    "step02_1.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "Remove the back cover",
+   "lines": [
+    "Pry off the back cover and remove it."
+   ],
+   "images": [
+    "step03_1.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "Insert an opening tool or the flat end of a spudger into the small notch above the battery and pry the battery out."
+   ],
+   "images": [
+    "step04_1.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "Remove the six 6mm screws on the secondary panel using a JIS #000 screwdriver."
+   ],
+   "images": [
+    "step05_1.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "(Be careful not to scratch or bend the ribbon cable at all during this process! Doing so can completely break the ribbon cable or make it unresponsive.)",
+    "Remove two upper rubber bumpers locates on either side of the charging port.",
+    "Using JIS #00 screwdriver, carefully remove the two 6mm screws that have now been exposed."
+   ],
+   "images": [
+    "step06_1.jpg",
+    "step06_2.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "To pry off the cover, carefully lift it up and away from the hinges (in order to clear the headphone port), then pivot it towards the hinges to expose the circuit boards."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg",
+    "step07_3.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "",
+   "lines": [
+    "Use non-conductive [product|IF145-020|tweezers] to disconnect the two ribbon plugs that connect the L/R/ZL/ZR buttons on the cover to the motherboard, then remove it completely. Or, use the flat end of a spudger to pop them off."
+   ],
+   "images": [
+    "step08_1.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "",
+   "lines": [
+    "Locate the ribbon connector between the motherboard and the left circuit board (it should be the widest) and use a pair of tweezers or the flat end of a spudger to pivot up the ZIF clasp upward.",
+    "The ribbon can be removed using non-conductive tweezers by pulling out parallel with the board."
+   ],
+   "images": [
+    "step09_1.jpg",
+    "step09_2.jpg",
+    "step09_3.jpg"
+   ]
+  },
+  {
+   "step": 10,
+   "title": "",
+   "lines": [
+    "Next, locate the five 3mm screws on the left board and remove them using a JIS #000 screwdriver."
+   ],
+   "images": [
+    "step10_1.jpg"
+   ]
+  },
+  {
+   "step": 11,
+   "title": "",
+   "lines": [
+    "Carefully flip the board over and use tweezers to remove the blue-black ribbon located underneath.",
+    "If your ABXY buttons aren't working, you can peel off the clear sticker with the metal contacts to clean off the corrosion that may build up underneath, as shown in [link|https://youtu.be/Y_r6A4tdUHs?feature=shared&t=864|this video|new_window=true].",
+    "Use a sharp object such as an X-ACTO knife to scrape off the corrosion, as shown; a similar procedure can be followed for a malfunctioning directional pad. The device can then be reassembled, following these steps in reverse order."
+   ],
+   "images": [
+    "step11_1.jpg"
+   ]
+  },
+  {
+   "step": 12,
+   "title": "",
+   "lines": [
+    "Remove the gray rubber diamond to reveal the A/B/X/Y buttons and/or the rubber rectangle to reveal the Start/Select button.",
+    "Remove the buttons using tweezers.",
+    "When replacing, be sure to check that each button is placed back and is snugly fit into the appropriate hole before reassembling the device."
+   ],
+   "images": [
+    "step12_1.jpg"
+   ]
+  }
+ ]
+}

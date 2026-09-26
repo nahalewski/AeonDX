@@ -1,0 +1,119 @@
+{
+ "guideid": 145933,
+ "title": "Nintendo 3DS XL Left Bumper Replacement",
+ "category": "Nintendo 3DS XL",
+ "type": "replacement",
+ "author": "Jack Belcher",
+ "url": "https://www.ifixit.com/Guide/Nintendo+3DS+XL+Left+Bumper+Replacement/145933",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Remove the SD card and the game cartridge from the device."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Battery removal",
+   "lines": [
+    "Locate the battery cover panel on the back of the device.",
+    "Unscrew the two screws on the battery cover panel with a Phillips #00 screwdriver.",
+    "Remove the battery and battery cover panel."
+   ],
+   "images": [
+    "step02_1.jpg",
+    "step02_2.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Remove the four screws on the battery panel using the Phillips #00 screwdriver."
+   ],
+   "images": [
+    "step03_1.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "Locate the two screw covers on the bottom of the back panel, near the middle of the device.",
+    "These sticker-like covers are small, round, and made of rubber or plastic.",
+    "Insert the tip of a flathead screwdriver or spudger and gently pry the cover off by applying upward pressure.",
+    "You may need to wiggle the tool back and forth a bit to loosen the two covers.",
+    "Remove the two screws located behind the screw covers using a Phillips #00 screwdriver."
+   ],
+   "images": [
+    "step04_1.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "Remove the screw near the game card compartment using a Phillips #00 screwdriver."
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "Lift the back panel off of the device.",
+    "Be cautious not to pull any ribbons or cables from the motherboard as you remove the back panel.",
+    "Locate and disconnect the ribbon cables from the motherboard by gently pulling on the tabs that hold them in place."
+   ],
+   "images": [
+    "step06_1.jpg",
+    "step06_2.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "Remove the three left bumper assembly screws using Phillips #00 screwdriver.",
+    "Once the three screws are removed, gently remove the left bumper assembly from the device.",
+    "The spring may eject from the assembly as you remove it.",
+    "Remove the hinge pin from the bumper assembly."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "",
+   "lines": [
+    "Separate the bumper from the bumper assembly"
+   ],
+   "images": [
+    "step08_1.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "",
+   "lines": [
+    "Using a spudger or a flathead screwdriver, gently pull the ribbon cable straight out of the connector in order to remove it.",
+    "The ribbon cable can be removed by other means such as using gloves or a [product|IF145-284|microfiber cloth] if preferred.",
+    "Replace the left bumper ribbon cable."
+   ],
+   "images": [
+    "step09_1.jpg",
+    "step09_2.jpg"
+   ]
+  }
+ ]
+}

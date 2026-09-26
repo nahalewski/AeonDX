@@ -1,0 +1,226 @@
+{
+ "guideid": 86337,
+ "title": "New Nintendo 3DS XL 2015 Camera Replacement",
+ "category": "Nintendo 3DS XL 2015",
+ "type": "replacement",
+ "author": "Ryan Butler",
+ "url": "https://www.ifixit.com/Guide/New+Nintendo+3DS+XL+2015+Camera+Replacement/86337",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Prepare the console",
+   "lines": [
+    "Fully power off the console and flip it upside down.",
+    "Remove the game card, headphones, charging cable, stylus, and anything else connected."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Loosen the back cover screws",
+   "lines": [
+    "Use a JIS 0 screwdriver to loosen the two black captive screws on the back cover.",
+    "The screws are held in place by captive washers and shouldn't be completely removed."
+   ],
+   "images": [
+    "step02_1.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "Remove the back cover",
+   "lines": [
+    "Pry off the back cover and remove it."
+   ],
+   "images": [
+    "step03_1.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "Insert an opening tool or the flat end of a spudger into the small notch above the battery and pry the battery out."
+   ],
+   "images": [
+    "step04_1.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "Remove the MicroSD card by pressing it in with your thumbnail until it clicks and partially ejects, then pull it out.",
+    "Using a JIS #00 screwdriver, remove the six 6mm screws around the edges of the secondary cover."
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "Using [product|IF145-020|tweezers], carefully pop out the rubber bumpers located at the top side of the 3DS. Removing them will reveal another two 6mm screws. Remove these screws using a JIS #000 as well."
+   ],
+   "images": [
+    "step06_1.jpg",
+    "step06_2.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "To separate the cover, carefully lift it up and away from the hinges (in order to clear the headphone port), then pivot it towards the hinges to expose the circuit boards.",
+    "Don't fully remove the cover yet, or you may damage the delicate ribbon cable that still connects it to the motherboard."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg",
+    "step07_3.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "Disconnect and remove the back cover",
+   "lines": [
+    "Use the flat end of a spudger to disconnect the shoulder button cable [guide|25629|press connectors|stepid=70308|new_window=true].",
+    "Remove the back cover."
+   ],
+   "images": [
+    "step08_1.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "",
+   "lines": [
+    "Use tweezers to flip up the small, hinged locking flap in order to unlock the [guide|25629|ZIF connector|stepid=64969|new_window=true] securing the Circle Pad ribbon.",
+    "The cable folds over itself and enters the ZIF connector from the left side, but the connector's locking flap flips up from the right side. A common error here is to try pulling up on the same side as the cable is on, when that could break the connector.",
+    "Slide the ribbon out of the ZIF connector.",
+    "It may be easier to unscrew and remove the Circle Pad first, then try disconnecting the cable. Similarly, when reinstalling the Circle Pad, you can reconnect the cable first and then put the unit back into place."
+   ],
+   "images": [
+    "step09_1.jpg"
+   ]
+  },
+  {
+   "step": 10,
+   "title": "",
+   "lines": [
+    "Using a JIS #000 screwdriver, remove the two 8 mm screws securing the circle pad."
+   ],
+   "images": [
+    "step10_1.jpg"
+   ]
+  },
+  {
+   "step": 11,
+   "title": "",
+   "lines": [
+    "Lift the circle pad casing upward to remove it. There will be some friction, but it should not require excessive force."
+   ],
+   "images": [
+    "step11_1.jpg"
+   ]
+  },
+  {
+   "step": 12,
+   "title": "",
+   "lines": [
+    "Locate the gold terminal plug with a red cable at the top left of the motherboard. Using your fingers, carefully pull the plug straight upward to remove.",
+    "Use a pair of tweezers to disconnect the single ribbon connector.",
+    "Don't do what we did -- be very careful '''not''' to pull on the red cable."
+   ],
+   "images": [
+    "step12_1.jpg"
+   ]
+  },
+  {
+   "step": 13,
+   "title": "",
+   "lines": [
+    "Using tweezers, gently pull the four marked ribbons out of the ZIF connectors along the sides of the motherboard.",
+    "These ZIF connectors are held in place by friction and do *not* have locks\u2014lifting the flaps on these connectors will break them! Be careful disconnecting the upper red connector (some people report that it has a clamp while others do not). Double check if your model has a clamp, and when you disconnect the ribbon cable, be excessively gentle.",
+    "Three of the ribbon connectors have plastic clamping flaps that cover the ribbon to prevent slippage. Use the tweezers to flip them up before ribbon removal.",
+    "This one ribbon connector may also have a plastic clamping flap, but it's not like the others, rather it's similar to the one used for the Circle Pad. Gently flip up the flap on the side opposite the ribbon cable to remove the cable.",
+    "This connector was previously listed among the ones that do ***not*** have locks, however on most if not all systems, it actually ***does*** have one. Trying to remove or reinsert this cable without unlocking it will damage the cable, requiring a [guide|86283|replacement of the Touch Screen's digitizer|new_window=true]. Fortunately, the LCD uses other ZIF connectors, so that should still be fine.",
+    "If, on your system, this connector does ***not*** have a lock after all, do not pull up on the flap! It should come up easily; if it doesn't, it probably isn't meant to lock, but instead just hold the cable in with friction. In that case, try gently pulling the cable out of the connector.",
+    "When reassembling the device, be sure to flip the ZIF clamps back down.",
+    "While the SD card reader is shown as removed in this photo, it is optional for the removal of the motherboard."
+   ],
+   "images": [
+    "step13_1.jpg",
+    "step13_2.jpg",
+    "step13_3.jpg"
+   ]
+  },
+  {
+   "step": 14,
+   "title": "",
+   "lines": [
+    "Using a JIS #000 screwdriver, remove six 4mm screws along the edges of the motherboard."
+   ],
+   "images": [
+    "step14_1.jpg"
+   ]
+  },
+  {
+   "step": 15,
+   "title": "",
+   "lines": [
+    "Carefully pivot the motherboard 90 degrees toward the hinges to reveal two more ZIF connectors on the underside of the motherboard.",
+    "Both have latches that must be flipped up. The left, longer latch is black; the right, shorter one is white. Flip up the flaps, slide the ribbons out and remove the motherboard.",
+    "Note which way the ribbons slide into their connectors carefully, as they are different - specifically the longer screen ribbon cable, which needs the pins facing down/the black plastic part facing up for the top screen to function."
+   ],
+   "images": [
+    "step15_1.jpg",
+    "step15_2.jpg"
+   ]
+  },
+  {
+   "step": 16,
+   "title": "",
+   "lines": [
+    "Using a 1.5 flat head, remove the four red rubber stickers that are on the inside of the casing.",
+    "Underneath the rubber is a silver sticky",
+    "Using the PH00 screw driver, remove the screws."
+   ],
+   "images": [
+    "step16_1.jpg",
+    "step16_2.jpg"
+   ]
+  },
+  {
+   "step": 17,
+   "title": "",
+   "lines": [
+    "From the hinge, slide the outer portion of the top shell so that it separates from the inner portion.",
+    "This step was edited recently because the previous version was risky. It told people to use a spudger and slide it around the edges. DO NOT DO THIS!!! It will snap tabs off!",
+    "The casing will become loose, and just lift the casing off."
+   ],
+   "images": [
+    "step17_1.jpg",
+    "step17_2.jpg"
+   ]
+  },
+  {
+   "step": 18,
+   "title": "",
+   "lines": [
+    "The camera should be loose, just lift carefully.",
+    "The cable that is attached to it, should be easy to remove from the bottom half of the 3DS.",
+    "Make sure that you have followed the guide to remove the motherboard because this is how you unhook the cable for the camera."
+   ],
+   "images": [
+    "step18_1.jpg",
+    "step18_2.jpg"
+   ]
+  }
+ ]
+}

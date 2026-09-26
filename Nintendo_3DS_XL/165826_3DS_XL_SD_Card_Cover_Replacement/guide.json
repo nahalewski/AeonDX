@@ -1,0 +1,129 @@
+{
+ "guideid": 165826,
+ "title": "3DS XL SD Card Cover Replacement",
+ "category": "Nintendo 3DS XL",
+ "type": "replacement",
+ "author": "Ben",
+ "url": "https://www.ifixit.com/Guide/3DS+XL+SD+Card+Cover+Replacement/165826",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Remove back panel + battery",
+   "lines": [
+    "If you have a stylus, SD card or a game cartridge in the console, take them out"
+   ],
+   "images": [
+    "step01_1.jpg",
+    "step01_2.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "",
+   "lines": [
+    "Loosen the two #0 Phillips 4.2 mm-length screws located at the top of the back cover",
+    "''The screws have locking washers that prevent the screws from falling off of the back cover. Leave these locking washers on the screws; it is not necessary to remove the washers for this repair guide.''"
+   ],
+   "images": [
+    "step02_1.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Using a plastic opening tool, pry off the cover starting at the top right corner.",
+    "Look for the small section below the stylus compartment. Pry off the cover at that point if it is still attached.",
+    "Take off the cover of the device and set it aside."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "Insert the plastic opening tool into the opening located on the right side of the battery.",
+    "Pry off the battery from the lower casing.",
+    "Lift the battery out of the case and set aside."
+   ],
+   "images": [
+    "step04_1.jpg",
+    "step04_2.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "Open the shell",
+   "lines": [
+    "Using [product|IF145-020|tweezers] pull out the rubber bumpers that are located at the top of the device on either side of the game cartridge compartment."
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "Remove the six 6.2 mm screws using a Phillips #00 screwdriver",
+    "Remove the 2.3 mm screw located above the game cartridge slot with a Phillips #00 screwdriver.",
+    "With a plastic opening tool pry off the lower case starting at the bottom edge and working around the perimeter.",
+    "Two ribbon cables connect the case to the circuit board. Be careful to not pull the case too hard and rip the ribbon cables."
+   ],
+   "images": [
+    "step06_1.jpg",
+    "step06_2.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "Detach top from bottom",
+   "lines": [
+    "Remove the ribbon cables located underneath the left and right bumpers by prying up the base of the cables with a plastic opening tool.",
+    "Completely remove the upper case from the rest of the device and set aside."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "Replacing SD Cover",
+   "lines": [
+    "Remove the 3 golden, 2.3 mm screws located around the stylus slot with a Phillips #00 screwdriver."
+   ],
+   "images": [
+    "step08_1.jpg",
+    "step08_2.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "",
+   "lines": [
+    "Using a pry tool, lift up the thin metal plate above the SD Card Cover."
+   ],
+   "images": [
+    "step09_1.jpg",
+    "step09_2.jpg"
+   ]
+  },
+  {
+   "step": 10,
+   "title": "",
+   "lines": [
+    "Slightly bend the silicone (Light Gray) part and pull the cover out of the device."
+   ],
+   "images": [
+    "step10_1.jpg",
+    "step10_2.jpg"
+   ]
+  }
+ ]
+}

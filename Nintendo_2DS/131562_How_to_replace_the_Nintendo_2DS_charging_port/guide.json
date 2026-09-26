@@ -1,0 +1,155 @@
+{
+ "guideid": 131562,
+ "title": "How to replace the Nintendo 2DS charging port",
+ "category": "Nintendo 2DS",
+ "type": "replacement",
+ "author": "Nick Myers",
+ "url": "https://www.ifixit.com/Guide/How+to+replace+the+Nintendo+2DS+charging+port/131562",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "",
+   "lines": [
+    "Remove the two Phillips captive screws securing the upper rear panel.",
+    "The captive screws will not completely detach from the back panel."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "",
+   "lines": [
+    "Hinge the upper rear panel upwards and outwards to remove it."
+   ],
+   "images": [
+    "step02_1.jpg",
+    "step02_2.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Remove the battery from its housing by lifting it up from the side closest to the outside edge."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg",
+    "step03_3.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "Remove the ten Phillips screws attaching the rear panel."
+   ],
+   "images": [
+    "step04_1.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "The rear panel is attached to the motherboard by a ribbon cable, so be careful not to lift the rear panel too far from the device.",
+    "Carefully pull the rear panel straight up from the device."
+   ],
+   "images": [
+    "step05_1.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "Use your fingernail or the flat end of a spudger to flip up the connector securing the ribbon cable to the motherboard",
+    "Remove the cable from the connector",
+    "Take the opportunity to remove the Left and Right triggers, they have hinges that may break and springs that may jump away."
+   ],
+   "images": [
+    "step06_1.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "Remove Side Panels",
+   "lines": [
+    "Hold the side panels of the device's case with your fingers and pull outward to remove them.",
+    "The panels should come off easily with little force required.",
+    "There are three ribbon cables which have already been unplugged in this picture, disconnect these before disassembling the device further."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "Unscrew Motherboard",
+   "lines": [
+    "Remove the 12 brass-colored Phillips screws securing the main board.",
+    "Be '''very''' careful not to strip any of these screws. Stripping can occur very easily, and may make replacement of the motherboard impossible.",
+    "The circle pad has disappeared in this picture. Don't worry, we'll deal with that in the next step"
+   ],
+   "images": [
+    "step08_1.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "Remove Top Panel",
+   "lines": [
+    "The top panel can only be removed when the mother board is not secured.",
+    "There are two additional screws located on the top rail. Remove these to fully remove the buttons and top rail.",
+    "There are two screws holding down the joystick base that must be removed. (Be careful of the ribbon cable\u2014it stays connected!)",
+    "Hold the top panel with your fingers and pull away from the device to remove it.",
+    "The top panel should come off easily, with very little force applied."
+   ],
+   "images": [
+    "step09_1.jpg",
+    "step09_2.jpg",
+    "step09_3.jpg"
+   ]
+  },
+  {
+   "step": 10,
+   "title": "Remove Motherboard",
+   "lines": [
+    "Detach the 2 ribbon cables by lifting the black flip connectors that hold them.",
+    "Lift out the rectangular board seated in the face and lift out the white square which is the joystick motor (takes a little effort). Both stay attached to the motherboard.",
+    "On some models, you'll need to remove three more tiny ribbon cables at the bottom of the screen. They are secured by flip up connectors. BE GENTLE!",
+    "Holding the motherboard on either side, lift to remove it."
+   ],
+   "images": [
+    "step10_1.jpg",
+    "step10_2.jpg"
+   ]
+  },
+  {
+   "step": 11,
+   "title": "Charging Port",
+   "lines": [
+    "Desolder and remove the charging port",
+    "Don't try to force the port off the board. If it's not coming off, the solder isn't fully melted"
+   ],
+   "images": [
+    "step11_1.jpg",
+    "step11_2.jpg"
+   ]
+  },
+  {
+   "step": 12,
+   "title": "",
+   "lines": [
+    "Set the new port in the board, then solder it in place"
+   ],
+   "images": [
+    "step12_1.jpg"
+   ]
+  }
+ ]
+}

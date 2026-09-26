@@ -1,0 +1,352 @@
+{
+ "guideid": 6066,
+ "title": "Nintendo 3DS Rear Display Bezel Replacement",
+ "category": "Nintendo 3DS",
+ "type": "replacement",
+ "author": "David Hodson",
+ "url": "https://www.ifixit.com/Guide/Nintendo+3DS+Rear+Display+Bezel+Replacement/6066",
+ "license": "CC BY-NC-SA 3.0",
+ "steps": [
+  {
+   "step": 1,
+   "title": "Loosen the rear screws",
+   "lines": [
+    "Use a Phillips PH00 screwdriver to loosen the four screws along the top of the back cover.",
+    "All screws in this device are [guide|93991|JIS screws|stepid=176809|new_window=true]. Official [product|IF145-006|iFixit PH000-PH1 Phillips screwdrivers|new_window=true] are designed to be compatible with JIS screws, so they are safe to use. Using a screwdriver other than an official iFixit screwdriver or a JIS screwdriver may result in [guide|13213|stripped screws|new_window=true].",
+    "The screws are held in place by locking washers, and will not come out of the back cover."
+   ],
+   "images": [
+    "step01_1.jpg"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Remove the rear cover",
+   "lines": [
+    "Hold the device in one hand and turn it over.",
+    "Grab the top edge of the back cover with your opposite hand so that the cover does not fall back into place.",
+    "Flip the 3DS over again so that the back cover is facing up.",
+    "Pull the back cover up and away from the rest of the device to remove it."
+   ],
+   "images": [
+    "step02_1.jpg",
+    "step02_2.jpg"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "",
+   "lines": [
+    "Insert a plastic opening tool into the notch in the lower case above the battery.",
+    "Pry the battery up with the plastic opening tool.",
+    "Grab the top edge of the battery and lift it out of the lower case."
+   ],
+   "images": [
+    "step03_1.jpg",
+    "step03_2.jpg",
+    "step03_3.jpg"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "",
+   "lines": [
+    "Use a JIS #00 screwdriver to remove the nine 6.3 mm black screws from the lower case.",
+    "JIS (Japanese Industrial Standards) screws are ***not*** the same as Phillips. To avoid stripping these screws, make sure you are using a JIS #00 screwdriver and not a PHILLIPS #00 screwdriver. You ''can'' use a PHILLIPS #00 with a lot of downwards force but be warned this ***will*** deform the screw head and you risk stripping it.",
+    "iFixit's Phillips head screwdriver is designed to reduce damage on JIS head screws so it should be fine to use, still apply more force. Make sure it's iFixit's official Phillips screwdriver as we are unaware of any other manufacturer who does this.",
+    "Use a JIS #00 screwdriver to remove the 2.4 mm silver screw above the game cartridge slot."
+   ],
+   "images": [
+    "step04_1.jpg"
+   ]
+  },
+  {
+   "step": 5,
+   "title": "",
+   "lines": [
+    "Lift the bottom edge of the lower case off the rest of the 3DS.",
+    "There are still two ribbon cables connecting the mother board to the case, so be sure not to pull the lower case all the way off.",
+    "Use a plastic opening tool to pry the shoulder button ribbon cables off their sockets on the motherboard.",
+    "Remove the lower case from the device."
+   ],
+   "images": [
+    "step05_1.jpg",
+    "step05_2.jpg",
+    "step05_3.jpg"
+   ]
+  },
+  {
+   "step": 6,
+   "title": "",
+   "lines": [
+    "Remove the two 7.7 mm Phillips screws securing the back of the Circle Pad to the motherboard."
+   ],
+   "images": [
+    "step06_1.jpg"
+   ]
+  },
+  {
+   "step": 7,
+   "title": "",
+   "lines": [
+    "Use the flat end of a spudger to pry the back of the Circle Pad off the motherboard.",
+    "Lift the Circle Pad joystick off the motherboard and lay it on its back so that the ribbon cable connector is accessible."
+   ],
+   "images": [
+    "step07_1.jpg",
+    "step07_2.jpg",
+    "step07_3.jpg"
+   ]
+  },
+  {
+   "step": 8,
+   "title": "",
+   "lines": [
+    "Use the flat end of a spudger or your fingernail to flip up the retaining flap on the Circle Pad ribbon cable ZIF socket.",
+    "Be sure you are prying up on the hinged retaining flap, '''not''' the socket itself.",
+    "Lift the Circle Pad joystick off the motherboard."
+   ],
+   "images": [
+    "step08_1.jpg",
+    "step08_2.jpg",
+    "step08_3.jpg"
+   ]
+  },
+  {
+   "step": 9,
+   "title": "",
+   "lines": [
+    "To decrease the chance of losing it during repairs, you may want to remove the two thin pads underneath the Circle Pad joystick.",
+    "Use a spudger or screwdriver to lift the pads up and remove them from the device."
+   ],
+   "images": [
+    "step09_1.jpg",
+    "step09_2.jpg"
+   ]
+  },
+  {
+   "step": 10,
+   "title": "",
+   "lines": [
+    "Remove the two 4.5 mm Phillips screws securing the SD board to the motherboard."
+   ],
+   "images": [
+    "step10_1.jpg"
+   ]
+  },
+  {
+   "step": 11,
+   "title": "",
+   "lines": [
+    "Use the flat end of a spudger to pry the SD board ribbon cable connector off its socket on the motherboard."
+   ],
+   "images": [
+    "step11_1.jpg",
+    "step11_2.jpg"
+   ]
+  },
+  {
+   "step": 12,
+   "title": "",
+   "lines": [
+    "Insert the flat end of a spudger between the SD board and the motherboard.",
+    "Pry up ***slowly ***to loosen the SD board from the RF shield underneath it. If you pry too quickly, you may tear the shield or break its solder points.",
+    "Run the spudger along the sides of the SD board to free it from the adhesive holding it in place.",
+    "Once completely freed, lift the SD board straight off the motherboard."
+   ],
+   "images": [
+    "step12_1.jpg",
+    "step12_2.jpg",
+    "step12_3.jpg"
+   ]
+  },
+  {
+   "step": 13,
+   "title": "Pry the Wi-Fi card up",
+   "lines": [
+    "Slide the flat end of a spudger under the corner of the Wi-Fi board, and lift it away from the motherboard.",
+    "The Wi-Fi antenna cable is still connected to the Wi-Fi board, so you cannot completely remove the Wi-Fi board yet."
+   ],
+   "images": [
+    "step13_1.jpg",
+    "step13_2.jpg"
+   ]
+  },
+  {
+   "step": 14,
+   "title": "Disconnect the Wi-Fi board",
+   "lines": [
+    "Lift the Wi-Fi board off the motherboard and rotate it so that the bottom side is facing up.",
+    "Use the flat end of a spudger to pry the Wi-Fi antenna cable connector off its socket on the Wi-Fi board.",
+    "Remove the Wi-Fi board from the device."
+   ],
+   "images": [
+    "step14_1.jpg",
+    "step14_2.jpg",
+    "step14_3.jpg"
+   ]
+  },
+  {
+   "step": 15,
+   "title": "",
+   "lines": [
+    "Grasp the microphone ribbon cable near the microphone with a pair of [product|IF145-020|tweezers].",
+    "Pull the microphone straight up out of the upper case."
+   ],
+   "images": [
+    "step15_1.jpg",
+    "step15_2.jpg"
+   ]
+  },
+  {
+   "step": 16,
+   "title": "",
+   "lines": [
+    "Use the flat end of a spudger or your fingernail to flip up the retaining flap on the speaker assembly ribbon cable ZIF socket.",
+    "Be sure you are prying up on the hinged retaining flap, NOT the socket itself. Damaging the socket or cable will result in a 3DS that will blink its power LED when you press the power button - and do nothing else.",
+    "Disconnect the speaker assembly ribbon cable with a pair of tweezers."
+   ],
+   "images": [
+    "step16_1.jpg",
+    "step16_2.jpg",
+    "step16_3.jpg"
+   ]
+  },
+  {
+   "step": 17,
+   "title": "",
+   "lines": [
+    "Use the flat end of a spudger or your fingernail to flip up the retaining flap on the camera ribbon cable ZIF socket.",
+    "Be sure you are prying up on the hinged retaining flap, '''not''' the socket itself.",
+    "When reassembling, note that the gold contacts face toward the motherboard (as opposed to the camera cable's gold contacts facing away)."
+   ],
+   "images": [
+    "step17_1.jpg",
+    "step17_2.jpg"
+   ]
+  },
+  {
+   "step": 18,
+   "title": "",
+   "lines": [
+    "Remove seven Phillips screws securing the motherboard to the upper case:",
+    "Four 2.5 mm gold screws",
+    "Two 3.5 mm black screws",
+    "One 2.5 mm silver screw",
+    "When you remove this screw the volume slider can fall out.",
+    "Lift the side of the motherboard that sits along the bottom edge of the 3DS."
+   ],
+   "images": [
+    "step18_1.jpg",
+    "step18_2.jpg",
+    "step18_3.jpg"
+   ]
+  },
+  {
+   "step": 19,
+   "title": "",
+   "lines": [
+    "Continue lifting the motherboard assembly and rotate it until it is resting next to the rest of the device.",
+    "Use the flat end of a spudger or your fingernail to flip up the retaining flap on the LCD ribbon cable ZIF socket.",
+    "Be sure you are prying up on the hinged retaining flap, '''not''' the socket itself. Damaging the socket or cable will result in a 3DS that won't have a functional top screen."
+   ],
+   "images": [
+    "step19_1.jpg",
+    "step19_2.jpg",
+    "step19_3.jpg"
+   ]
+  },
+  {
+   "step": 20,
+   "title": "",
+   "lines": [
+    "Remove the motherboard assembly from the rest of the device."
+   ],
+   "images": [
+    "step20_1.jpg"
+   ]
+  },
+  {
+   "step": 21,
+   "title": "",
+   "lines": [
+    "Before continuing with disassembly, use a pair of [product|IF145-020|tweezers] to remove the clear plastic diffuser for the wireless notification LED. The small piece is likely to fall out on its own, and may be difficult to find if it lands on the floor."
+   ],
+   "images": [
+    "step21_1.jpg"
+   ]
+  },
+  {
+   "step": 22,
+   "title": "",
+   "lines": [
+    "De-route the Wi-Fi antenna cable from the bottom of the upper case.",
+    "This step is not necessary if you are only replacing the front panel; however, the replacement of the upper screen, speakers, cameras, and Wi-Fi antenna require it."
+   ],
+   "images": [
+    "step22_1.jpg",
+    "step22_2.jpg"
+   ]
+  },
+  {
+   "step": 23,
+   "title": "",
+   "lines": [
+    "Heat the edges of the upper display front panel with a hair dryer or heat gun to soften the adhesive holding it to the display bezel.",
+    "Begin prying the edges of the front panel off with a plastic opening tool.",
+    "If it is difficult to pry the front panel off, reheat the area you are working on with the heat gun, and then return to prying. Applying excessive force could crack the front panel."
+   ],
+   "images": [
+    "step23_1.jpg",
+    "step23_2.jpg"
+   ]
+  },
+  {
+   "step": 24,
+   "title": "",
+   "lines": [
+    "Continue prying the remaining sides of the front panel by sliding the plastic opening tool down each edge.",
+    "Too little heat will result in excessive bending/breaking of the front panel, and too much will melt and destroy the LCD underneath. Take your time."
+   ],
+   "images": [
+    "step24_1.jpg",
+    "step24_2.jpg"
+   ]
+  },
+  {
+   "step": 25,
+   "title": "",
+   "lines": [
+    "With all of the sides free, lift the upper display front panel off the display bezel."
+   ],
+   "images": [
+    "step25_1.jpg",
+    "step25_2.jpg"
+   ]
+  },
+  {
+   "step": 26,
+   "title": "",
+   "lines": [
+    "Remove the six 3.6 mm Phillips screws securing the rear display bezel to the front display bezel."
+   ],
+   "images": [
+    "step26_1.jpg"
+   ]
+  },
+  {
+   "step": 27,
+   "title": "",
+   "lines": [
+    "Flip the device over so that the rear display bezel is on top and the hinge is on the side opposite from you.",
+    "Lift the edge of the rear display bezel closest to you and rotate it towards the hinge.",
+    "Continue to lift the rear display bezel off the rest of the device until it is free.",
+    "There are clips toward the bottom of the rear display bezel holding it in place. Use enough force to disengage the clips, but be careful not to break them."
+   ],
+   "images": [
+    "step27_1.jpg",
+    "step27_2.jpg"
+   ]
+  }
+ ]
+}
