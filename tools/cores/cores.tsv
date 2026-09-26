@@ -1,7 +1,12 @@
-# The cores the eShop offers (built into .aeoncore by .github/workflows/cores.yml).
-# id	buildbot core	name	systems	extensions	license	source	subtitle
-fceumm	fceumm	FCEUmm	nes	nes|fds|unf|unif	GPL-2.0	https://github.com/libretro/libretro-fceumm	NES and Famicom Disk System games
-snes9x	snes9x	Snes9x	snes	smc|sfc|swc|fig|bs|st	Snes9x (non-commercial)	https://github.com/libretro/snes9x	Super NES games
-beetle_vb	mednafen_vb	Beetle VB	vb	vb|vboy	GPL-2.0	https://github.com/libretro/beetle-vb-libretro	Virtual Boy games
-pokemini	pokemini	PokeMini	pokemini	min	GPL-3.0	https://github.com/libretro/PokeMini	Pokemon mini games
-gw	gw	Game & Watch	gw	mgw	zlib	https://github.com/libretro/gw-libretro	Game & Watch games
+# The cores the eShop offers, each built from its source at a pinned commit by
+# .github/workflows/cores.yml (nothing prebuilt goes in).  Our changes to a core
+# go in tools/cores/patches/<id>/*.patch (applied in order with git apply --3way).
+# id	kind	repo	commit	build	mainlib	name	systems	extensions	license	subtitle
+fceumm	libretro	https://github.com/libretro/libretro-fceumm	7a542dab1e87679921962a9f056186eca425c0c2	jni	-	FCEUmm	nes	nes|fds|unf|unif	GPL-2.0	NES and Famicom Disk System games
+snes9x	libretro	https://github.com/libretro/snes9x	fae2fea08f74180759ef540ee94259213f503480	libretro/jni	-	Snes9x	snes	smc|sfc|swc|fig|bs|st	Snes9x (non-commercial)	Super NES games
+beetle_vb	libretro	https://github.com/libretro/beetle-vb-libretro	83ed42608601fb7b01d41e4f8fb2007a37b8c84e	jni	-	Beetle VB	vb	vb|vboy	GPL-2.0	Virtual Boy games
+pokemini	libretro	https://github.com/libretro/PokeMini	132111b76343559860532a1ccc094f93f1ed5650	jni	-	PokeMini	pokemini	min	GPL-3.0	Pokemon mini games
+gw	libretro	https://github.com/libretro/gw-libretro	91d599b951e7bfe7e040347f58667cba20074adc	build/jni	-	Game & Watch	gw	mgw	zlib	Game & Watch games
+dolphin	android	https://github.com/dolphin-emu/dolphin	465c652da1dc0b3048089701a1885084821c9574	Source/Android:assembleRelease	libmain.so	Dolphin	gc,wii	iso|gcm|gcz|rvz|wia|wbfs|ciso|wad|dol|elf	GPL-2.0-or-later	GameCube and Wii games
+cemu	android	https://github.com/SSimco/Cemu	8759323e5b72594665b55e02f99db3c1e1e7de8a	src/android:assembleRelease	libCemu.so	Cemu	wiiu	wud|wux|wua|rpx	MPL-2.0	Wii U games
+eden	android	https://git.eden-emu.dev/eden-emu/eden	bebc19da3253f13ceb5abfe8560cdbdc32ea7d8a	src/android:assembleMainlineRelease	libyuzu-android.so	Eden	switch	nsp|xci|nsz|xcz	GPL-3.0	Nintendo Switch games

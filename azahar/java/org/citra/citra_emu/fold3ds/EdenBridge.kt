@@ -126,7 +126,8 @@ object EdenBridge {
     private fun scan(context: Context) {
         val tree = tree(context)
         val state = when {
-            edenPackage(context) == null -> "missing"
+            // Eden as a downloaded core (AeonCoreHost) or, still, the Eden app
+            edenPackage(context) == null && AeonCoreHost.coreDir(context) == null -> "missing"
             tree == null -> "setup"
             else -> "ready"
         }

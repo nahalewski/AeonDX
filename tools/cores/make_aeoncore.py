@@ -21,7 +21,7 @@ FORMAT = 1
 
 def pack(a):
     os.makedirs(a.out, exist_ok=True)
-    lib = "lib/arm64-v8a/" + os.path.basename(a.lib)
+    lib = a.lib_name or ("lib/arm64-v8a/" + os.path.basename(a.lib))
     manifest = [
         "format=%d" % FORMAT,
         "id=" + a.id,
@@ -34,6 +34,8 @@ def pack(a):
         "license=" + a.license_name,
         "source=" + a.source,
     ]
+    for kv in a.set or []:
+        manifest.append(kv)
     for pair in a.ext_system or []:
         ext, sys = pair.split(":")
         manifest.append("ext_%s=%s" % (ext.lower(), sys))
@@ -42,6 +44,10 @@ def pack(a):
     with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as z:
         z.writestr("aeoncore.txt", "\n".join(manifest) + "\n")
         z.write(a.lib, lib)
+        for pair in a.extra or []:
+            src, arc = pair.split("::")
+            if os.path.abspath(src) != os.path.abspath(a.lib):
+                z.write(src, arc)
         if a.license and os.path.exists(a.license):
             z.write(a.license, "LICENSE")
     data = open(path, "rb").read()
@@ -60,6 +66,9 @@ def main():
     p.add_argument("--source", default="")
     p.add_argument("--sub", default="")
     p.add_argument("--ext-system", action="append", help="ext:system, e.g. fds:nes")
+    p.add_argument("--set", action="append", help="another manifest line, key=value")
+    p.add_argument("--extra", action="append", help="another file, path::name in the zip")
+    p.add_argument("--lib-name", help="the library's name in the zip (default lib/arm64-v8a/<its name>)")
     a = p.parse_args()
     _, line = pack(a)
     print(line)

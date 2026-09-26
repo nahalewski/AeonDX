@@ -58,6 +58,43 @@ local function split(line)
   return out
 end
 
+---------------------------------------------------------------- the Eden core
+-- Eden as a downloaded .aeoncore (AeonCoreHost.kt): its games play inside the
+-- shell, the frames read like Azahar's (nx.frame's address through the FFI)
+local core = { on = false, serial = -1, data = nil, img = nil, checkAt = 0 }
+
+local function bridge(cmd, arg)
+  local f = love.system and love.system.foldCamera
+  if not f then return nil end
+  local ok, r = pcall(f, "call", cmd, arg or "")
+  return ok and r or nil
+end
+
+function E.coreInstalled()
+  local okC, Cores = pcall(require, "fold3ds.cores")
+  return okC and Cores.installed().eden ~= nil
+end
+
+local function copyCoreFrame()
+  local okF, ffi = pcall(require, "ffi")
+  if not okF then return end
+  local info = bridge("nx.frame")
+  local hi, lo, w, h, serial = (info or ""):match("^(%d+):(%d+):(%d+):(%d+):(%d+)$")
+  if not hi then return end
+  serial = tonumber(serial)
+  if serial == core.serial or serial == 0 then return end
+  core.serial = serial
+  w, h = tonumber(w), tonumber(h)
+  local addr = ffi.cast("uint64_t", tonumber(hi)) * 4294967296ULL + ffi.cast("uint64_t", tonumber(lo))
+  if not core.data or core.data:getWidth() ~= w or core.data:getHeight() ~= h then
+    core.data = love.image.newImageData(w, h)
+    core.img = nil
+  end
+  ffi.copy(core.data:getFFIPointer(), ffi.cast("const uint8_t*", addr), w * h * 4)
+  if core.img then core.img:replacePixels(core.data)
+  else core.img = love.graphics.newImage(core.data); core.img:setFilter("linear", "linear") end
+end
+
 local function parse(text)
   local status, games, dir = nil, {}, nil
   for line in text:gmatch("[^\n]+") do
@@ -122,6 +159,11 @@ end
 -- the Switch game up in Eden's pane (the other window, not drawn here), or nil
 function E.running()
   if not st.running then return nil end
+  -- the core's game ended by itself: back to the menu
+  if core.on and love.timer and love.timer.getTime() >= core.checkAt then
+    core.checkAt = love.timer.getTime() + 0.5
+    if bridge("nx.state") == "stopped" and core.serial > 0 then E.stop() return nil end
+  end
   for _, g in ipairs(st.games) do if g.key == st.running then return g end end
   if st.lastPlayed and st.lastPlayed.key == st.running then return st.lastPlayed end
   return { key = st.running, name = "Nintendo Switch Game", system = "Nintendo Switch", emu = "eden" }
@@ -216,6 +258,10 @@ function E.screen(i)
   if i ~= 0 then return nil end
   local t = E.running()
   if not t then return nil end
+  if core.on then
+    copyCoreFrame()
+    return core.img
+  end
   local screenFile = DIR .. "screen.png"
   if love and love.filesystem and love.filesystem.getInfo and love.filesystem.getInfo(screenFile) then
     local ok, img = pcall(love.graphics.newImage, screenFile)
@@ -275,13 +321,25 @@ end
 function E.press(btn)
   if btn == "home" then
     menuOpen = not menuOpen
+    if core.on then bridge(menuOpen and "nx.pause" or "nx.resume") end
+    return
   end
+  if core.on and not menuOpen then bridge("nx.key", btn .. "|1") end
 end
 
 function E.release(btn)
+  if core.on and btn ~= "home" then bridge("nx.key", btn .. "|0") end
+end
+
+function E.touch(phase, u, v)
+  if core.on and not menuOpen then bridge("nx.touch", ("%s|%.4f|%.4f"):format(phase, u or 0, v or 0)) end
 end
 
 function E.stop()
+  if core.on then
+    bridge("nx.stop")
+    core.on, core.serial, core.img, core.data = false, -1, nil, nil
+  end
   menuOpen = false
   st.running = nil
   st.lastPlayed = nil
@@ -293,6 +351,16 @@ function E.play(t)
   if not t or not t.key then return false end
   st.lastPlayed = t
   st.running = t.key
+  -- the Eden core: inside the shell
+  if E.coreInstalled() then
+    local r = bridge("nx.start", t.key)
+    if r == "ok" then
+      core.on, core.serial = true, -1
+      menuOpen = false
+      return true
+    end
+    E.message = "The Eden core couldn't start this game: " .. tostring(r)
+  end
   local mode = "3ds"
   if _G.state and _G.state.theme == "switch" then
     mode = "switch"
@@ -316,7 +384,7 @@ E.provider = {
   systems = { [SYS] = true },
   folder = { name = "Eden", sub = "Switch emulator settings and tools", items = E.ITEMS },
   setupTile = { id = "nx_setup", url = "setup", name = "Set Up Switch",
-    sub = "Install Eden, then choose your Switch games folder" },
+    sub = "Get the Eden core in the eShop's Cores shelf, then choose your Switch games folder" },
   addTile = { id = "nx_add", url = "games_folder", name = "Add Switch Games",
     sub = "Choose the folder your Switch games are in" },
   status = function() return E.status() end,
@@ -336,6 +404,8 @@ E.provider = {
   menuDo = function(id) return E.menuDo(id) end,
   press = function(btn) return E.press(btn) end,
   release = function(btn) return E.release(btn) end,
+  touch = function(phase, u, v) return E.touch(phase, u, v) end,
+  message = function() local m = E.message; E.message = nil; return m end,
   running = function() return E.running() end,
   init = function() return E.init() end,
   poll = function(time) return E.poll(time) end,

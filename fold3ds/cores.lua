@@ -5,7 +5,8 @@
 -- A .aeoncore is a zip:
 --   aeoncore.txt          key=value lines: format, id, name, version,
 --                         systems (comma separated), extensions ("nes|fds"),
---                         kind (libretro), lib (the core's path in the zip),
+--                         kind (libretro | android), lib (the core's library),
+--                         dex / libdir (an android core's classes and libraries),
 --                         license, source
 --   lib/arm64-v8a/<core>.so, LICENSE
 --
@@ -176,10 +177,12 @@ function C.forSystem(sys)
   return nil
 end
 
--- every file extension an installed core plays -> its system
+-- every file extension an installed libretro core plays -> its system (the
+-- Android cores -- Eden -- have their own providers and folders)
 function C.extensions()
   local out = {}
   for _, m in pairs(C.installed()) do
+    if (m.kind or "libretro") ~= "libretro" then goto next end
     local exts = split(m.extensions, "|")
     for _, e in ipairs(exts) do
       local ext = e:lower()
@@ -187,6 +190,7 @@ function C.extensions()
       local sys = m["ext_" .. ext] or m.systems[1]
       out[ext] = sys
     end
+    ::next::
   end
   return out
 end

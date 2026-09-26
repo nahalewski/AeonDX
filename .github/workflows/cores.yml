@@ -1,12 +1,19 @@
-# Builds the eShop's cores: every line of tools/cores/cores.tsv, fetched as
-# the libretro buildbot's Android arm64 build, packed as a .aeoncore
-# (tools/cores/make_aeoncore.py) with the core's licence, and published with
-# catalog.txt to this repository's "cores" release (a pre-release, never
-# "latest"), where fold3ds/cores.lua downloads them.
+# Builds the eShop's cores from source: every line of tools/cores/cores.tsv is
+# cloned at its pinned commit, gets our patches (tools/cores/patches/<id>/),
+# and is built here -- libretro cores with the NDK's ndk-build, Android cores
+# (Dolphin, Cemu, Eden) with their own Gradle build -- then packed as a
+# .aeoncore (tools/cores/make_aeoncore.py) with the licence from its own tree.
+# Nothing prebuilt from outside goes in.  The publish job merges this run's
+# cores into the "cores" release's catalog.txt, keeping the last good build of
+# any core that failed this time.
 name: Build cores
 
 on:
   workflow_dispatch:
+    inputs:
+      only:
+        description: build only these ids (comma separated), default all
+        required: false
   push:
     branches: [main]
     paths:
@@ -21,43 +28,167 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  cores:
+  plan:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: m
+        run: |
+          python3 - <<'EOF' >> "$GITHUB_OUTPUT"
+          import json, os
+          only = [x.strip() for x in (os.environ.get("ONLY") or "").split(",") if x.strip()]
+          rows = []
+          for line in open("tools/cores/cores.tsv"):
+              if line.startswith("#") or not line.strip():
+                  continue
+              f = line.rstrip("\n").split("\t")
+              if only and f[0] not in only:
+                  continue
+              rows.append(dict(zip(["id", "kind", "repo", "commit", "build", "mainlib", "name", "systems",
+                                    "extensions", "license", "sub"], f)))
+          print("matrix=" + json.dumps({"include": rows}))
+          EOF
+        env:
+          ONLY: ${{ github.event.inputs.only }}
+
+  build:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch and pack
+      - name: Room (the big cores need it)
+        if: matrix.kind == 'android'
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/.ghcup /usr/share/swift /usr/local/share/boost
+          df -h .
+
+      - uses: actions/setup-java@v4
+        if: matrix.kind == 'android'
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Clone ${{ matrix.id }} at ${{ matrix.commit }}
+        run: |
+          set -euo pipefail
+          git init -q src
+          git -C src remote add origin "${{ matrix.repo }}"
+          git -C src fetch -q --depth 1 origin "${{ matrix.commit }}"
+          git -C src checkout -q FETCH_HEAD
+          git -C src submodule update --init --recursive --jobs 8
+          for p in tools/cores/patches/${{ matrix.id }}/*.patch; do
+            [ -f "$p" ] || continue
+            echo "patch $p"
+            git -C src apply --3way "$GITHUB_WORKSPACE/$p"
+          done
+
+      - name: Build (libretro, ndk-build)
+        if: matrix.kind == 'libretro'
+        run: |
+          set -euo pipefail
+          ndk="${ANDROID_NDK_LATEST_HOME:-$ANDROID_NDK_HOME}"
+          jni="src/${{ matrix.build }}"
+          "$ndk/ndk-build" -j"$(nproc)" -C "$jni/.." APP_ABI=arm64-v8a APP_PLATFORM=android-24 \
+            APP_SUPPORT_FLEXIBLE_PAGE_SIZES=true
+          so=$(find "$jni/.." -path '*libs/arm64-v8a/*.so' | head -1)
+          [ -n "$so" ] || { echo "::error::no .so built"; exit 1; }
+          echo "LIB=$so" >> "$GITHUB_ENV"
+
+      - name: Build (Android, Gradle)
+        if: matrix.kind == 'android'
+        run: |
+          set -euo pipefail
+          proj="src/${{ matrix.build }}"; task="${proj#*:}"; proj="${proj%%:*}"
+          # the host reaches the core's classes by name: no R8 shrinking / renaming
+          find "$proj" -name 'build.gradle*' -exec sed -i \
+            -e 's/isMinifyEnabled = true/isMinifyEnabled = false/' \
+            -e 's/isShrinkResources = true/isShrinkResources = false/' \
+            -e 's/minifyEnabled true/minifyEnabled false/' {} +
+          cd "$proj"
+          chmod +x gradlew
+          ./gradlew --no-daemon "$task"
+          apk=$(find . -path '*outputs/apk/*' -name '*.apk' | head -1)
+          [ -n "$apk" ] || { echo "::error::no APK built"; exit 1; }
+          echo "APK=$GITHUB_WORKSPACE/$proj/$apk" >> "$GITHUB_ENV"
+
+      - name: Pack
         run: |
           set -euo pipefail
           mkdir -p dist work
-          version=$(date -u +%Y%m%d)
-          : > dist/catalog.txt
-          echo "# id	file	size	sha256	name	systems	version	subtitle" >> dist/catalog.txt
-          grep -v '^#' tools/cores/cores.tsv | while IFS=$'\t' read -r id bb name systems exts license source sub; do
-            [ -n "$id" ] || continue
-            url="https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/${bb}_libretro_android.so.zip"
-            echo "== $id from $url"
-            if ! curl -fsSL --retry 3 -o "work/$id.zip" "$url"; then
-              echo "::warning::$id: no build at $url, skipped"
-              continue
-            fi
-            rm -rf "work/$id" && mkdir -p "work/$id"
-            unzip -q -o "work/$id.zip" -d "work/$id"
-            so=$(find "work/$id" -name '*.so' | head -1)
-            [ -n "$so" ] || { echo "::warning::$id: no .so in the zip"; continue; }
-            # the core's licence from its source
-            repo=${source#https://github.com/}
-            lic=""
-            for f in COPYING Copying LICENSE LICENSE.txt LICENSE.md license.txt COPYING.txt docs/LICENSE; do
-              if curl -fsSL -o "work/$id.license" "https://raw.githubusercontent.com/$repo/HEAD/$f"; then lic="work/$id.license"; break; fi
-            done
-            [ -n "$lic" ] || echo "::warning::$id: no licence file found in $source"
-            python3 tools/cores/make_aeoncore.py --id "$id" --name "$name" --systems "$systems" \
-              --extensions "$exts" --version "$version" --lib "$so" --license "$lic" \
-              --license-name "$license" --source "$source" --sub "$sub" --out dist >> dist/catalog.txt
+          lic=""
+          for f in COPYING Copying LICENSE LICENSE.txt LICENSE.md license.txt COPYING.txt license.md; do
+            [ -f "src/$f" ] && { lic="src/$f"; break; }
           done
-          cat dist/catalog.txt
+          [ -n "$lic" ] || echo "::warning::${{ matrix.id }}: no licence file in its tree"
+          version="$(date -u +%Y%m%d)-$(echo '${{ matrix.commit }}' | cut -c1-7)"
+          args=(--id "${{ matrix.id }}" --name "${{ matrix.name }}" --systems "${{ matrix.systems }}"
+                --extensions "${{ matrix.extensions }}" --version "$version" --kind "${{ matrix.kind }}"
+                --license "$lic" --license-name "${{ matrix.license }}" --source "${{ matrix.repo }}"
+                --sub "${{ matrix.sub }}" --out dist)
+          if [ "${{ matrix.kind }}" = libretro ]; then
+            python3 tools/cores/make_aeoncore.py "${args[@]}" --lib "$LIB" > "dist/${{ matrix.id }}.line"
+          else
+            unzip -q -o "$APK" 'classes*.dex' 'lib/arm64-v8a/*' -d work/apk
+            main="work/apk/lib/arm64-v8a/${{ matrix.mainlib }}"
+            [ -f "$main" ] || main=$(ls -S work/apk/lib/arm64-v8a/*.so | head -1)
+            dexes=$(cd work/apk && ls classes*.dex | sort -V | paste -sd, -)
+            extra=()
+            for f in work/apk/classes*.dex; do extra+=(--extra "$f::$(basename "$f")"); done
+            for f in work/apk/lib/arm64-v8a/*.so; do extra+=(--extra "$f::lib/arm64-v8a/$(basename "$f")"); done
+            python3 tools/cores/make_aeoncore.py "${args[@]}" --lib "$main" \
+              --lib-name "lib/arm64-v8a/$(basename "$main")" --set "dex=$dexes" --set "libdir=lib/arm64-v8a" \
+              "${extra[@]}" > "dist/${{ matrix.id }}.line"
+          fi
+          ls -la dist
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: core-${{ matrix.id }}
+          path: dist/
+
+  publish:
+    needs: build
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: core-*
+          path: built
+          merge-multiple: true
+
+      - name: The catalogue (this run's cores, the rest kept)
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          curl -fsSL -o old.txt "https://github.com/${{ github.repository }}/releases/download/cores/catalog.txt" || : > old.txt
+          python3 - <<'EOF'
+          import glob
+          new = {}
+          for p in glob.glob("built/*.line"):
+              line = open(p).read().strip()
+              if line:
+                  new[line.split("\t")[0]] = line
+          out = ["# id\tfile\tsize\tsha256\tname\tsystems\tversion\tsubtitle"]
+          seen = set()
+          for line in open("old.txt"):
+              if line.startswith("#") or not line.strip():
+                  continue
+              cid = line.split("\t")[0]
+              out.append(new.get(cid, line.rstrip("\n")))
+              seen.add(cid)
+          out += [l for cid, l in new.items() if cid not in seen]
+          open("dist/catalog.txt", "w").write("\n".join(out) + "\n")
+          print("\n".join(out))
+          EOF
+          cp built/*.aeoncore dist/ 2>/dev/null || true
           ls -la dist
 
       - name: Publish
@@ -67,8 +198,9 @@ jobs:
           name: AeonDX cores
           body: |
             The emulator cores the AeonDX eShop's Cores shelf installs (.aeoncore,
-            see tools/cores/README.md).  Built from tools/cores/cores.tsv by the
-            Build cores workflow; each core keeps its own licence (LICENSE inside).
+            see tools/cores/README.md), each built from its source at the commit
+            pinned in tools/cores/cores.tsv.  Each keeps its own licence (LICENSE
+            inside).
           prerelease: true
           make_latest: false
           files: |

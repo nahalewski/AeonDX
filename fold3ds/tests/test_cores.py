@@ -63,7 +63,7 @@ def main():
     for line in open(os.path.join(ROOT, "tools", "cores", "cores.tsv")):
         if line.startswith("#") or not line.strip():
             continue
-        check("cores.tsv " + line.split("\t")[0], len(line.rstrip("\n").split("\t")), 8)
+        check("cores.tsv " + line.split("\t")[0], len(line.rstrip("\n").split("\t")), 11)
     print(f"{PASS} passed, {FAIL} failed")
     return 1 if FAIL else 0
 
