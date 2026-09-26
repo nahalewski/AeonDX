@@ -224,8 +224,28 @@ local function indexOfId(tiles, id)
   return nil
 end
 
+-- The selection is an index (st.sel), but the list under it changes: a scan
+-- finds games, a provider's status flips and its Add / set-up tiles appear
+-- or go.  Then the same index is another tile -- often an Add tile, whose
+-- act?id=add opens the file browser when A or Open is pressed.  So every
+-- rebuild moves st.sel to where the tile it was on went, by identity.
+local function keepSelection(out, key)
+  local prev = st.prevIds
+  if prev and st.prevKey == key and st.sel then
+    local id = prev[st.sel]
+    if id and not (out[st.sel] and out[st.sel].id == id) then
+      local i = indexOfId(out, id)
+      if i then st.sel = i end
+    end
+  end
+  local ids = {}
+  for i, t in ipairs(out) do ids[i] = t.id end
+  st.prevIds, st.prevKey = ids, key
+  return out
+end
+
 function H.tiles(imp)
-  if st.folder then return folderTiles(st.folder) end
+  if st.folder then return keepSelection(folderTiles(st.folder), "folder:" .. tostring(st.folder)) end
   local byId, ids = allTiles(imp)
   local out, seen = {}, {}
   for _, id in ipairs(st.order or {}) do
@@ -237,7 +257,7 @@ function H.tiles(imp)
   local order = {}
   for i, t in ipairs(out) do order[i] = t.id end
   st.order = order
-  return out
+  return keepSelection(out, "home")
 end
 
 function H.showing() return st.open == nil end
