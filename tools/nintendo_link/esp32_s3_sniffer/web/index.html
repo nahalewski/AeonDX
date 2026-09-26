@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeonDX GBA Link Bridge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="screen-wrapper">
+        <!-- Top Section: Main Battle/Trade Panel + Status Gauges -->
+        <div class="battle-stage-row">
+            <!-- Left: Main Battle / Trade Frame -->
+            <div class="main-display-frame">
+                <div class="frame-notch notch-tl"></div>
+                <div class="frame-notch notch-tr"></div>
+                <div class="frame-notch notch-bl"></div>
+                <div class="frame-notch notch-br"></div>
+
+                <!-- Display Inner Screen -->
+                <div class="display-screen">
+                    <div class="pokeball-watermark"></div>
+                    <div class="trade-stage">
+                        <div class="stage-platform partner-platform">
+                            <div class="mon-sprite" id="partner-sprite"></div>
+                            <div class="platform-shadow"></div>
+                        </div>
+                        <div class="stage-platform player-platform">
+                            <div class="mon-sprite player-sprite" id="player-sprite"></div>
+                            <div class="platform-shadow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 Action Buttons Toolbar -->
+                <div class="button-toolbar">
+                    <button class="action-btn btn-fight" id="btn-fight" onclick="onFightClick()">
+                        <span class="btn-icon icon-swords"></span>
+                        <span class="btn-label">FIGHT</span>
+                        <span class="sub-label">OFFER</span>
+                    </button>
+                    <button class="action-btn btn-bag" id="btn-bag" onclick="onBagClick()">
+                        <span class="btn-icon icon-backpack"></span>
+                        <span class="btn-label">BAG</span>
+                        <span class="sub-label">SD PARTY</span>
+                    </button>
+                    <button class="action-btn btn-item" id="btn-item" onclick="onItemClick()">
+                        <span class="btn-icon icon-potion"></span>
+                        <span class="btn-label">ITEM</span>
+                        <span class="sub-label">DETAILS</span>
+                    </button>
+                    <button class="action-btn btn-run" id="btn-run" onclick="onRunClick()">
+                        <span class="btn-icon icon-runner"></span>
+                        <span class="btn-label">RUN</span>
+                        <span class="sub-label">CANCEL</span>
+                    </button>
+                    <div class="center-pokeball-badge"></div>
+                </div>
+                <div class="frame-dots">
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    <span class="dot-spacer"></span>
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                </div>
+            </div>
+
+            <!-- Right: Status Gauges Column -->
+            <div class="status-column">
+                <!-- Partner / Enemy Bar -->
+                <div class="enemy-gauge-card">
+                    <div class="mon-portrait-slot">
+                        <div class="silhouette-icon"></div>
+                    </div>
+                    <div class="gauge-info">
+                        <div class="gauge-header">
+                            <span class="mon-name" id="partner-name">SWITCH 2</span>
+                            <span class="mon-level" id="partner-level">Lv. 50</span>
+                            <span class="gender-sym symbol-male">♂</span>
+                        </div>
+                        <div class="hp-row">
+                            <span class="hp-tag">HP</span>
+                            <div class="hp-bar-outer">
+                                <div class="hp-bar-fill" id="partner-hp-fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary Wild/Team Mon Bars (Red, Blue, Yellow) -->
+                <div class="mini-mon-card card-red">
+                    <div class="mini-portrait"></div>
+                    <div class="mini-info">
+                        <div class="mini-header"><span id="submon-1-name">FRLG GBA</span> <span class="gender-f">♀</span> <span class="mini-lvl">Lv. 5</span></div>
+                        <div class="mini-hp-bar"><div class="mini-fill fill-red" style="width: 85%;"></div></div>
+                    </div>
+                </div>
+                <div class="mini-mon-card card-blue">
+                    <div class="mini-portrait"></div>
+                    <div class="mini-info">
+                        <div class="mini-header"><span id="submon-2-name">SCARLET LDN</span> <span class="gender-m">♂</span> <span class="mini-lvl">Lv. 5</span></div>
+                        <div class="mini-hp-bar"><div class="mini-fill fill-blue" style="width: 65%;"></div></div>
+                    </div>
+                </div>
+                <div class="mini-mon-card card-yellow">
+                    <div class="mini-portrait"></div>
+                    <div class="mini-info">
+                        <div class="mini-header"><span id="submon-3-name">SD CARD SAVE</span> <span class="mini-lvl">Lv. 5</span></div>
+                        <div class="mini-hp-bar"><div class="mini-fill fill-yellow" style="width: 100%;"></div></div>
+                    </div>
+                </div>
+
+                <!-- Player Radial Arc Gauge -->
+                <div class="player-arc-gauge-wrapper">
+                    <div class="arc-container">
+                        <svg class="arc-svg" viewBox="0 0 160 160">
+                            <!-- Background Arc -->
+                            <path class="arc-bg" d="M 30,140 A 70,70 0 1,1 140,140" fill="none" stroke="#1a202c" stroke-width="14" stroke-linecap="round"/>
+                            <!-- Multi-color Segmented Arc Indicator -->
+                            <path class="arc-green" d="M 30,140 A 70,70 0 0,1 60,75" fill="none" stroke="#22c55e" stroke-width="14" stroke-linecap="round"/>
+                            <path class="arc-yellow" d="M 60,75 A 70,70 0 0,1 110,75" fill="none" stroke="#eab308" stroke-width="14"/>
+                            <path class="arc-red" d="M 110,75 A 70,70 0 0,1 140,140" fill="none" stroke="#ef4444" stroke-width="14" stroke-linecap="round"/>
+                        </svg>
+                        <div class="arc-trainer-silhouette"></div>
+                        <div class="arc-pokeball-badge"></div>
+                    </div>
+                    <div class="hp-badge-pill">
+                        <span class="hp-badge-tag">HP</span>
+                        <span class="hp-badge-val" id="player-hp-text">123 / 123</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Section: Dialogue Box, Trims & Controls -->
+        <div class="bottom-dialogue-row">
+            <!-- Retro Text Box -->
+            <div class="dialogue-card">
+                <div class="dialogue-watermark"></div>
+                <div class="dialogue-text" id="dialogue-text">What will you do?</div>
+                <div class="dialogue-cursor"></div>
+            </div>
+
+            <!-- Side Tools: SD Card Save Status & Badges -->
+            <div class="tools-side-card">
+                <div class="sd-status-box">
+                    <div class="sd-header">
+                        <span class="sd-icon">💾</span>
+                        <span class="sd-title">SD CARD</span>
+                        <span class="sd-badge badge-active" id="sd-status-badge">MOUNTED</span>
+                    </div>
+                    <div class="sd-file-info" id="sd-current-file">/sdcard/saves/Pokemon_FireRed.sav</div>
+                </div>
+                <div class="trims-and-balls">
+                    <div class="trim-tabs">
+                        <span class="trim-tab trim-red"></span>
+                        <span class="trim-tab trim-blue"></span>
+                        <span class="trim-tab trim-yellow"></span>
+                        <span class="trim-tab trim-white"></span>
+                    </div>
+                    <div class="extra-balls">
+                        <span class="ball-icon ball-poke" title="Standard"></span>
+                        <span class="ball-icon ball-great" title="Great Ball"></span>
+                        <span class="ball-icon ball-ultra" title="Ultra Ball"></span>
+                        <span class="ball-icon ball-premier" title="Premier Ball"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for SD Card Save Selector & Party Explorer -->
+    <div class="modal-overlay" id="party-modal" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>SELECT POKÉMON FROM SD CARD PARTY</h3>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="party-grid" id="party-grid">
+                    <!-- Injected by JavaScript -->
+                </div>
+                <div class="sd-save-browser">
+                    <h4>SD Card Save Files (.sav):</h4>
+                    <select id="save-file-select" onchange="onSaveFileSelected(this.value)">
+                        <option value="Pokemon_FireRed.sav">Pokemon_FireRed.sav (128 KB)</option>
+                        <option value="Pokemon_Emerald.sav">Pokemon_Emerald.sav (128 KB)</option>
+                        <option value="Pokemon_LeafGreen.sav">Pokemon_LeafGreen.sav (128 KB)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
